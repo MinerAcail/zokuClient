@@ -21,7 +21,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "src/components/ui/input-otp.tsx", "src/components/ui/menubar.tsx", "src/components/ui/popover.tsx", "src/components/ui/sonner.tsx", "src/components/ui/tabs.tsx", "src/components/ui/textarea.tsx", "src/components/ui/tooltip.tsx", "src/components/ui/drawer.tsx", "src/components/ui/carousel.tsx"]
 }

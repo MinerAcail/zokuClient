@@ -1,6 +1,6 @@
 
 import './App.css'
-import Navigation from './custom/route/navigation'
+import Navigation from './components/custom/route/navigation'
 
 function App() {
 

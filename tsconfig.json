@@ -1,16 +1,10 @@
 // tsconfig.json
 
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/lib/*": ["src/lib/*"]
-    // "utils": "@/lib/utils"
-
-    }
-  },
-  "files": [],
+  
+  "files": [
+    
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"

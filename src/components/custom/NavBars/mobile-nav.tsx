@@ -1,12 +1,12 @@
 
 
 import * as React from "react"
-import { Button } from "../../components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { Link } from "react-router-dom";
-import { cn } from "../../lib/utils";
-import { ScrollArea } from "../../components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { docsConfig } from "./config/docs";
 
 // cn
