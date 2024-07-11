@@ -2,3 +2,11 @@
   @tailwind components;
   @tailwind utilities;
   
+  .long-text {
+    font-size: 14px;
+    font-family:fantasy;
+    font-weight: bold;
+    fill: red;
+    text-anchor: start;
+    background: #ecdcdc;
+  }
