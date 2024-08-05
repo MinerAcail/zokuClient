@@ -13,21 +13,74 @@ export function MainNav() {
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
-          to={""}
+          to={"/market"}
         >
           Market
         </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
-          to={""}
+          to={"/favourite"}
         >
-          Favourite Market
+          Favourite Shop
         </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
-          to={""}
+          to={"/addedshop"}
         >
-          other things
+          Added Shop
+        </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/swapper"}
+        >
+          Side Swapper
+        </Link>
+
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/advertisement"}
+        >
+          Advertisement
+        </Link>
+
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/chart"}
+        >
+          Data
+        </Link>
+
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/uploader"}
+        >
+          UpLoader
+        </Link>
+
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/form"}
+        >
+          Forms
+        </Link>
+
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/login"}
+        >
+          Log In
+        </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/vendorupload"}
+        >
+          Vendor Upload
+        </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/shop"}
+        >
+          Vendor shop
         </Link>
       </nav>
     </div>

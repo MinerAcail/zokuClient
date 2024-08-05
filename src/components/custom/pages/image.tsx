@@ -5,7 +5,7 @@ import loadFfmpeg from '../useAble/template/ffmpegLoader';
 // Import your default image
 import defaultImageUrl from '../../../assets/images/zu.png';
 
-const ImageToVideoConverter: React.FC = () => {
+const   ImageToVideoConverter: React.FC = () => {
   const [ffmpeg, setFfmpeg] = useState<FFmpeg | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
