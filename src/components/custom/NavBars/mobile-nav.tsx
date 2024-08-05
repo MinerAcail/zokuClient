@@ -68,6 +68,7 @@ export function MobileNav() {
                 item.href && (
                   <MobileLink
                     key={item.href}
+                    to={item.href}
                     onOpenChange={setOpen}
                   >
                     {item.title}
@@ -75,7 +76,7 @@ export function MobileNav() {
                 )
             )}
           </div>
-          <div className="flex flex-col space-y-2">
+          {/* <div className="flex flex-col space-y-2">
             {docsConfig.sidebarNav.map((item, index) => (
               <div key={index} className="flex flex-col space-y-3 pt-6">
                 <h4 className="font-medium">{item.title}</h4>
@@ -103,7 +104,7 @@ export function MobileNav() {
                   ))}
               </div>
             ))}
-          </div>
+          </div> */}
         </ScrollArea>
       </SheetContent>
     </Sheet>
@@ -114,17 +115,19 @@ interface MobileLinkProps  {
   onOpenChange?: (open: boolean) => void
   children: React.ReactNode
   className?: string
+  to:string
 }
 
 function MobileLink({
   onOpenChange,
   className,
   children,
+  to,
   ...props
 }: MobileLinkProps) {
   return (
     <Link
-      to={""} onClick={() => {
+      to={to} onClick={() => {
         onOpenChange?.(false);
       } }
       className={cn(className)}

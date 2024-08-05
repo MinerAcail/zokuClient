@@ -3,7 +3,7 @@ import { MessageCircleDashed, ShoppingCart, SwatchBook } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { DrawSheet } from "./drawer";
 
-export const ItemLayout = ({ children }) => {
+export const ItemLayout = ({ children,name }) => {
   return (
     <div className="  rounded-xl bg-[#E1E1E1] w-[288px] h-[260px]">
       <div
@@ -24,7 +24,7 @@ export const ItemLayout = ({ children }) => {
         }}
         className="flex p-2 rounded-b-xl w-full justify-between items-center bg-[#74727c]"
       >
-        <div className=" text-white font-normal text-lg  ">Item name here</div>
+        <div className=" text-white font-normal text-lg  ">{name}</div>
         <Separator
           orientation="vertical"
           className="border-l border-gray-300 h-[34px]"
