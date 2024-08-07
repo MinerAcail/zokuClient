@@ -1,32 +1,59 @@
-import { Skeleton } from "@/components/ui/skeleton";
-import "./index.scss";
-import srcimage from "../../../assets/images/12.jpg";
 import { Link } from "react-router-dom";
+import "./index.scss";
+import { VendorFavoriteLogicIcons } from "./vendorFavoriteLogic";
+import { useState } from "react";
+import { SwatchBook } from "lucide-react";
 
-const BoxLayout = () => {
+interface BoxLayoutProps {
+  name: string;
+  description: string;
+  srcimage: string;
+  bgimage: string;
+  vendorId: string;
+
+  count: string;
+  vendor: {
+    id: string;
+  };
+}
+
+const BoxLayout: React.FC<BoxLayoutProps> = ({
+  name,
+  description,
+  srcimage,
+  bgimage,
+  count,
+  vendor,
+  vendorId,
+}) => {
   return (
     <Link
-      to={"/shop"}
-      className="flex border rounded-xl m-2 bg-[#E1E1E1] w-72 h-72"
+      to={`/vendor/${vendor?.id}`}
+      className="box-layout flex border rounded-xl m-2 bg-[#E1E1E1] w-72 h-72"
+      style={{ backgroundImage: `url(${bgimage})` }}
+      key={vendor?.id}
     >
-      <div className="box1 ">
-        <div className="flex items-center justify-center h-full">
+      <div className="box-content flex border rounded-xl w-full h-full relative">
+        <div className="box1 flex items-center justify-center h-full">
           <div className="text-center">
-            <h2 className="text-xl font-bold">MAKER'S STORE</h2>
-            <p>Description goes here...</p>
-            <Skeleton className="h-6  w-11/12 rounded-lg" />
+            <h2 className="text-xl font-bold">{name}</h2>
+            <p>{description}</p>
+            <p>Products: {count}</p>
           </div>
         </div>
-      </div>
-      <div className="box2 flex items-center justify-center">
-        <img
-          src={srcimage}
-          alt={`Image`}
-          className="rounded-xl object-cover egg-shape"
-        />
+        <div className="box2 flex items-center justify-center">
+          <img
+            src={srcimage}
+            alt={`Image`}
+            className="rounded-xl object-cover w-full h-full"
+          />
+          <VendorFavoriteLogicIcons vendorId={vendorId} />
+        </div>
       </div>
     </Link>
   );
 };
 
 export default BoxLayout;
+
+

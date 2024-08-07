@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -12,10 +12,23 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { CREATE_VENDOR } from "./gql/mutation";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { gql } from "@apollo/client";
+
+// GraphQL mutation
+const CREATE_VENDOR = gql`
+  mutation CreateVendor($mateData: UploadVendorMateData, $input: NewVendor!) {
+    createVendor(input: $input, mateData: $mateData) {
+      id
+      name
+      number
+      pin
+      createdAt
+    }
+  }
+`;
 
 // Schema for form validation
 const accountFormSchema = z
@@ -24,7 +37,6 @@ const accountFormSchema = z
       .string()
       .min(2, { message: "Name must be at least 2 characters." })
       .max(30, { message: "Name must not be longer than 30 characters." }),
-
     number: z.string().optional(),
     password: z
       .string()
@@ -32,6 +44,8 @@ const accountFormSchema = z
     confirm: z
       .string()
       .min(6, { message: "Confirm Password must be at least 6 characters." }),
+    profile: z.instanceof(File).optional(),
+    background: z.instanceof(File).optional(),
   })
   .refine((data) => data.password === data.confirm, {
     message: "Passwords don't match",
@@ -48,18 +62,32 @@ const defaultValues: Partial<AccountFormValues> = {
   confirm: "",
 };
 
-export function VenderForm() {
+export function VendorForm() {
   const [createVendor, { loading, error }] = useMutation(CREATE_VENDOR);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues,
   });
 
+  const { control, handleSubmit } = form;
+
   async function onSubmit(data: AccountFormValues) {
     try {
+      console.log("variables", {
+        input: {
+          name: data.name,
+          number: data.number,
+          pin: data.password, // Assuming `pin` corresponds to the password field
+        },
+        mateData: {
+          profile: data.profile,
+          background: data.background,
+        },
+      });
+
       const { data: result } = await createVendor({
         variables: {
           input: {
@@ -67,20 +95,25 @@ export function VenderForm() {
             number: data.number,
             pin: data.password, // Assuming `pin` corresponds to the password field
           },
+          mateData: {
+            profile: data.profile,
+            background: data.background,
+          },
         },
       });
 
-      console.log("Mutation result:", result); // Debug log for result
+      console.log("Mutation result:", result);
 
       if (result?.createVendor) {
         setSuccessMessage(`Vendor ${result.createVendor.name} is created`);
       }
+
       setTimeout(() => {
-        navigate('/login'); // Redirect to /login
-      }, 2000); // Optional dela
+        navigate("/login");
+      }, 2000);
     } catch (err) {
       console.error("Error creating vendor:", err);
-      setSuccessMessage(null); // Clear success message on error
+      setSuccessMessage(null);
     }
   }
 
@@ -88,13 +121,13 @@ export function VenderForm() {
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 text-left bg-[#2D2C30] px-6 py-5 rounded-xl">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <FormField
-              control={form.control}
+              control={control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="">Name</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Your name" {...field} />
                   </FormControl>
@@ -105,7 +138,7 @@ export function VenderForm() {
             />
 
             <FormField
-              control={form.control}
+              control={control}
               name="number"
               render={({ field }) => (
                 <FormItem>
@@ -120,8 +153,9 @@ export function VenderForm() {
                 </FormItem>
               )}
             />
+
             <FormField
-              control={form.control}
+              control={control}
               name="password"
               render={({ field }) => (
                 <FormItem>
@@ -137,8 +171,9 @@ export function VenderForm() {
                 </FormItem>
               )}
             />
+
             <FormField
-              control={form.control}
+              control={control}
               name="confirm"
               render={({ field }) => (
                 <FormItem>
@@ -154,14 +189,85 @@ export function VenderForm() {
                 </FormItem>
               )}
             />
+
+            <FormField
+              control={control}
+              name="profile"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Profile Picture</FormLabel>
+                  <FormControl>
+                    <Controller
+                      name="profile"
+                      control={control}
+                      render={({ field: { onChange, onBlur, ref } }) => (
+                        <Input
+                          type="file"
+                          accept="image/*" // Accept only image files
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file && file.type.startsWith("image/")) {
+                              onChange(file);
+                            } else {
+                              onChange(undefined); // Clear the input if invalid file
+                              alert("Please select a valid image file.");
+                            }
+                          }}
+                          onBlur={onBlur}
+                          ref={ref}
+                        />
+                      )}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="background"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Background Image</FormLabel>
+                  <FormControl>
+                    <Controller
+                      name="background"
+                      control={control}
+                      render={({ field: { onChange, onBlur, ref } }) => (
+                        <Input
+                          type="file"
+                          accept="image/*" // Accept only image files
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file && file.type.startsWith("image/")) {
+                              onChange(file);
+                            } else {
+                              onChange(undefined); // Clear the input if invalid file
+                              alert("Please select a valid image file.");
+                            }
+                          }}
+                          onBlur={onBlur}
+                          ref={ref}
+                        />
+                      )}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <Button type="submit" disabled={loading}>
               {loading ? "Submitting..." : "Update account"}
             </Button>
+
             {successMessage && (
               <div className="flex items-center justify-center mt-4 text-green-500">
                 {successMessage}
               </div>
             )}
+
             {error && <p className="text-red-500 mt-4">{error.message}</p>}
           </form>
         </Form>

@@ -1,5 +1,8 @@
 import * as React from "react";
-import Dropzone, { type DropzoneProps, type FileRejection } from "react-dropzone";
+import Dropzone, {
+  type DropzoneProps,
+  type FileRejection,
+} from "react-dropzone";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -80,7 +83,7 @@ export function VendorFileUploader(props: FileUploaderProps) {
 
   const [files, setFiles] = useControllableState({
     prop: valueProp,
-    onChange: onValueChange,  
+    onChange: onValueChange,
   });
   const [formData, setFormData] = React.useState<Partial<VendorFormValues>>({});
 
@@ -137,18 +140,6 @@ export function VendorFileUploader(props: FileUploaderProps) {
   const handleUpload = async () => {
     if ((files?.length ?? 0) > 0) {
       try {
-
-      console.log("variables", {
-            files: files,
-            input: {
-              name: formData.name,
-              title: formData.description,
-              state: formData.state,
-              brand: formData.brand,
-              price: formData.price,
-            },
-          },);
-      
         const { data } = await vendorUpload({
           variables: {
             files: files,
@@ -162,19 +153,25 @@ export function VendorFileUploader(props: FileUploaderProps) {
           },
         });
 
-        console.log("data",data);
-        
+        // console.log("data",data);
 
         if (data) {
           setFiles([]);
+         
           setDialogContent({
             title: "Upload Successful",
             description: `Files uploaded successfully`,
             action: () => setDialogOpen(false),
           });
           setDialogOpen(true);
+          setFormData({
+            name: "",
+            brand: "",
+            price: "",
+            state: "",  
+            description: ""
+          });     
         }
-
       } catch (error) {
         setDialogContent({
           title: "Upload Failed",
@@ -208,8 +205,8 @@ export function VendorFileUploader(props: FileUploaderProps) {
 
   const onSubmit = async (data: VendorFormValues) => {
     setFormData(data);
-    console.log(data);
     await handleUpload();
+      
   };
 
   return (
@@ -280,21 +277,14 @@ export function VendorFileUploader(props: FileUploaderProps) {
                 <FormItem>
                   <FormLabel className="flex">Description</FormLabel>
                   <FormControl>
-                    <Textarea
-                      placeholder="Your Description"
-                      {...field}
-                    />
+                    <Textarea placeholder="Your Description" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <Button
-              type="submit"
-              className="w-[20%]"
-              disabled={isDisabled}
-            >
+            <Button type="submit" className="w-[20%]" disabled={isDisabled}>
               Send
             </Button>
           </form>

@@ -1,8 +1,8 @@
     import { gql } from '@apollo/client';
 
     export const CREATE_VENDOR = gql`
-    mutation CreateVendor($input: NewUser!) {
-        createVendor(input: $input) {
+        mutation CreateVendor($mateData: UploadVendorMateData,$input: NewVendor!) {
+        createVendor(input: $input,mateData:$mateData) {
         id
         name
         number

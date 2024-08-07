@@ -7,13 +7,14 @@ import AddedShop from "../pages/AddedShops";
 import AddedFavourite from "../pages/AddedFavourite";
 import AllAddedShop from "../pages/AllAddedShops";
 import Market from "../pages/Market";
-import { VenderForm } from "./forms/vender";
+import { VenderForm, VendorForm } from "./forms/vender";
 import { FileUploader } from "../fileInput/file-uploader";
 import { Chart } from "../chart";
 import SwapperShop from "../pages/swapper";
 import AppTemplate from "../pages/template";
 import { LoginForm } from "./forms/login";
 import { VendorFileUploader } from "../fileInput/vendor/Vendor-file-uploader";
+import { UserForm } from "./forms/createUser";
 
 
 function Navigation() {
@@ -24,19 +25,21 @@ function Navigation() {
           <Route path="/" element={<RootLayout />}>
             <Route path="*" element={<h1>Wrong Path</h1>} />
             <Route path="/" index element={<Home />} />
-            <Route path="/form" index element={<VenderForm />} />
-            <Route path="/login" index element={<LoginForm />} />
+            <Route path="/vendor/:vendorId"   element={<AddedShop />} />
+            <Route path="/favourite"  element={<AddedFavourite />} />
+            <Route path="/addedshop"  element={<AllAddedShop />} />
 
-            <Route path="/uploader" index element={<FileUploader />} />
-            <Route path="/vendorupload" index element={<VendorFileUploader />} />
-            <Route path="/chart" index element={<Chart />} />
+            <Route path="/form"  element={<VendorForm />} />
+            <Route path="/createuser"  element={<UserForm />} />
+            <Route path="/login"  element={<LoginForm />} />
 
-            <Route path="/market" index element={<Market />} />
-            <Route path="/shop" index element={<AddedShop />} />
-            <Route path="/swapper" index element={<SwapperShop />} />         
-            <Route path="/advertisement" index element={<AppTemplate />} />
-            <Route path="/favourite" index element={<AddedFavourite />} />
-            <Route path="/addedshop" index element={<AllAddedShop />} />
+            <Route path="/uploader"  element={<FileUploader />} />
+            <Route path="/vendorupload"  element={<VendorFileUploader />} />
+            <Route path="/chart"  element={<Chart />} />
+
+            <Route path="/market"  element={<Market />} />
+            <Route path="/swapper"  element={<SwapperShop />} />         
+            <Route path="/advertisement"  element={<AppTemplate />} />
 
           </Route>
         </Routes>

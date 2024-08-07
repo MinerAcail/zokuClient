@@ -14,30 +14,48 @@ import { gql, useQuery } from "@apollo/client";
 import UploadFile from "./upload";
 import UploadFiles from "./uploads";
 import ImageGallery from "./gala";
-const GET_ALL_USERS = gql`
-  query {
-    getAllUser {
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+const GET_ALL_VENDORS = gql`
+  query GetAllVendor {
+    getAllVendor {
+      id
       name
+      product {
+        id
+      }
+      profileUrl
+      backgroundUrl
     }
   }
 `;
 function Home() {
-  const { loading, error, data } = useQuery(GET_ALL_USERS);
+  const { loading, error, data } = useQuery(GET_ALL_VENDORS);
+  console.log(data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  console.log(data);
 
-  // sticky top-0 backdrop-blur-md
   return (
-    <>
-      <div
-        className="m-5  grid gap-4 
-  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
-        <ImageGallery />
-      </div>
-    </>
+    <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {data.getAllVendor.map((vendor) => {
+        // console.log(vendor?.product?.length);
+        const count = vendor?.product?.length;
+
+        return (
+          <BoxLayout
+            key={vendor.id}
+            vendorId={vendor.id}
+            bgimage={vendor?.profileUrl}
+            vendor={vendor}
+            count={count}
+            srcimage={vendor?.profileUrl}
+            name={vendor?.name}
+            description={"Descriptions will be here"}
+          />
+        );
+      })}
+    </div>
   );
 }
 

@@ -1,28 +1,51 @@
-import { ItemLayout } from "../../useAble/ItemLayout";
+import { useQuery } from "@apollo/client";
+// import { GET_USER_FAVORITE_VENDORS, GetUserFavoriteVendorsResponse } from "../../useAble/favoriteLogic";
+import BoxLayout from "../../useAble/boxLayout";
 import Description from "../../useAble/description";
+import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
+import { useEffect } from "react";
+import { GET_USER_FAVORITE_VENDORS, GetUserFavoriteVendorsResponse } from "../../useAble/vendorFavoriteLogic";
 
 function AllAddedShop() {
-  const imagePaths = Array.from(
-    { length: 12 },
-    (_, index) => `../../../../src/assets/images/${index + 5}.jpg`
-  );
+  const { data, loading, error, refetch } = useQuery<GetUserFavoriteVendorsResponse>(GET_USER_FAVORITE_VENDORS);
+
+  // Optional: Call refetch to ensure the data is up-to-date
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading favorite vendors.</p>;
+
+  if (!data || !data.getUserFavoriteVendors) return <p>No favorite vendors found.</p>;
+
   return (
     <div>
-      <Description text={"All Your Added Shop Items Here"} />
+      <Description text={"All Your Added Vendor's Shop Here"} />
 
       <div
-        className="m-5  grid gap-4 
-  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        className="m-5 grid gap-4 
+        grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
-        {imagePaths.map((imageSrc, index) => (
-          <ItemLayout key={index}>
-            <img
-              src={imageSrc}
-              alt={`Image ${index + 1}`}
-              className="rounded-xl object-cover"
+        {data.getUserFavoriteVendors.map((vendor) => {
+          const { id, name, profileUrl, product } = vendor;
+
+          // Use profileUrl as the image source or fallbackImage if profileUrl is not available
+          const imageSrc = profileUrl || fallbackImage;
+
+          return (
+            <BoxLayout
+              key={id}
+              vendorId={id}
+              bgimage={profileUrl} // Background image (if needed)
+              vendor={vendor}
+              count={product} // Count of products
+              srcimage={imageSrc} // Main image
+              name={name}
+              description={"Descriptions will be here"} // Placeholder text
             />
-          </ItemLayout>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

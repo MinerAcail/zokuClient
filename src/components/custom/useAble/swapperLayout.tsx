@@ -32,7 +32,7 @@ export const SwapperLayout = ({ children }) => {
 export function Icons() {
   return (
     <div className="flex w-fit h-fit  text-[#ffdaf9]  ">
-      <SwatchBook className="mr-2  size-6 cursor-pointer" />
+      <SwatchBook className="mr-2  size-6 cursor-pointer text-[#ffdaf9]  " />
 
       <ShoppingCart className="mx-2 size-6 cursor-pointer" />
       <DrawSheet

@@ -21,13 +21,13 @@ export function MainNav() {
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/favourite"}
         >
-          Favourite Shop
+          Favourites
         </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/addedshop"}
         >
-          Added Shop
+          Added Shops
         </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
@@ -63,7 +63,12 @@ export function MainNav() {
         >
           Forms
         </Link>
-
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/createuser"}
+        >
+          Create User
+        </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/login"}
