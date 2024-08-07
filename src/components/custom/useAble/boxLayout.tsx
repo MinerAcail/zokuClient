@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import "./index.scss";
 import { VendorFavoriteLogicIcons } from "./vendorFavoriteLogic";
-import { useState } from "react";
-import { SwatchBook } from "lucide-react";
 
 interface BoxLayoutProps {
   name: string;
@@ -10,7 +8,6 @@ interface BoxLayoutProps {
   srcimage: string;
   bgimage: string;
   vendorId: string;
-
   count: string;
   vendor: {
     id: string;
@@ -28,10 +25,9 @@ const BoxLayout: React.FC<BoxLayoutProps> = ({
 }) => {
   return (
     <Link
-      to={`/vendor/${vendor?.id}`}
+      to={`/vendor/${vendor.id}`}
       className="box-layout flex border rounded-xl m-2 bg-[#E1E1E1] w-72 h-72"
       style={{ backgroundImage: `url(${bgimage})` }}
-      key={vendor?.id}
     >
       <div className="box-content flex border rounded-xl w-full h-full relative">
         <div className="box1 flex items-center justify-center h-full">
@@ -44,7 +40,7 @@ const BoxLayout: React.FC<BoxLayoutProps> = ({
         <div className="box2 flex items-center justify-center">
           <img
             src={srcimage}
-            alt={`Image`}
+            alt={`Image of ${name}`}
             className="rounded-xl object-cover w-full h-full"
           />
           <VendorFavoriteLogicIcons vendorId={vendorId} />
@@ -55,5 +51,3 @@ const BoxLayout: React.FC<BoxLayoutProps> = ({
 };
 
 export default BoxLayout;
-
-

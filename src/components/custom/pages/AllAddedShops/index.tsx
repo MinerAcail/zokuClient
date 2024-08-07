@@ -1,18 +1,43 @@
-import { useQuery } from "@apollo/client";
-// import { GET_USER_FAVORITE_VENDORS, GetUserFavoriteVendorsResponse } from "../../useAble/favoriteLogic";
+import { gql, useQuery } from "@apollo/client";
 import BoxLayout from "../../useAble/boxLayout";
 import Description from "../../useAble/description";
 import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
 import { useEffect } from "react";
-import { GET_USER_FAVORITE_VENDORS, GetUserFavoriteVendorsResponse } from "../../useAble/vendorFavoriteLogic";
+
+const GET_USER_FAVORITE_VENDORS = gql`
+  query GetUserFavoriteVendors {
+    getUserFavoriteVendors {
+      id
+      name
+      product {
+        id
+      }
+      profileUrl
+      backgroundUrl
+    }
+  }
+`;
+
+export type FavoriteVendor = {
+  id: string;
+  name: string;
+  product: { id: string } | null;
+  profileUrl: string | null;
+  backgroundUrl: string | null;
+};
+
+export type GetUserFavoriteVendorsResponse = {
+  getUserFavoriteVendors: FavoriteVendor[];
+};
 
 function AllAddedShop() {
   const { data, loading, error, refetch } = useQuery<GetUserFavoriteVendorsResponse>(GET_USER_FAVORITE_VENDORS);
 
-  // Optional: Call refetch to ensure the data is up-to-date
   useEffect(() => {
-    refetch();
-  }, [refetch]);
+    if (!loading && !error) {
+      refetch();
+    }
+  }, [loading, error, refetch]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading favorite vendors.</p>;
@@ -23,24 +48,19 @@ function AllAddedShop() {
     <div>
       <Description text={"All Your Added Vendor's Shop Here"} />
 
-      <div
-        className="m-5 grid gap-4 
-        grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
+      <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.getUserFavoriteVendors.map((vendor) => {
           const { id, name, profileUrl, product } = vendor;
-
-          // Use profileUrl as the image source or fallbackImage if profileUrl is not available
           const imageSrc = profileUrl || fallbackImage;
 
           return (
             <BoxLayout
               key={id}
               vendorId={id}
-              bgimage={profileUrl} // Background image (if needed)
+              bgimage={vendor.backgroundUrl || fallbackImage} // Background image (if needed)
               vendor={vendor}
-              count={product} // Count of products
-              srcimage={imageSrc} // Main image
+              count={product ? product.id : '0'} // Display product count if available
+              srcimage={imageSrc}
               name={name}
               description={"Descriptions will be here"} // Placeholder text
             />

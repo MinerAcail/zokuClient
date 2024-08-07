@@ -2,32 +2,13 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { SwatchBook } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Define TypeScript types for GraphQL responses
-export type FavoriteVendor = {
-  id: string;
-  name: string;
+// GraphQL Queries and Mutations
+const GET_TOTAL_COUNT = gql`
+  query GetTotalCountOfFavoriteVendor($vendorId: String!) {
+    getTotalCountOfFavoriteVendor(vendorId: $vendorId)
+  }
+`;
 
-  product: { id: string } | null; // Assuming `product` may be null
-  profileUrl: string | null; // Assuming `profileUrl` may be null
-  backgroundUrl: string | null; // Assuming `backgroundUrl` may be null
-};
-
-export type GetUserFavoriteVendorsResponse = {
-  getUserFavoriteVendors: FavoriteVendor[];
-};
-
-type AddFavoriteVendorResponse = {
-  addFavoriteVendor: {
-    id: string;
-    userId: string;
-  };
-};
-
-type RemoveFavoriteVendorResponse = {
-  removeFavoriteVendor: boolean;
-};
-
-// Define GraphQL queries and mutations
 const ADD_FAVORITE_VENDOR = gql`
   mutation AddFavoriteVendor($vendorId: String!) {
     addFavoriteVendor(vendorId: $vendorId) {
@@ -57,7 +38,33 @@ export const GET_USER_FAVORITE_VENDORS = gql`
   }
 `;
 
-// Component props
+interface GetTotalCountOfFavoriteVendorResponse {
+  getTotalCountOfFavoriteVendor: number;
+}
+
+export type FavoriteVendor = {
+  id: string;
+  name: string;
+  product: { id: string } | null;
+  profileUrl: string | null;
+  backgroundUrl: string | null;
+};
+
+export type GetUserFavoriteVendorsResponse = {
+  getUserFavoriteVendors: FavoriteVendor[];
+};
+
+type AddFavoriteVendorResponse = {
+  addFavoriteVendor: {
+    id: string;
+    userId: string;
+  };
+};
+
+type RemoveFavoriteVendorResponse = {
+  removeFavoriteVendor: boolean;
+};
+
 interface VendorFavoriteLogicIconsProps {
   vendorId: string;
 }
@@ -65,79 +72,84 @@ interface VendorFavoriteLogicIconsProps {
 export function VendorFavoriteLogicIcons({
   vendorId,
 }: VendorFavoriteLogicIconsProps) {
+  const { data: countData, loading: countLoading, error: countError } = useQuery<GetTotalCountOfFavoriteVendorResponse>(GET_TOTAL_COUNT, {
+    variables: { vendorId },
+    fetchPolicy: 'cache-and-network', // Ensures cache is updated with network response
+  });
+
+  const { data: favoriteData, loading: favoriteLoading, error: favoriteError } = useQuery<GetUserFavoriteVendorsResponse>(GET_USER_FAVORITE_VENDORS, {
+    fetchPolicy: 'cache-and-network', // Ensures cache is updated with network response
+  });
+
   const [isFavorite, setIsFavorite] = useState(false);
-  const { data, loading, error } = useQuery<GetUserFavoriteVendorsResponse>(
-    GET_USER_FAVORITE_VENDORS
-  );
 
-  const [addFavoriteVendor] = useMutation<AddFavoriteVendorResponse>(
-    ADD_FAVORITE_VENDOR,
-    {
-      update(cache, { data }) {
-        if (data) {
-          const existingFavorites =
-            cache.readQuery<GetUserFavoriteVendorsResponse>({
-              query: GET_USER_FAVORITE_VENDORS,
-            });
-          const newFavorite = {
-            id: data.addFavoriteVendor?.id,
-            name: "",
-            product: null,
-            profileUrl: null,
-            backgroundUrl: null,
-          };
-          if (existingFavorites) {
-            cache.writeQuery({
-              query: GET_USER_FAVORITE_VENDORS,
-              data: {
-                getUserFavoriteVendors: [
-                  ...existingFavorites.getUserFavoriteVendors,
-                  newFavorite,
-                ],
-              },
-            });
-          }
-        }
-      },
-    }
-  );
+  const [addFavoriteVendor] = useMutation<AddFavoriteVendorResponse>(ADD_FAVORITE_VENDOR, {
+    update(cache, { data }) {
+      if (data) {
+        const { getTotalCountOfFavoriteVendor } = cache.readQuery<GetTotalCountOfFavoriteVendorResponse>({
+          query: GET_TOTAL_COUNT,
+          variables: { vendorId },
+        }) || { getTotalCountOfFavoriteVendor: 0 };
 
-  const [removeFavoriteVendor] = useMutation<RemoveFavoriteVendorResponse>(
-    REMOVE_FAVORITE_VENDOR,
-    {
-      update(cache) {
-        const existingFavorites =
-          cache.readQuery<GetUserFavoriteVendorsResponse>({
-            query: GET_USER_FAVORITE_VENDORS,
-          });
-        if (existingFavorites) {
-          cache.writeQuery({
-            query: GET_USER_FAVORITE_VENDORS,
-            data: {
-              getUserFavoriteVendors:
-                existingFavorites.getUserFavoriteVendors.filter(
-                  (vendor) => vendor?.id !== vendorId
-                ),
-            },
-          });
-        }
-      },
-    }
-  );
+        cache.writeQuery({
+          query: GET_TOTAL_COUNT,
+          variables: { vendorId },
+          data: {
+            getTotalCountOfFavoriteVendor: getTotalCountOfFavoriteVendor + 1,
+          },
+        });
+
+        const { getUserFavoriteVendors } = cache.readQuery<GetUserFavoriteVendorsResponse>({
+          query: GET_USER_FAVORITE_VENDORS,
+        }) || { getUserFavoriteVendors: [] };
+
+        cache.writeQuery({
+          query: GET_USER_FAVORITE_VENDORS,
+          data: {
+            getUserFavoriteVendors: [...getUserFavoriteVendors, { id: vendorId, name: '', product: null, profileUrl: null, backgroundUrl: null }],
+          },
+        });
+      }
+    },
+  });
+
+  const [removeFavoriteVendor] = useMutation<RemoveFavoriteVendorResponse>(REMOVE_FAVORITE_VENDOR, {
+    update(cache) {
+      const { getTotalCountOfFavoriteVendor } = cache.readQuery<GetTotalCountOfFavoriteVendorResponse>({
+        query: GET_TOTAL_COUNT,
+        variables: { vendorId },
+      }) || { getTotalCountOfFavoriteVendor: 0 };
+
+      cache.writeQuery({
+        query: GET_TOTAL_COUNT,
+        variables: { vendorId },
+        data: {
+          getTotalCountOfFavoriteVendor: getTotalCountOfFavoriteVendor > 0 ? getTotalCountOfFavoriteVendor - 1 : 0,
+        },
+      });
+
+      const { getUserFavoriteVendors } = cache.readQuery<GetUserFavoriteVendorsResponse>({
+        query: GET_USER_FAVORITE_VENDORS,
+      }) || { getUserFavoriteVendors: [] };
+
+      cache.writeQuery({
+        query: GET_USER_FAVORITE_VENDORS,
+        data: {
+          getUserFavoriteVendors: getUserFavoriteVendors.filter(vendor => vendor.id !== vendorId),
+        },
+      });
+    },
+  });
 
   useEffect(() => {
-    if (data && data.getUserFavoriteVendors) {
-      setIsFavorite(
-        data.getUserFavoriteVendors.some((fav) => fav.id === vendorId)
-      );
+    if (favoriteData) {
+      setIsFavorite(favoriteData.getUserFavoriteVendors.some((fav) => fav.id === vendorId));
     }
-  }, [data, vendorId]);
+  }, [favoriteData, vendorId]);
 
-  const handleSwatchBookClick = async (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleSwatchBookClick = async (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
     try {
-      event.preventDefault(); // Prevent the Link from being followed
       if (isFavorite) {
         await removeFavoriteVendor({ variables: { id: vendorId } });
       } else {
@@ -149,8 +161,8 @@ export function VendorFavoriteLogicIcons({
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading favorite vendors.</p>;
+  if (countLoading || favoriteLoading) return <p>Loading...</p>;
+  if (countError || favoriteError) return <p>Error loading data.</p>;
 
   return (
     <div
@@ -160,15 +172,17 @@ export function VendorFavoriteLogicIcons({
       onClick={handleSwatchBookClick}
     >
       <h3
-      //  className="text-white mx-2"
-      className={`mx-2 text-xs  ${isFavorite ? "text-black" : "text-[#f1f1f1]"}`}
-
-       >10</h3>
+        className={`mx-2 text-xs ${
+          isFavorite ? "text-black" : "text-[#f1f1f1]"
+        }`}
+      >
+        {countData?.getTotalCountOfFavoriteVendor || 0}
+      </h3>
       <SwatchBook
-        className={`w-4 h-4 ${isFavorite ? "text-black" : "text-[#f1f1f1]"}`}
-      />
+        className={`w-4 h-4 transition-transform duration-300 ${
+          isFavorite ? "text-black rotate-0" : "text-[#f1f1f1] rotate-180"
+        }`}
+      />  
     </div>
   );
 }
-
-

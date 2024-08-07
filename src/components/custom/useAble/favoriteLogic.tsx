@@ -1,4 +1,4 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { ApolloError, gql, useMutation, useQuery } from "@apollo/client";
 import { useState, useEffect } from "react";
 import { MessageCircleDashed, ShoppingCart, SwatchBook } from "lucide-react";
 import { DrawSheet } from "./drawer";
@@ -20,7 +20,7 @@ export type GetUserFavoriteProductsResponse = {
 type AddFavoriteProductResponse = {
   addFavoriteProduct: {
     id: string;
-    userId: string; 
+    userId: string;
     product: FavoriteProduct;
   };
 };
@@ -38,7 +38,9 @@ const ADD_FAVORITE_PRODUCT = gql`
   mutation AddFavoriteProduct($productId: String!) {
     addFavoriteProduct(productId: $productId) {
       id
+      productId
       userId
+      __typename
       product {
         id
         name
@@ -46,6 +48,7 @@ const ADD_FAVORITE_PRODUCT = gql`
         price
         brand
         imageUrls
+        __typename
       }
     }
   }
@@ -71,51 +74,67 @@ export const GET_USER_FAVORITE_PRODUCTS = gql`
 
 export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   const [selected, setSelected] = useState(false);
-  const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(GET_USER_FAVORITE_PRODUCTS);
+  const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(
+    GET_USER_FAVORITE_PRODUCTS
+  );
+  console.log(data);
 
-  const [addFavoriteProduct] = useMutation<AddFavoriteProductResponse>(ADD_FAVORITE_PRODUCT, {
-    update(cache, { data }) {
-      if (data) {
-        const existingFavorites = cache.readQuery<GetUserFavoriteProductsResponse>({
-          query: GET_USER_FAVORITE_PRODUCTS,
-        });
-        const newFavorite = data.addFavoriteProduct.product;
+  const [addFavoriteProduct] = useMutation<AddFavoriteProductResponse>(
+    ADD_FAVORITE_PRODUCT,
+    {
+      update(cache, { data }) {
+        if (data) {
+          const existingFavorites =
+            cache.readQuery<GetUserFavoriteProductsResponse>({
+              query: GET_USER_FAVORITE_PRODUCTS,
+            });
+          const newFavorite = data.addFavoriteProduct.product;
+          if (existingFavorites) {
+            cache.writeQuery({
+              query: GET_USER_FAVORITE_PRODUCTS,
+              data: {
+                getUserFavoriteProducts: [
+                  ...existingFavorites.getUserFavoriteProducts,
+                  newFavorite,
+                ],
+              },
+            });
+          }
+        }
+      }
+      
+    }
+  );
+
+  const [removeFavoriteProduct] = useMutation<RemoveFavoriteProductResponse>(
+    REMOVE_FAVORITE_PRODUCT,
+    {
+      update(cache) {
+        const existingFavorites =
+          cache.readQuery<GetUserFavoriteProductsResponse>({
+            query: GET_USER_FAVORITE_PRODUCTS,
+          });
         if (existingFavorites) {
           cache.writeQuery({
             query: GET_USER_FAVORITE_PRODUCTS,
             data: {
-              getUserFavoriteProducts: [
-                ...existingFavorites.getUserFavoriteProducts,
-                newFavorite,
-              ],
+              getUserFavoriteProducts:
+                existingFavorites.getUserFavoriteProducts.filter(
+                  (product) => product.id !== productId
+                ),
             },
           });
         }
       }
-    },
-  });
-
-  const [removeFavoriteProduct] = useMutation<RemoveFavoriteProductResponse>(REMOVE_FAVORITE_PRODUCT, {
-    update(cache) {
-      const existingFavorites = cache.readQuery<GetUserFavoriteProductsResponse>({
-        query: GET_USER_FAVORITE_PRODUCTS,
-      });
-      if (existingFavorites) {
-        cache.writeQuery({
-          query: GET_USER_FAVORITE_PRODUCTS,
-          data: {
-            getUserFavoriteProducts: existingFavorites.getUserFavoriteProducts.filter(
-              (product) => product.id !== productId
-            ),
-          },
-        });
-      }
-    },
-  });
+      
+    }
+  );
 
   useEffect(() => {
     if (data && data.getUserFavoriteProducts) {
-      setSelected(data.getUserFavoriteProducts.some((fav) => fav.id === productId));
+      setSelected(
+        data.getUserFavoriteProducts.some((fav) => fav.id === productId)
+      );
     }
   }, [data, productId]);
 
@@ -124,11 +143,20 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
       if (selected) {
         await removeFavoriteProduct({ variables: { id: productId } });
       } else {
-        await addFavoriteProduct({ variables: { productId } });
+        await addFavoriteProduct({ variables: { productId: productId } });
       }
       setSelected(!selected);
     } catch (error) {
-      console.error("Failed to toggle favorite product:", error);
+      if (error instanceof ApolloError) {
+        console.error(
+          "Failed to toggle favorite product:",
+          error.message,
+          error.graphQLErrors,
+          error.networkError
+        );
+      } else {
+        console.error("Failed to toggle favorite product:", error);
+      }
     }
   };
 
@@ -147,7 +175,11 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
         }`}
         onClick={handleSwatchBookClick}
       >
-        <SwatchBook className={`size-[18px] ${selected ? "text-black" : "text-[#ffdaf9]"}`} />
+        <SwatchBook
+          className={`size-[18px] transition-transform duration-300 ${
+            selected ? "transform rotate-[360deg] text-black" : "text-white"
+          }`}
+        />
       </div>
     </div>
   );

@@ -68,25 +68,23 @@ function AddedShop() {
       </div>
 
       <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => {
+      {products.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
-          const imageSrc = imageUrls.length > 0 ? imageUrls[0] : fallbackImage;
+          // const imageSrc = imageUrls.length > 0 ? imageUrls[0] : fallbackImage;
 
           return (
             <ItemLayout
-            productId={id}
+              productId={id}
               description={title}
               brand={brand}
               price={price}
               name={name}
               key={id}
-            >
-              <img
-                src={imageSrc}
-                alt={name}
-                className="rounded-xl object-cover w-full h-full"
-              />
-            </ItemLayout>
+              imageUrls={imageUrls}
+
+           />
+              
+            
           );
         })}
       </div>
