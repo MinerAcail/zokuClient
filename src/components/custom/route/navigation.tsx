@@ -4,7 +4,7 @@ import Home from "../pages/home";
 import { ApolloProvider } from "@apollo/client";
 import Client from "./auth/middlware";
 import AddedShop from "../pages/AddedShops";
-import AddedFavourite from "../pages/AddedFavourite";
+import AddedFavourite from "../pages/AddedFavourite"; 
 import AllAddedShop from "../pages/AllAddedShops";
 import Market from "../pages/Market";
 import { VenderForm, VendorForm } from "./forms/vender";

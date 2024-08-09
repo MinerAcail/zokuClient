@@ -57,7 +57,7 @@ function AllAddedShop() {
             <BoxLayout
               key={id}
               vendorId={id}
-              bgimage={vendor.backgroundUrl || fallbackImage} // Background image (if needed)
+              bgimage={imageSrc || fallbackImage} // Background image (if needed)
               vendor={vendor}
               count={product ? product.id : '0'} // Display product count if available
               srcimage={imageSrc}

@@ -74,6 +74,8 @@ export const GET_USER_FAVORITE_PRODUCTS = gql`
 
 export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   const [selected, setSelected] = useState(false);
+  const [clickError, setClickError] = useState(false);
+
   const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(
     GET_USER_FAVORITE_PRODUCTS
   );
@@ -101,8 +103,7 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
             });
           }
         }
-      }
-      
+      },
     }
   );
 
@@ -125,8 +126,7 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
             },
           });
         }
-      }
-      
+      },
     }
   );
 
@@ -161,7 +161,45 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading favorite products.</p>;
+
+  if (error) {
+    console.error("Error loading favorite products:", error.message);
+    return (
+      <div className="flex items-center text-[#ffdaf9] ">
+        {!clickError ? (
+          <div
+          onClick={() => setClickError(true)}
+
+           className="flex items-center text-[#ffdaf9] ml-2">
+            <DrawSheet>
+              <MessageCircleDashed className="size-[18px] cursor-pointer" />
+            </DrawSheet>
+            <ShoppingCart 
+            className="mx-2 size-[18px] cursor-pointer" />
+            <div
+              className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
+                selected ? "bg-white" : "bg-transparent"
+              }`}
+             
+            >
+              <SwatchBook
+                className={`size-[18px] transition-transform duration-300 ${
+                  selected
+                    ? "transform rotate-[360deg] text-black"
+                    : "text-white"
+                }`}
+              />
+            </div>
+          </div>
+        ) : (
+          <p 
+          onClick={() => setClickError(!clickError)}
+
+          className="text-[10px] cursor-pointer">Error loading favorite</p>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center text-[#ffdaf9] ml-2">
