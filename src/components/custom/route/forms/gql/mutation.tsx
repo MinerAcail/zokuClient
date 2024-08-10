@@ -31,6 +31,13 @@
         createdAt
         updatedAt
         }
+        ... on SideSwapper {
+        id
+        name
+        number
+        createdAt
+        updatedAt
+        }
     }		
     }
     `;

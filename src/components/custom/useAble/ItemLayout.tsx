@@ -1,8 +1,14 @@
 import "./index.scss";
 import { Separator } from "@/components/ui/separator";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { FavoriteLogicIcons } from "./favoriteLogic";
 import fallbackImage from "../../../assets/images/1.jpg"; // Fallback image URL
+import { ShoppingBasket } from "lucide-react";
+import SwappersDescription from "./swapper/SliderForSwapper";
 
 interface ItemLayoutProps {
   // children: React.ReactNode;
@@ -14,7 +20,14 @@ interface ItemLayoutProps {
   imageUrls: string[]; // Add imageUrls prop
 }
 
-export const ItemLayout = ({  name, price, brand, description, productId, imageUrls }: ItemLayoutProps) => {
+export const ItemLayout = ({
+  name,
+  price,
+  brand,
+  description,
+  productId,
+  imageUrls,
+}: ItemLayoutProps) => {
   return (
     <div className="rounded-xl bg-[#E1E1E1] m-auto sm:w-[288px] w-[288px] h-[260px] flex flex-col">
       <div className="h-3/4 overflow-hidden rounded-t-xl flex justify-center items-center">
@@ -52,6 +65,10 @@ export const ItemLayout = ({  name, price, brand, description, productId, imageU
           <CarouselItem className="flex justify-center items-center">
             <ProductDescription description={description} />
           </CarouselItem>
+          <CarouselItem className="flex justify-around items-center">
+            <ShoppingBasket className="text-white mr-3" />
+            <SwappersDescription price={price} />
+          </CarouselItem>
         </CarouselContent>
       </Carousel>
     </div>
@@ -78,12 +95,21 @@ const ProductDetails = ({ name }: { name: string }) => (
 
 const FavoriteLogic = ({ productId }: { productId: string }) => (
   <div className="flex items-center mb-2">
-    <Separator orientation="vertical" className="border-l border-gray-300 h-[34px]" />
+    <Separator
+      orientation="vertical"
+      className="border-l border-gray-300 h-[34px]"
+    />
     <FavoriteLogicIcons productId={productId} />
   </div>
 );
 
-const ProductBrandPrice = ({ brand, price }: { brand: string, price: number }) => (
+const ProductBrandPrice = ({
+  brand,
+  price,
+}: {
+  brand: string;
+  price: number;
+}) => (
   <div className="text-white font-normal text-[16px]">
     <div
       style={{
@@ -116,3 +142,5 @@ const ProductDescription = ({ description }: { description: string }) => (
     {description}
   </div>
 );
+
+

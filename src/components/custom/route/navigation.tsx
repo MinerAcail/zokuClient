@@ -15,6 +15,7 @@ import AppTemplate from "../pages/template";
 import { LoginForm } from "./forms/login";
 import { VendorFileUploader } from "../fileInput/vendor/Vendor-file-uploader";
 import { UserForm } from "./forms/createUser";
+import { SideSwapperForm } from "./forms/createSideSwapper";
 
 
 function Navigation() {
@@ -31,6 +32,8 @@ function Navigation() {
 
             <Route path="/form"  element={<VendorForm />} />
             <Route path="/createuser"  element={<UserForm />} />
+            <Route path="/createswapper"  element={<SideSwapperForm />} />
+
             <Route path="/login"  element={<LoginForm />} />
 
             <Route path="/uploader"  element={<FileUploader />} />

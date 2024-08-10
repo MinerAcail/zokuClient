@@ -87,6 +87,12 @@ export function MainNav() {
         >
           Vendor shop
         </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/createswapper"}
+        >
+          create Swapper
+        </Link>
       </nav>
     </div>
   );
