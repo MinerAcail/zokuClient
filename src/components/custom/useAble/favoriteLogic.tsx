@@ -65,9 +65,13 @@ export const GET_USER_FAVORITE_PRODUCTS = gql`
     getUserFavoriteProducts {
       id
       name
-      price
-      title
       imageUrls
+      price
+      brand
+      title
+      Vendor {
+        name
+      }
     }
   }
 `;
@@ -79,7 +83,7 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(
     GET_USER_FAVORITE_PRODUCTS
   );
-  console.log(data);
+  // console.log(data);
 
   const [addFavoriteProduct] = useMutation<AddFavoriteProductResponse>(
     ADD_FAVORITE_PRODUCT,

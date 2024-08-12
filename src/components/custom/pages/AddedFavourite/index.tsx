@@ -4,9 +4,12 @@ import { ItemLayout } from "../../useAble/ItemLayout";
 import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
 import { useEffect } from "react";
 import Description from "../../useAble/description";
+import { useSideSwapperProductIds } from "../../useAble/swapper/useSideSwapperProductIds";
 
 function AddedFavourite() {
   const { data, loading, error, refetch } = useQuery<GetUserFavoriteProductsResponse>(GET_USER_FAVORITE_PRODUCTS);
+  const { sideSwapperProductIds, loading: sideSwapperLoading, error: sideSwapperError } = useSideSwapperProductIds();
+
   // Optional: Call refetch to ensure the data is up-to-date
   useEffect(() => {
     refetch();
@@ -17,6 +20,7 @@ function AddedFavourite() {
 
   if (!data || !data.getUserFavoriteProducts) return <p>No favorite products found.</p>;
 
+console.log(data.getUserFavoriteProducts);
 
   return (
     <div>
@@ -29,9 +33,11 @@ function AddedFavourite() {
         {data?.getUserFavoriteProducts.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
           // const imageSrc = imageUrls.length > 0 ? imageUrls[0] : fallbackImage;
+          const added = sideSwapperProductIds.has(id); // Check if the product is already added as a side swapper product
 
           return (
             <ItemLayout
+            added={added}
               productId={id}
               description={title}
               brand={brand}

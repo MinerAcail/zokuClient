@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ItemLayout } from "../../useAble/ItemLayout";
 import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
 import { useParams } from "react-router-dom";
+import { useSideSwapperProductIds } from "../../useAble/swapper/useSideSwapperProductIds";
 ///
 function AddedShop() {
   const { vendorId } = useParams();
@@ -15,6 +16,11 @@ function AddedShop() {
     variables: { id: vendorId },
   });
   const [products, setProducts] = useState([]);
+  const {
+    sideSwapperProductIds,
+    loading: sideSwapperLoading,
+    error: sideSwapperError,
+  } = useSideSwapperProductIds();
 
   useEffect(() => {
     if (
@@ -68,12 +74,14 @@ function AddedShop() {
       </div>
 
       <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {products.map((product) => {
+        {products.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
           // const imageSrc = imageUrls.length > 0 ? imageUrls[0] : fallbackImage;
+          const added = sideSwapperProductIds.has(id); // Check if the product is already added as a side swapper product
 
           return (
             <ItemLayout
+              added={added}
               productId={id}
               description={title}
               brand={brand}
@@ -81,10 +89,7 @@ function AddedShop() {
               name={name}
               key={id}
               imageUrls={imageUrls}
-
-           />
-              
-            
+            />
           );
         })}
       </div>

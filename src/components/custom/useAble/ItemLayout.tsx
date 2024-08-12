@@ -11,7 +11,7 @@ import { ShoppingBasket } from "lucide-react";
 import SwappersDescription from "./swapper/SliderForSwapper";
 
 interface ItemLayoutProps {
-  // children: React.ReactNode;
+  added:boolean;
   name: string;
   price: number;
   brand: string;
@@ -27,6 +27,7 @@ export const ItemLayout = ({
   description,
   productId,
   imageUrls,
+  added
 }: ItemLayoutProps) => {
   return (
     <div className="rounded-xl bg-[#E1E1E1] m-auto sm:w-[288px] w-[288px] h-[260px] flex flex-col">
@@ -66,8 +67,7 @@ export const ItemLayout = ({
             <ProductDescription description={description} />
           </CarouselItem>
           <CarouselItem className="flex justify-around items-center">
-            <ShoppingBasket className="text-white mr-3" />
-            <SwappersDescription price={price} />
+            <SwappersDescription added={added} price={price} productId={productId} />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
@@ -142,5 +142,3 @@ const ProductDescription = ({ description }: { description: string }) => (
     {description}
   </div>
 );
-
-

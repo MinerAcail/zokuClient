@@ -7,7 +7,7 @@ import AddedShop from "../pages/AddedShops";
 import AddedFavourite from "../pages/AddedFavourite"; 
 import AllAddedShop from "../pages/AllAddedShops";
 import Market from "../pages/Market";
-import { VenderForm, VendorForm } from "./forms/vender";
+import {  VendorForm } from "./forms/vender";
 import { FileUploader } from "../fileInput/file-uploader";
 import { Chart } from "../chart";
 import SwapperShop from "../pages/swapper";

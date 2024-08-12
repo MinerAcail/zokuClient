@@ -48,3 +48,25 @@ export const GET_ALL_PRODUCTS = gql`
     }
   }
 `;
+
+
+// Define TypeScript types for the query result
+export interface Vendor {
+  name: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  imageUrls: string[];
+  price: number;
+  brand: string;
+  title: string;
+  Vendor: Vendor;
+}
+
+export interface GetAllProductData {
+  getAllProduct: Product[];
+}
+
+
