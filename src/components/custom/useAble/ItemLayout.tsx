@@ -7,11 +7,11 @@ import {
 } from "@/components/ui/carousel";
 import { FavoriteLogicIcons } from "./favoriteLogic";
 import fallbackImage from "../../../assets/images/1.jpg"; // Fallback image URL
-import { ShoppingBasket } from "lucide-react";
+import { ReplaceAll } from "lucide-react";
 import SwappersDescription from "./swapper/SliderForSwapper";
 
 interface ItemLayoutProps {
-  added:boolean;
+  added: boolean;
   name: string;
   price: number;
   brand: string;
@@ -27,13 +27,18 @@ export const ItemLayout = ({
   description,
   productId,
   imageUrls,
-  added
+  added,
 }: ItemLayoutProps) => {
   return (
     <div className="rounded-xl bg-[#E1E1E1] m-auto sm:w-[288px] w-[288px] h-[260px] flex flex-col">
-      <div className="h-3/4 overflow-hidden rounded-t-xl flex justify-center items-center">
-        <Carousel className="w-full h-full">
+      <div className="h-3/4 overflow-hidden rounded-t-xl flex justify-center items-center ">
+        {/* ReplaceAll Icon positioned on the top right of the image */}
+
+        <Carousel className="w-full h-full relative">
           <CarouselContent className="flex h-full">
+            <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
+              <ReplaceAll className="  size-[18px]" />
+            </div>
             {imageUrls.length > 0 ? (
               imageUrls.map((imageUrl, index) => (
                 <CarouselItem key={index} className="flex ">
@@ -67,7 +72,11 @@ export const ItemLayout = ({
             <ProductDescription description={description} />
           </CarouselItem>
           <CarouselItem className="flex justify-around items-center">
-            <SwappersDescription added={added} price={price} productId={productId} />
+            <SwappersDescription
+              added={added}
+              price={price}
+              productId={productId}
+            />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
@@ -118,7 +127,7 @@ const ProductBrandPrice = ({
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        width: "90px",
+        width: "80px",
       }}
     >
       {brand}

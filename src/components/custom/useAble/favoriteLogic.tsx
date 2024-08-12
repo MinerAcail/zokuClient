@@ -1,6 +1,11 @@
 import { ApolloError, gql, useMutation, useQuery } from "@apollo/client";
 import { useState, useEffect } from "react";
-import { MessageCircleDashed, ShoppingCart, SwatchBook } from "lucide-react";
+import {
+  MessageCircleDashed,
+  ReplaceAll,
+  ShoppingCart,
+  SwatchBook,
+} from "lucide-react";
 import { DrawSheet } from "./drawer";
 
 // Define TypeScript types for GraphQL responses
@@ -172,19 +177,17 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
       <div className="flex items-center text-[#ffdaf9] ">
         {!clickError ? (
           <div
-          onClick={() => setClickError(true)}
-
-           className="flex items-center text-[#ffdaf9] ml-2">
+            onClick={() => setClickError(true)}
+            className="flex items-center text-[#ffdaf9] ml-2"
+          >
             <DrawSheet>
               <MessageCircleDashed className="size-[18px] cursor-pointer" />
             </DrawSheet>
-            <ShoppingCart 
-            className="mx-2 size-[18px] cursor-pointer" />
+            <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
             <div
               className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
                 selected ? "bg-white" : "bg-transparent"
               }`}
-             
             >
               <SwatchBook
                 className={`size-[18px] transition-transform duration-300 ${
@@ -196,10 +199,12 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
             </div>
           </div>
         ) : (
-          <p 
-          onClick={() => setClickError(!clickError)}
-
-          className="text-[10px] cursor-pointer">Error loading favorite</p>
+          <p
+            onClick={() => setClickError(!clickError)}
+            className="text-[10px] cursor-pointer"
+          >
+            Error loading favorite
+          </p>
         )}
       </div>
     );
@@ -211,18 +216,21 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
         <MessageCircleDashed className="size-[18px] cursor-pointer" />
       </DrawSheet>
       <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
+      {/* <ShoppingCart className=" size-[18px] cursor-pointer" /> */}
       <div
         className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
           selected ? "bg-white" : "bg-transparent"
         }`}
         onClick={handleSwatchBookClick}
       >
+        {/* <ReplaceAll className="size-[18px] cursor-pointer" /> */}
         <SwatchBook
           className={`size-[18px] transition-transform duration-300 ${
             selected ? "transform rotate-[360deg] text-black" : "text-white"
           }`}
         />
       </div>
+      {/* <ReplaceAll  className=" size-[18px] cursor-pointer" /> */}
     </div>
   );
 }

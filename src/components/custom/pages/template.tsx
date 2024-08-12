@@ -23,7 +23,7 @@ const AppTemplate: React.FC = () => {
     if (svgRef.current) {
       const svg = d3.select(svgRef.current);
 
-      const height = 660;
+      const height = 560;
       const width = (9 / 16) * height;
 
       // Set the SVG dimensions
@@ -169,7 +169,7 @@ const AppTemplate: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="">
       <label>Upload Image (optional):</label>
       <input
         type="file"
@@ -178,7 +178,7 @@ const AppTemplate: React.FC = () => {
       />
       <svg ref={svgRef} />
       <button onClick={downloadAsPng}>Download png</button>
-    </>
+    </div>
   );
 };
 
