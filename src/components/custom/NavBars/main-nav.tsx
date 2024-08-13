@@ -42,7 +42,18 @@ export function MainNav() {
         >
           Advertisement
         </Link>
-
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/upload"}
+        >
+          UpLoad
+        </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/uploader"}
+        >
+          UpLoader
+        </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/chart"}
@@ -50,12 +61,6 @@ export function MainNav() {
           Data
         </Link>
 
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/uploader"}
-        >
-          UpLoader
-        </Link>
 
         <Link
           className={cn("transition-colors hover:text-foreground/80")}

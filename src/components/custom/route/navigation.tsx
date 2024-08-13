@@ -16,6 +16,8 @@ import { LoginForm } from "./forms/login";
 import { VendorFileUploader } from "../fileInput/vendor/Vendor-file-uploader";
 import { UserForm } from "./forms/createUser";
 import { SideSwapperForm } from "./forms/createSideSwapper";
+import UploadFile from "../pages/upload";
+import AdvertisementUpload from "../pages/Adver";
 
 
 function Navigation() {
@@ -43,6 +45,9 @@ function Navigation() {
             <Route path="/market"  element={<Market />} />
             <Route path="/swapper"  element={<SwapperShop />} />         
             <Route path="/advertisement"  element={<AppTemplate />} />
+            <Route path="/upload"  element={<AdvertisementUpload />} />
+            
+
 
           </Route>
         </Routes>
