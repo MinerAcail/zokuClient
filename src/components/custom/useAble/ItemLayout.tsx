@@ -9,6 +9,7 @@ import { FavoriteLogicIcons } from "./favoriteLogic";
 import fallbackImage from "../../../assets/images/1.jpg"; // Fallback image URL
 import { ReplaceAll } from "lucide-react";
 import SwappersDescription from "./swapper/SliderForSwapper";
+import Sidesheet from "../pages/Adver/sideSheet_gen/sidesheet";
 
 interface ItemLayoutProps {
   added: boolean;
@@ -25,8 +26,8 @@ export const ItemLayout = ({
   price,
   brand,
   description,
-  productId,
   imageUrls,
+  productId,
   added,
 }: ItemLayoutProps) => {
   return (
@@ -36,12 +37,22 @@ export const ItemLayout = ({
 
         <Carousel className="w-full h-full relative">
           <CarouselContent className="flex h-full">
-            <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
-              <ReplaceAll className="  size-[18px]" />
-            </div>
             {imageUrls.length > 0 ? (
               imageUrls.map((imageUrl, index) => (
                 <CarouselItem key={index} className="flex ">
+                    <Sidesheet
+                    imageUrls={imageUrls}
+                    name={name}
+                    description={description}
+                      productId={productId}
+                      Children={
+                  <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
+
+                      <ReplaceAll className="  size-[20px]" />
+                  </div>
+
+                    }
+                    />
                   <img
                     src={imageUrl || fallbackImage} // Use fallbackImage if imageUrl is not available
                     alt={name}

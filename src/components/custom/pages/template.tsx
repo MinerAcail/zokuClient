@@ -23,7 +23,7 @@ const AppTemplate: React.FC = () => {
     if (svgRef.current) {
       const svg = d3.select(svgRef.current);
 
-      const height = 560;
+      const height = 660;
       const width = (9 / 16) * height;
 
       // Set the SVG dimensions
@@ -75,7 +75,6 @@ const AppTemplate: React.FC = () => {
         .attr("fill", "#261A43")
         .text("papa's_boot@Zuko.com");
 
-      
       // Add a box at the top center
       const boxWidth = width * 0.9;
       const boxHeight = height * 0.4;
@@ -169,14 +168,14 @@ const AppTemplate: React.FC = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <label>Upload Image (optional):</label>
       <input
         type="file"
         accept="image/*"
         onChange={(e) => setImage(e.target.files?.[0] || null)}
       />
-      <svg ref={svgRef} />
+      <svg ref={svgRef} style={{ height: "300px" }} />
       <button onClick={downloadAsPng}>Download png</button>
     </div>
   );
