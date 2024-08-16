@@ -10,6 +10,7 @@ import fallbackImage from "../../../assets/images/1.jpg"; // Fallback image URL
 import { ReplaceAll } from "lucide-react";
 import SwappersDescription from "./swapper/SliderForSwapper";
 import Sidesheet from "../pages/Adver/sideSheet_gen/sidesheet";
+import ProductBrandPrice from "./productBrandPrice";
 
 interface ItemLayoutProps {
   added: boolean;
@@ -19,6 +20,7 @@ interface ItemLayoutProps {
   description: string;
   productId: string;
   imageUrls: string[]; // Add imageUrls prop
+  cartView?: boolean;
 }
 
 export const ItemLayout = ({
@@ -29,6 +31,7 @@ export const ItemLayout = ({
   imageUrls,
   productId,
   added,
+  cartView,
 }: ItemLayoutProps) => {
   return (
     <div className="rounded-xl bg-[#E1E1E1] m-auto sm:w-[288px] w-[288px] h-[260px] flex flex-col">
@@ -40,19 +43,17 @@ export const ItemLayout = ({
             {imageUrls.length > 0 ? (
               imageUrls.map((imageUrl, index) => (
                 <CarouselItem key={index} className="flex ">
-                    <Sidesheet
+                  <Sidesheet
                     imageUrls={imageUrls}
                     name={name}
                     description={description}
-                      productId={productId}
-                      Children={
-                  <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
-
-                      <ReplaceAll className="  size-[20px]" />
-                  </div>
-
+                    productId={productId}
+                    Children={
+                      <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
+                        <ReplaceAll className="  size-[20px]" />
+                      </div>
                     }
-                    />
+                  />
                   <img
                     src={imageUrl || fallbackImage} // Use fallbackImage if imageUrl is not available
                     alt={name}
@@ -77,7 +78,12 @@ export const ItemLayout = ({
           <CarouselItem className="flex justify-around p-2">
             <ProductDetails name={name} />
             <FavoriteLogic productId={productId} />
-            <ProductBrandPrice brand={brand} price={price} />
+            <ProductBrandPrice
+            productId={productId}
+              cartView={cartView}
+              brand={brand}
+              price={price}
+            />
           </CarouselItem>
           <CarouselItem className="flex justify-center items-center">
             <ProductDescription description={description} />
@@ -123,29 +129,7 @@ const FavoriteLogic = ({ productId }: { productId: string }) => (
   </div>
 );
 
-const ProductBrandPrice = ({
-  brand,
-  price,
-}: {
-  brand: string;
-  price: number;
-}) => (
-  <div className="text-white font-normal text-[16px]">
-    <div
-      style={{
-        display: "-webkit-box",
-        WebkitLineClamp: 1,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        width: "80px",
-      }}
-    >
-      {brand}
-    </div>
-    <div>{price}</div>
-  </div>
-);
+
 
 const ProductDescription = ({ description }: { description: string }) => (
   <div

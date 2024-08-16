@@ -6,7 +6,7 @@ import { MobileNav } from "../NavBars/mobile-nav";
 export default function RootLayout() {
   return (
     <div style={{}} className="app-container">
-      <div className="flex justify-between sticky top-0 backdrop-blur-md h-14">
+      <div className="flex justify-between stcky top-0 bckdrop-blur-md h-14">
         <MainNav />
         {/* <Search /> */}
         <MobileNav />

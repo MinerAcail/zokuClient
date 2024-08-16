@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { NavigationMenus } from "./NavLink";
 
 export function MainNav() {
   return (
@@ -17,18 +18,9 @@ export function MainNav() {
         >
           Market
         </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/favourite"}
-        >
-          Favourites
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/addedshop"}
-        >
-          Added Shops
-        </Link>
+
+        <NavigationMenus />
+
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/swapper"}
@@ -36,67 +28,23 @@ export function MainNav() {
           Side Swapper
         </Link>
 
-        <Link
+        {/* <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/advertisement"}
         >
           Advertisement
-        </Link>
+        </Link> */}
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
-          to={"/upload"}
+          to={"/vendorupload"}
         >
-          UpLoad
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/uploader"}
-        >
-          UpLoader
+          Upload Product
         </Link>
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/chart"}
         >
           Data
-        </Link>
-
-
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/form"}
-        >
-          Forms
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/createuser"}
-        >
-          Create User
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/login"}
-        >
-          Log In
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/vendorupload"}
-        >
-          Vendor Upload
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/shop"}
-        >
-          Vendor shop
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/createswapper"}
-        >
-          create Swapper
         </Link>
       </nav>
     </div>

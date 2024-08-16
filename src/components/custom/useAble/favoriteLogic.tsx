@@ -7,6 +7,7 @@ import {
   SwatchBook,
 } from "lucide-react";
 import { DrawSheet } from "./drawer";
+import CartLogic from "./utils/cartLogic";
 
 // Define TypeScript types for GraphQL responses
 type FavoriteProduct = {
@@ -215,10 +216,12 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
       <DrawSheet>
         <MessageCircleDashed className="size-[18px] cursor-pointer" />
       </DrawSheet>
-      <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
+      {/* <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
+       */}
+       <CartLogic productId={productId} />
       {/* <ShoppingCart className=" size-[18px] cursor-pointer" /> */}
       <div
-        className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
+        className={`mr-2 flex justify-center items-center rounded-xl w-5 h-5 cursor-pointer ${
           selected ? "bg-white" : "bg-transparent"
         }`}
         onClick={handleSwatchBookClick}
