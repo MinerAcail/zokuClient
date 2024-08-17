@@ -18,6 +18,13 @@ import {
 import defaultImageUrl from "../../../../../assets/images/1.jpg";
 import "../../../pages/style.css";
 import { gql, useMutation } from "@apollo/client";
+import {
+  
+  useTheme,
+} from "@/components/custom/theme/context/themeContext";
+import ThemeSwitcher from "@/components/custom/theme/ThemeSwitcher";
+import { Themes } from "@/components/custom/theme/utils/themeUtils";
+// import { useTheme } from "@/context/ThemeContext"; // Adjust import path as necessary
 
 const imagePaths = Array.from(
   { length: 50 },
@@ -54,11 +61,16 @@ function Sidesheet({
   imageUrls,
 }: SheetProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const { theme } = useTheme();
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-//   const [bgFiles, setBgFiles] = useState<File[]>([]);
-  const [combinedDownloadLink, setCombinedDownloadLink] = useState<string | null>(null);
+  const [combinedDownloadLink, setCombinedDownloadLink] = useState<
+    string | null
+  >(null);
   const imageUrl = imageUrls[0] || defaultImageUrl;
+
+  const { primaryColor, backgroundColor, textColor } =
+    Themes[theme] || Themes["blue"];
 
   useEffect(() => {
     if (isSheetOpen) {
@@ -80,7 +92,7 @@ function Sidesheet({
               font-size: 15px;
               font-family: Sans-Serif;
               font-weight: bold;
-              fill: #0E4E56;
+              fill: ${primaryColor};
               text-anchor: middle;
               dominant-baseline: middle;
             }
@@ -95,7 +107,7 @@ function Sidesheet({
             .attr("y", 0)
             .attr("width", width)
             .attr("height", height)
-            .attr("fill", "#AAE3EC");
+            .attr("fill", backgroundColor);
 
           appendIcons(svg, imagePaths, width, height);
 
@@ -108,7 +120,7 @@ function Sidesheet({
             .attr("font-size", "18px")
             .attr("font-family", "fantasy")
             .attr("font-weight", "bold")
-            .attr("fill", "#261A43")
+            .attr("fill", textColor)
             .text("papa's_boot@Zuko.com");
 
           const boxWidth = width * 0.9;
@@ -135,7 +147,7 @@ function Sidesheet({
             .attr("font-size", "21px")
             .attr("font-family", "Cursive")
             .attr("font-weight", "bold")
-            .attr("fill", "#261A43")
+            .attr("fill", textColor)
             .text(name);
 
           const longText = description || "";
@@ -158,7 +170,7 @@ function Sidesheet({
 
       return () => clearTimeout(timer);
     }
-  }, [isSheetOpen, imageUrls, description, name]);
+  }, [isSheetOpen, imageUrls, description, name, theme]);
 
   const handleOpen = () => setIsSheetOpen(true);
   const handleClose = () => setIsSheetOpen(false);
@@ -172,28 +184,29 @@ function Sidesheet({
         const imageElement = svg.selectAll("image").filter(function () {
           return d3.select(this).attr("href") === imageUrl;
         });
-  
+
         imageElement.style("display", "none");
-  
+
         const node = svg.node();
         if (node) {
           const width = Math.round((9 / 16) * 1920);
-  
+
           const dataUrl = await toPng(node, {
             pixelRatio: 2,
             width: width,
             height: 1920,
           });
-  
+
           // Re-enable image element
           imageElement.style("display", "");
 
           // Convert data URL to Blob and File
           fetch(dataUrl)
-            .then(response => response.blob())
-            .then(blob => {
-              const file = new File([blob], "background.png", { type: blob.type });
-            //   setBgFiles([file]);
+            .then((response) => response.blob())
+            .then((blob) => {
+              const file = new File([blob], "background.png", {
+                type: blob.type,
+              });
               return uploadFile({
                 variables: { bgFiles: [file], productId },
               });
@@ -217,7 +230,7 @@ function Sidesheet({
                 setCombinedDownloadLink(combinedUrl);
               }
             })
-            .catch(error => {
+            .catch((error) => {
               console.error("Error processing files:", error);
             });
         }
@@ -236,7 +249,8 @@ function Sidesheet({
       </SheetTrigger>
       <SheetContent side={"left"}>
         <SheetHeader>
-          <SheetTitle>Product Details</SheetTitle>
+          <SheetTitle>Colof</SheetTitle>
+          <ThemeSwitcher />
         </SheetHeader>
         <svg className="m-4" ref={svgRef} style={{ height: "300px" }} />
 
@@ -244,17 +258,18 @@ function Sidesheet({
           <Button variant="outline" onClick={handleClose}>
             Close
           </Button>
-          {!combinedDownloadLink &&
-          
-          <Button onClick={handleSubmit}>Generate Aids</Button> 
-          }
+          {!combinedDownloadLink && (
+            <Button onClick={handleSubmit}>Generate Aids</Button>
+          )}
           {combinedDownloadLink && (
-            <Button onClick={() => {
-              const link = document.createElement("a");
-              link.href = combinedDownloadLink;
-              link.download = "combined_video.mp4";
-              link.click();
-            }}>
+            <Button
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = combinedDownloadLink;
+                link.download = "combined_video.mp4";
+                link.click();
+              }}
+            >
               Download Combined Video
             </Button>
           )}

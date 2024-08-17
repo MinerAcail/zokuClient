@@ -4,10 +4,10 @@ import Home from "../pages/home";
 import { ApolloProvider } from "@apollo/client";
 import Client from "./auth/middlware";
 import AddedShop from "../pages/AddedShops";
-import AddedFavourite from "../pages/AddedFavourite"; 
+import AddedFavourite from "../pages/AddedFavourite";
 import AllAddedShop from "../pages/AllAddedShops";
 import Market from "../pages/Market";
-import {  VendorForm } from "./forms/vender";
+import { VendorForm } from "./forms/vender";
 import { FileUploader } from "../fileInput/file-uploader";
 import { Chart } from "../chart";
 import SwapperShop from "../pages/swapper";
@@ -19,40 +19,39 @@ import { SideSwapperForm } from "./forms/createSideSwapper";
 import UploadFile from "../pages/upload";
 import AdvertisementUpload from "../pages/Adver";
 import CartProduct from "../pages/cart";
-
+import { ThemeProvider } from "../theme/context/themeContext";
 
 function Navigation() {
   return (
     <BrowserRouter>
       <ApolloProvider client={Client}>
-        <Routes>
-          <Route path="/" element={<RootLayout />}>
-            <Route path="*" element={<h1>Wrong Path</h1>} />
-            <Route path="/" index element={<Home />} />
-            <Route path="/vendor/:vendorId"   element={<AddedShop />} />
-            <Route path="/favourite"  element={<AddedFavourite />} />
-            <Route path="/addedshop"  element={<AllAddedShop />} />
+        <ThemeProvider>
+          <Routes>
+            <Route path="/" element={<RootLayout />}>
+              <Route path="*" element={<h1>Wrong Path</h1>} />
+              <Route path="/" index element={<Home />} />
+              <Route path="/vendor/:vendorId" element={<AddedShop />} />
+              <Route path="/favourite" element={<AddedFavourite />} />
+              <Route path="/addedshop" element={<AllAddedShop />} />
 
-            <Route path="/form"  element={<VendorForm />} />
-            <Route path="/createuser"  element={<UserForm />} />
-            <Route path="/createswapper"  element={<SideSwapperForm />} />
+              <Route path="/form" element={<VendorForm />} />
+              <Route path="/createuser" element={<UserForm />} />
+              <Route path="/createswapper" element={<SideSwapperForm />} />
 
-            <Route path="/login"  element={<LoginForm />} />
+              <Route path="/login" element={<LoginForm />} />
 
-            <Route path="/uploader"  element={<FileUploader />} />
-            <Route path="/vendorupload"  element={<VendorFileUploader />} />
-            <Route path="/chart"  element={<Chart />} />
+              <Route path="/uploader" element={<FileUploader />} />
+              <Route path="/vendorupload" element={<VendorFileUploader />} />
+              <Route path="/chart" element={<Chart />} />
 
-            <Route path="/market"  element={<Market />} />
-            <Route path="/cart"  element={<CartProduct />} />
-            <Route path="/swapper"  element={<SwapperShop />} />         
-            <Route path="/advertisement"  element={<AppTemplate />} />
-            <Route path="/upload"  element={<AdvertisementUpload />} />
-            
-
-
-          </Route>
-        </Routes>
+              <Route path="/market" element={<Market />} />
+              <Route path="/cart" element={<CartProduct />} />
+              <Route path="/swapper" element={<SwapperShop />} />
+              <Route path="/advertisement" element={<AppTemplate />} />
+              <Route path="/upload" element={<AdvertisementUpload />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
       </ApolloProvider>
     </BrowserRouter>
   );

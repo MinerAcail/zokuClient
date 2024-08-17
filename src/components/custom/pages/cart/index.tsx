@@ -7,8 +7,16 @@ import { ItemLayout } from "../../useAble/ItemLayout";
 import { useSideSwapperProductIds } from "../../useAble/swapper/useSideSwapperProductIds";
 
 function CartProduct() {
-  const { data: Data, loading: vendorLoading, error: vendorError } = useQuery(GET_ALL_PRODUCTS);
-  const { sideSwapperProductIds, loading: sideSwapperLoading, error: sideSwapperError } = useSideSwapperProductIds();
+  const {
+    data: Data,
+    loading: vendorLoading,
+    error: vendorError,
+  } = useQuery(GET_ALL_PRODUCTS);
+  const {
+    sideSwapperProductIds,
+    loading: sideSwapperLoading,
+    error: sideSwapperError,
+  } = useSideSwapperProductIds();
 
   const [products, setProducts] = useState([]);
 
@@ -18,9 +26,7 @@ function CartProduct() {
     }
   }, [Data]);
 
-
-
-  if (vendorLoading ) return <p>Loading products...</p>;
+  if (vendorLoading) return <p>Loading products...</p>;
   if (vendorError) return <p>Error loading products: {vendorError.message}</p>;
 
   return (
@@ -37,8 +43,9 @@ function CartProduct() {
             <ItemLayout
               added={added}
               productId={id}
-            cartView={true}
-        
+              cartView={true}
+              description={title}
+              brand={brand}
               price={price}
               name={name}
               key={id}

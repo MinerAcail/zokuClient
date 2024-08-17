@@ -33,6 +33,8 @@ export const ItemLayout = ({
   added,
   cartView,
 }: ItemLayoutProps) => {
+  console.log("description", description);
+
   return (
     <div className="rounded-xl bg-[#E1E1E1] m-auto sm:w-[288px] w-[288px] h-[260px] flex flex-col">
       <div className="h-3/4 overflow-hidden rounded-t-xl flex justify-center items-center ">
@@ -79,7 +81,7 @@ export const ItemLayout = ({
             <ProductDetails name={name} />
             <FavoriteLogic productId={productId} />
             <ProductBrandPrice
-            productId={productId}
+              productId={productId}
               cartView={cartView}
               brand={brand}
               price={price}
@@ -128,8 +130,6 @@ const FavoriteLogic = ({ productId }: { productId: string }) => (
     <FavoriteLogicIcons productId={productId} />
   </div>
 );
-
-
 
 const ProductDescription = ({ description }: { description: string }) => (
   <div
