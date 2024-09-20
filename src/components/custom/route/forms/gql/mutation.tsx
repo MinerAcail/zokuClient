@@ -13,31 +13,43 @@
     `;
 
 
-    export const LOGIN = gql`
+        export const LOGIN = gql`
     mutation login($input:LoginInput!){
-    login(input:$input){
-        __typename
-        ... on User {
-        id
-        name		
-        number
-        createdAt
-        updatedAt
+        login(input:$input){
+            __typename
+            ... on User {
+            id
+            name		
+            number
+            type
+            createdAt
+            updatedAt
+            }
+            ... on Vendor {
+            id
+            name
+            number
+            type
+            createdAt
+            updatedAt
+            }
+            ... on SideSwapper {
+            id
+            name
+            number
+            type
+            createdAt
+            updatedAt
+            }
+        }		
         }
-        ... on Vendor {
-        id
-        name
-        number
-        createdAt
-        updatedAt
-        }
-        ... on SideSwapper {
-        id
-        name
-        number
-        createdAt
-        updatedAt
-        }
-    }		
-    }
-    `;
+        `;
+
+
+
+
+export const LOGOUT = gql`
+  mutation logOut {
+    logOut
+  }
+`;

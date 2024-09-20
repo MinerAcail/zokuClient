@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { LOGIN } from "./gql/mutation";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
+import { useAuth } from "@/middleware/context/authContext";
 
 // Schema for form validation
 const accountFormSchema = z.object({
@@ -33,6 +34,7 @@ const defaultValues: Partial<AccountFormValues> = {
 };
 
 export function LoginForm() {
+  const { login:Auth } = useAuth();
   const [login, { loading, error }] = useMutation(LOGIN);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
@@ -55,7 +57,10 @@ export function LoginForm() {
       console.log("Mutation result:", result); // Debug log for result
 
       if (result?.login) {
-        setSuccessMessage(`Vendor ${result.login.name} is created`);
+        console.log("Auth :",result);
+
+        Auth(result?.login)
+        setSuccessMessage(`${result.login.name} has signIn`);
       }
     } catch (err) {
       console.error("Error creating vendor:", err);

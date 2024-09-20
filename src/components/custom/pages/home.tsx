@@ -44,3 +44,6 @@ function Home() {
 }
 
 export default Home;
+
+
+{/* <GradientDisplay startColor="#04ac5c" numSteps={6} /> */}

@@ -59,7 +59,7 @@ export interface SideSwapperProductsData {
 
 
 // GraphQL query
-export const GET_SIDE_SWAPPER_PRODUCTS = gql`
+export const GET_SIDE_SWAPPER_PRODUCTS = gql` 
   query GetSideSwapperProducts {
     getSideSwapperProducts {
       VendorName

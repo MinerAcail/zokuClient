@@ -1,8 +1,30 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { NavigationMenus } from "./NavLink";
+import { LOGOUT } from "../route/forms/gql/mutation";
+import { useAuth } from "@/middleware/context/authContext";
+import { useMutation } from "@apollo/client";
 
 export function MainNav() {
+  const { logout } = useAuth(); // Access the logout function from the auth context
+  const [logoutMutation] = useMutation(LOGOUT); // Apollo useMutation hook
+
+  const handleLogout = async () => {
+    try {
+      // Call the GraphQL logout mutation
+      await logoutMutation();
+
+   
+
+      // Perform the local logout (clear localStorage and update state)
+      logout();
+
+      // Optionally, you can display a message or redirect elsewhere
+      console.log("Logout successful");
+    } catch (err) {
+      console.error("Error logging out:", err);
+    }
+  };
   return (
     <div className="mr-4 hidden md:flex">
       <Link className="mr-6 flex items-center space-x-2" to={""}>
@@ -45,6 +67,13 @@ export function MainNav() {
           to={"/chart"}
         >
           Data
+        </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          
+          onClick={handleLogout}
+        >
+          LogOut
         </Link>
       </nav>
     </div>

@@ -10,11 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import * as d3 from "d3";
 import { toPng } from "html-to-image";
-import {
-  appendIcons,
-  numberOfChars,
-  splitTextIntoLines,
-} from "@/components/custom/useAble/template/helperFunc";
+
 import defaultImageUrl from "../../../../../assets/images/1.jpg";
 import "../../../pages/style.css";
 import { gql, useMutation } from "@apollo/client";
@@ -23,8 +19,8 @@ import {
   useTheme,
 } from "@/components/custom/theme/context/themeContext";
 import ThemeSwitcher from "@/components/custom/theme/ThemeSwitcher";
-import { Themes } from "@/components/custom/theme/utils/themeUtils";
-// import { useTheme } from "@/context/ThemeContext"; // Adjust import path as necessary
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { generateSVGContent } from "@/components/custom/useAble/template/gen/generateSVGContent";
 
 const imagePaths = Array.from(
   { length: 50 },
@@ -61,6 +57,8 @@ function Sidesheet({
   imageUrls,
 }: SheetProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const svgRef1 = useRef<SVGSVGElement | null>(null);
+  const svgRef2 = useRef<SVGSVGElement | null>(null);
   const { theme } = useTheme();
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -68,104 +66,47 @@ function Sidesheet({
     string | null
   >(null);
   const imageUrl = imageUrls[0] || defaultImageUrl;
+  const imageUrl1 = imageUrls[1] || defaultImageUrl;
+  const imageUrl2 = imageUrls[2] || defaultImageUrl;
 
-  const { primaryColor, backgroundColor, textColor } =
-    Themes[theme] || Themes["blue"];
+ 
 
   useEffect(() => {
     if (isSheetOpen) {
       const timer = setTimeout(() => {
+        
         if (svgRef.current) {
-          const svg = d3.select(svgRef.current);
-          const height = 660;
-          const width = (9 / 16) * height;
-
-          svg
-            .attr("width", width)
-            .attr("height", height)
-            .attr("viewBox", `0 0 ${width} ${height}`);
-
-          svg.selectAll("*").remove();
-
-          svg.append("style").text(`
-            .long-text {
-              font-size: 15px;
-              font-family: Sans-Serif;
-              font-weight: bold;
-              fill: ${primaryColor};
-              text-anchor: middle;
-              dominant-baseline: middle;
-            }
-            .image {
-              border-radius: 20px;
-            }
-          `);
-
-          svg
-            .append("rect")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr("width", width)
-            .attr("height", height)
-            .attr("fill", backgroundColor);
-
-          appendIcons(svg, imagePaths, width, height);
-
-          svg
-            .append("text")
-            .attr("x", width * 0.34)
-            .attr("y", height * 0.079)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "middle")
-            .attr("font-size", "18px")
-            .attr("font-family", "fantasy")
-            .attr("font-weight", "bold")
-            .attr("fill", textColor)
-            .text("papa's_boot@Zuko.com");
-
-          const boxWidth = width * 0.9;
-          const boxHeight = height * 0.4;
-          const Margin = 40;
-
-          svg
-            .append("image")
-            .attr("x", (width - boxWidth) / 2)
-            .attr("y", Margin * 2)
-            .attr("width", boxWidth)
-            .attr("height", boxHeight)
-            .attr("class", "image")
-            .attr("style", "border-radius: 10px;")
-            .attr("preserveAspectRatio", "xMidYMid slice")
-            .attr("href", imageUrl);
-
-          svg
-            .append("text")
-            .attr("x", width * 0.5)
-            .attr("y", height * 0.58)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "middle")
-            .attr("font-size", "21px")
-            .attr("font-family", "Cursive")
-            .attr("font-weight", "bold")
-            .attr("fill", textColor)
-            .text(name);
-
-          const longText = description || "";
-          const longTextLines = splitTextIntoLines(
-            longText,
-            numberOfChars(width)
+          generateSVGContent(
+            svgRef.current,
+            imageUrl,
+            name,
+            description,
+            theme,
+            imagePaths
           );
-
-          svg
-            .selectAll(".long-text")
-            .data(longTextLines)
-            .enter()
-            .append("text")
-            .attr("class", "long-text")
-            .attr("x", width / 2)
-            .attr("y", (d, i) => height * 0.63 + i * 20)
-            .text((d) => d);
         }
+
+        if (svgRef1.current) {
+          generateSVGContent(
+            svgRef1.current,
+            imageUrl1,
+            name,
+            description,
+            theme,
+            imagePaths
+          );
+        }
+        if (svgRef2.current) {
+          generateSVGContent(
+            svgRef2.current,
+            imageUrl2,
+            name,
+            description,
+            theme,
+            imagePaths
+          );
+        }
+        
       }, 200);
 
       return () => clearTimeout(timer);
@@ -241,6 +182,7 @@ function Sidesheet({
       console.error("SVG reference is missing.");
     }
   };
+  
 
   return (
     <Sheet>
@@ -252,7 +194,13 @@ function Sidesheet({
           <SheetTitle>Colof</SheetTitle>
           <ThemeSwitcher />
         </SheetHeader>
-        <svg className="m-4" ref={svgRef} style={{ height: "300px" }} />
+        <ScrollArea className="rounded-md border h-80 overflow-auto">
+  <svg className="m-4" ref={svgRef} style={{ height: "300px" }} />
+  <svg className="m-4" ref={svgRef1} style={{ height: "300px" }} />
+  <svg className="m-4" ref={svgRef2} style={{ height: "300px" }} />
+
+</ScrollArea>
+
 
         <SheetFooter>
           <Button variant="outline" onClick={handleClose}>
@@ -268,6 +216,7 @@ function Sidesheet({
                 link.href = combinedDownloadLink;
                 link.download = "combined_video.mp4";
                 link.click();
+                
               }}
             >
               Download Combined Video

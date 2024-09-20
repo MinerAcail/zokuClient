@@ -11,6 +11,7 @@ import { ReplaceAll } from "lucide-react";
 import SwappersDescription from "./swapper/SliderForSwapper";
 import Sidesheet from "../pages/Adver/sideSheet_gen/sidesheet";
 import ProductBrandPrice from "./productBrandPrice";
+import useProtect, { ProtectType } from "@/middleware/useProtect";
 
 interface ItemLayoutProps {
   added: boolean;
@@ -33,7 +34,8 @@ export const ItemLayout = ({
   added,
   cartView,
 }: ItemLayoutProps) => {
-  console.log("description", description);
+  const { hasAccess:vendorHasAccess } = useProtect([ProtectType.vendor]); 
+  const { hasAccess:swapperHasAccess } = useProtect([ProtectType.swapper]); 
 
   return (
     <div className="rounded-xl bg-[#E1E1E1] m-auto sm:w-[288px] w-[288px] h-[260px] flex flex-col">
@@ -45,24 +47,26 @@ export const ItemLayout = ({
             {imageUrls.length > 0 ? (
               imageUrls.map((imageUrl, index) => (
                 <CarouselItem key={index} className="flex ">
-                  <Sidesheet
-                    imageUrls={imageUrls}
-                    name={name}
-                    description={description}
-                    productId={productId}
-                    Children={
-                      <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
-                        <ReplaceAll className="  size-[20px]" />
-                      </div>
-                    }
-                  />
+                  {vendorHasAccess && (
+                    <Sidesheet
+                      imageUrls={imageUrls}
+                      name={name}
+                      description={description}
+                      productId={productId}
+                      Children={
+                        <div className="cursor-pointer bg-white w-12 h-fit py-1 rounded-[5px] flex justify-center items-center absolute top-2 right-2">
+                          <ReplaceAll className="  size-[20px]" />
+                        </div>
+                      }
+                    />
+                  )}
                   <img
                     src={imageUrl || fallbackImage} // Use fallbackImage if imageUrl is not available
                     alt={name}
                     className="rounded-xl object-cover "
                   />
                 </CarouselItem>
-              ))
+              ))  
             ) : (
               <CarouselItem className="flex justify-center items-center">
                 <img
@@ -90,13 +94,15 @@ export const ItemLayout = ({
           <CarouselItem className="flex justify-center items-center">
             <ProductDescription description={description} />
           </CarouselItem>
-          <CarouselItem className="flex justify-around items-center">
-            <SwappersDescription
-              added={added}
-              price={price}
-              productId={productId}
-            />
-          </CarouselItem>
+          {swapperHasAccess && (
+            <CarouselItem className="flex justify-around items-center">
+              <SwappersDescription
+                added={added}
+                price={price}
+                productId={productId}
+              />
+            </CarouselItem>
+          )}
         </CarouselContent>
       </Carousel>
     </div>
