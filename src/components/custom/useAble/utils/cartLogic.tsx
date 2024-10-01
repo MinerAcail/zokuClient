@@ -156,7 +156,7 @@ function CartLogic({ productId }: { productId: string }) {
         }`}
         onClick={handleClick}
       >
-        <p className={`text-black font-semibold  ${selected ? "mr-2" : "hidden"}`}>
+        <p className={`text-black font-semibold ${selected ? "mr-2" : "hidden"}`}>
           {quantity}
         </p>
         <ShoppingCart
