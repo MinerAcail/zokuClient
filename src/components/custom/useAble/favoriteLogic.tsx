@@ -2,7 +2,6 @@ import { ApolloError, gql, useMutation, useQuery } from "@apollo/client";
 import { useState, useEffect } from "react";
 import {
   MessageCircleDashed,
-  ReplaceAll,
   ShoppingCart,
   SwatchBook,
 } from "lucide-react";
@@ -89,7 +88,7 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(
     GET_USER_FAVORITE_PRODUCTS
   );
-  // console.log(data);
+
 
   const [addFavoriteProduct] = useMutation<AddFavoriteProductResponse>(
     ADD_FAVORITE_PRODUCT,

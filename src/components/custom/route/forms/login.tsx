@@ -16,6 +16,7 @@ import { LOGIN } from "./gql/mutation";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useAuth } from "@/middleware/context/authContext";
+import {  useNavigate} from "react-router-dom";
 
 // Schema for form validation
 const accountFormSchema = z.object({
@@ -37,6 +38,7 @@ export function LoginForm() {
   const { login:Auth } = useAuth();
   const [login, { loading, error }] = useMutation(LOGIN);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const navigate = useNavigate(); // Initialize the navigate hook
 
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
@@ -54,13 +56,17 @@ export function LoginForm() {
         },
       });
 
-      console.log("Mutation result:", result); // Debug log for result
+   
 
       if (result?.login) {
-        console.log("Auth :",result);
+       
 
+        
         Auth(result?.login)
         setSuccessMessage(`${result.login.name} has signIn`);
+        setTimeout(()=>{
+          navigate("/",{replace:true})
+        },1000)
       }
     } catch (err) {
       console.error("Error creating vendor:", err);

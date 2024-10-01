@@ -18,11 +18,13 @@ const AuthContext = createContext<{
   user: UserType | null;
   login: (user: UserType) => void;
   logout: () => void;
+  isLoading: boolean;
 } | undefined>(undefined);
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [user, setUser] = useState<UserType | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true); // New loading state
 
   useEffect(() => {
     // Check if there is user data in localStorage when the component mounts
@@ -36,6 +38,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
     } catch (error) {
       console.error("Error accessing localStorage:", error);
+    } finally {
+      setIsLoading(false); // Set loading to false after check
     }
   }, []);
 
@@ -58,7 +62,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout,isLoading }}>
       {children}
     </AuthContext.Provider>
   );

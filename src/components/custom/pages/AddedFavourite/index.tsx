@@ -1,35 +1,44 @@
 import { useQuery } from "@apollo/client";
-import { GET_USER_FAVORITE_PRODUCTS, GetUserFavoriteProductsResponse } from "../../useAble/favoriteLogic";
+import {
+  GET_USER_FAVORITE_PRODUCTS,
+  GetUserFavoriteProductsResponse,
+} from "../../useAble/favoriteLogic";
 import { ItemLayout } from "../../useAble/ItemLayout";
-import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
-import { useEffect } from "react";
 import Description from "../../useAble/description";
 import { useSideSwapperProductIds } from "../../useAble/swapper/useSideSwapperProductIds";
+import Empty, {
+  LoadingSpinner,
+  ErrorMessage,
+} from "../../useAble/LoadAndErrorStatus";
+
 
 function AddedFavourite() {
-  const { data, loading, error, refetch } = useQuery<GetUserFavoriteProductsResponse>(GET_USER_FAVORITE_PRODUCTS);
-  const { sideSwapperProductIds, loading: sideSwapperLoading, error: sideSwapperError } = useSideSwapperProductIds();
+  const { data, loading, error } =
+    useQuery<GetUserFavoriteProductsResponse>(GET_USER_FAVORITE_PRODUCTS,{
+    fetchPolicy: 'cache-and-network',
+      
+    });
+  const { sideSwapperProductIds } = useSideSwapperProductIds();
 
-  // Optional: Call refetch to ensure the data is up-to-date
-  useEffect(() => {
-    refetch();
-  }, [refetch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading favorite products.</p>;
+  // Consolidated loading and error checks
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error.message} />;
 
-  if (!data || !data.getUserFavoriteProducts) return <p>No favorite products found.</p>;
-
-console.log(data.getUserFavoriteProducts);
+  // Check if there are no favorite products
+  if (
+    !data ||
+    !data.getUserFavoriteProducts ||
+    data.getUserFavoriteProducts.length === 0
+  ) {
+    return <Empty message="No favorite products found." />;
+  }
 
   return (
     <div>
       <Description text={"All Your Added Shop Items Here"} />
 
-      <div
-        className="m-5 grid gap-4 
-        grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
+      <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data?.getUserFavoriteProducts.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
           // const imageSrc = imageUrls.length > 0 ? imageUrls[0] : fallbackImage;
@@ -37,7 +46,7 @@ console.log(data.getUserFavoriteProducts);
 
           return (
             <ItemLayout
-            added={added}
+              added={added}
               productId={id}
               description={title}
               brand={brand}
@@ -45,10 +54,7 @@ console.log(data.getUserFavoriteProducts);
               name={name}
               key={id}
               imageUrls={imageUrls}
-
-           />
-              
-            
+            />
           );
         })}
       </div>

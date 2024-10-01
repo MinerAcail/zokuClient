@@ -193,7 +193,7 @@ export function VendorForm() {
             <FormField
               control={control}
               name="profile"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormLabel>Profile Picture</FormLabel>
                   <FormControl>
@@ -227,7 +227,7 @@ export function VendorForm() {
             <FormField
               control={control}
               name="background"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormLabel>Background Image</FormLabel>
                   <FormControl>

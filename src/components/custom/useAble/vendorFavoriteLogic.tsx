@@ -1,6 +1,7 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { SwatchBook } from "lucide-react";
 import { useState, useEffect } from "react";
+import Empty, { LoadingSpinner, ErrorMessage } from "./LoadAndErrorStatus";
 
 // GraphQL Queries and Mutations
 const GET_TOTAL_COUNT = gql`
@@ -205,7 +206,7 @@ export function VendorFavoriteLogicIcons({
   };
 
   const handleClickErr = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<SVGElement, MouseEvent>
   ) => {
     event.preventDefault();
     if (errorMessage) {
@@ -213,7 +214,13 @@ export function VendorFavoriteLogicIcons({
     }
   };
 
-  if (countLoading || favoriteLoading) return <p>Loading...</p>;
+  if (countLoading || favoriteLoading) return <LoadingSpinner />;
+
+  if (!favoriteData?.getUserFavoriteVendors.length && countData?.getTotalCountOfFavoriteVendor === 0) {
+    return <Empty message="No Favorite Vendor found." />;
+  }
+
+  if (favoriteError || countError) return <ErrorMessage message={favoriteError?.message || countError?.message} />;
 
   return (
     <div className="">

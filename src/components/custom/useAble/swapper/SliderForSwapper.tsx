@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Slider } from "@/components/ui/slider";
-import { ShoppingBasket, BadgeCheck, MenuIcon } from "lucide-react";
+import { ShoppingBasket, BadgeCheck, MenuIcon, Trash2 } from "lucide-react";
 import { gql, useMutation } from "@apollo/client";
 import { GET_ALL_PRODUCTS, GetAllProductData } from "../../fileInput/gql/query";
 import { GET_USER_FAVORITE_PRODUCTS, GetUserFavoriteProductsResponse } from "../favoriteLogic";
@@ -180,7 +180,7 @@ const SwappersDescription = ({
           />
         )
       ) : (
-        <MenuIcon
+        <Trash2
           onClick={handleRemoveProduct}
           className="text-white mr-3 cursor-pointer"
         />

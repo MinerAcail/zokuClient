@@ -1,26 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { NavigationMenus } from "./NavLink";
 import { LOGOUT } from "../route/forms/gql/mutation";
 import { useAuth } from "@/middleware/context/authContext";
 import { useMutation } from "@apollo/client";
+import { Button } from "@/components/ui/button";
+import useProtect, { ProtectType } from "@/middleware/useProtect";
 
 export function MainNav() {
-  const { logout } = useAuth(); // Access the logout function from the auth context
+  const { logout, isAuthenticated } = useAuth(); // Access the logout function from the auth context
   const [logoutMutation] = useMutation(LOGOUT); // Apollo useMutation hook
+  const navigate = useNavigate(); // Initialize the navigate hook
+  const { hasAccess: swapperHasAccess } = useProtect([ProtectType.swapper]);
+  const { hasAccess: vendorHasAccess } = useProtect([ProtectType.vendor]);
 
   const handleLogout = async () => {
     try {
       // Call the GraphQL logout mutation
       await logoutMutation();
 
-   
-
       // Perform the local logout (clear localStorage and update state)
       logout();
 
       // Optionally, you can display a message or redirect elsewhere
-      console.log("Logout successful");
+      setTimeout(()=>{
+        navigate("/login",{replace:true})
+      },1000)
+      
     } catch (err) {
       console.error("Error logging out:", err);
     }
@@ -40,15 +46,15 @@ export function MainNav() {
         >
           Market
         </Link>
-
-        <NavigationMenus />
-
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/swapper"}
-        >
-          Side Swapper
-        </Link>
+        {isAuthenticated && <NavigationMenus />}
+        {swapperHasAccess && (
+          <Link
+            className={cn("transition-colors hover:text-foreground/80")}
+            to={"/swapper"}
+          >
+            Side Swapper
+          </Link>
+        )}
 
         {/* <Link
           className={cn("transition-colors hover:text-foreground/80")}
@@ -56,25 +62,37 @@ export function MainNav() {
         >
           Advertisement
         </Link> */}
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/vendorupload"}
-        >
-          Upload Product
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          to={"/chart"}
-        >
-          Data
-        </Link>
-        <Link
-          className={cn("transition-colors hover:text-foreground/80")}
-          
-          onClick={handleLogout}
-        >
-          LogOut
-        </Link>
+        {vendorHasAccess && (
+          <>
+            <Link
+              className={cn("transition-colors hover:text-foreground/80")}
+              to={"/vendorupload"}
+            >
+              Upload Product
+            </Link>
+            <Link
+              className={cn("transition-colors hover:text-foreground/80")}
+              to={"/chart"}
+            >
+              Data
+            </Link>
+          </>
+        )}
+        {isAuthenticated ? (
+          <Button
+            className={cn("transition-colors hover:text-foreground/80")}
+            onClick={handleLogout}
+          >
+            LogOut
+          </Button>
+        ) : (
+          <Link
+            className={cn("transition-colors hover:text-foreground/80")}
+            to="/login"
+          >
+            Sign In
+          </Link>
+        )}
       </nav>
     </div>
   );

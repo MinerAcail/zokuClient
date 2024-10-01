@@ -1,7 +1,7 @@
 import { useAuth } from "@/middleware/context/authContext";
 
 const useProtect = (expectedTypes?: string[]) => {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user,isLoading } = useAuth();
   const userTypes = user?.type || [];
 
   // Check if the user is authenticated and has at least one of the expected types

@@ -21,8 +21,13 @@ import AdvertisementUpload from "../pages/Adver";
 import CartProduct from "../pages/cart";
 import { ThemeProvider } from "../theme/context/themeContext";
 import { AuthProvider } from "@/middleware/context/authContext";
+import ProtectedRoute from "./protected";
+import { ProtectType } from "@/middleware/useProtect";
+import ProtectedIsAuthRoute from "./protectedIsAuth";
 //AuthProvider
 function Navigation() {
+              
+
   return (
     <BrowserRouter>
       <ApolloProvider client={Client}>
@@ -33,12 +38,21 @@ function Navigation() {
               <Route path="*" element={<h1>Wrong Path</h1>} />
               <Route path="/" index element={<Home />} />
               <Route path="/vendor/:vendorId" element={<AddedShop />} />
-              <Route path="/favourite" element={<AddedFavourite />} />
-              <Route path="/addedshop" element={<AllAddedShop />} />
 
-              <Route path="/form" element={<VendorForm />} />
-              <Route path="/createuser" element={<UserForm />} />
-              <Route path="/createswapper" element={<SideSwapperForm />} />
+        
+
+              <Route path="/addedshop" element={<ProtectedIsAuthRoute  element={<AllAddedShop />} />} />
+              <Route path="/favourite" element={<ProtectedIsAuthRoute  element={<AddedFavourite />} />} />
+              <Route path="/createuser" element={<ProtectedIsAuthRoute  element={<UserForm />} />} />
+              <Route path="/form" element={<ProtectedIsAuthRoute  element={<VendorForm />} />} />
+              <Route path="/createswapper" element={<ProtectedIsAuthRoute  element={<SideSwapperForm />} />} />
+              <Route path="/cart" element={<ProtectedIsAuthRoute  element={<CartProduct />} />} />
+
+             
+             
+             
+
+
 
               <Route path="/login" element={<LoginForm />} />
 
@@ -47,11 +61,11 @@ function Navigation() {
               <Route path="/chart" element={<Chart />} />
 
               <Route path="/market" element={<Market />} />
-              <Route path="/cart" element={<CartProduct />} />
-              <Route path="/swapper" element={<SwapperShop />} />
+      
               <Route path="/advertisement" element={<AppTemplate />} />
               <Route path="/upload" element={<AdvertisementUpload />} />
               
+              <Route path="/swapper" element={<ProtectedRoute expectedTypes={[ProtectType.swapper]} element={<SwapperShop />} />} />
             </Route>
           </Routes>
         </ThemeProvider>
