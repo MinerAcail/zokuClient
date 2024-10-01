@@ -5,6 +5,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import SwappersDescription from "../../useAble/swapper/SliderForSwapper";
+import { useSearch } from "../../useAble/search/useSearch";
+import { AvatarDemo } from "./des";
+import { Search } from "../../NavBars/search";
 // Define TypeScript types for GraphQL responses
 type AddedSideSwapperProduct = {
   id: string;
@@ -22,23 +25,7 @@ type AddedSideSwapperProduct = {
 export type GetAddedSideSwapperProductsResponse = {
   getAddedSideSwapperProducts: AddedSideSwapperProduct[];
 };
-// Define GraphQL queries and mutations
-const GET_ADDED_SIDE_SWAPPER_PRODUCTS = gql`
-  query GetAddedSideSwapperProducts {
-    getAddedSideSwapperProducts {
-      id
-      sideSwapperID
-      productId
-      product {
-        id
-      }
-      sideSwapper {
-        id
-        name
-      }
-    }
-  }
-`;
+
 
 // Define TypeScript types for the query result
 export interface SideSwapperProduct {
@@ -50,7 +37,7 @@ export interface SideSwapperProduct {
 
 export interface SideSwapperProductsData {
   getSideSwapperProducts: {
-    VendorName: string;
+    name: string;
     count: number;
     products: SideSwapperProduct[];
   }[];
@@ -60,7 +47,7 @@ export interface SideSwapperProductsData {
 export const GET_SIDE_SWAPPER_PRODUCTS = gql`
   query GetSideSwapperProducts {
     getSideSwapperProducts {
-      VendorName
+      name: VendorName 
       count
       products {
         id
@@ -76,10 +63,11 @@ export function SwapperShop() {
   const { data, loading, error } = useQuery<SideSwapperProductsData>(
     GET_SIDE_SWAPPER_PRODUCTS
   );
-  const [showAll, setShowAll] = useState([]);
-
+  const [showAll, setShowAll] = useState<boolean[]>([]);
+  
   // Memoize AS to avoid re-computation on every render
   const AS = useMemo(() => (data ? data.getSideSwapperProducts : []), [data]);
+  const { handleSearch,  filteredData } = useSearch(AS);
 
   useEffect(() => {
     if (AS.length > 0) {
@@ -87,7 +75,7 @@ export function SwapperShop() {
     }
   }, [AS]);
 
-  const handleShowAll = (index) => {
+  const handleShowAll = (index: number) => {
     const newShowAll = [...showAll];
     newShowAll[index] = true;
     setShowAll(newShowAll);
@@ -98,13 +86,14 @@ export function SwapperShop() {
 
   return (
     <div>
-      {/* <AvatarDemo /> */}
+       <AvatarDemo /> 
+      <Search onSearch={handleSearch} />
       <div>
         <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {AS.map((vendor, idx) => (
+          {filteredData?.map((vendor, idx) => (
             <div key={idx}>
               <div className="w-23 h-6  bg-[#74727ca4] text-white">
-                {vendor.VendorName} - {vendor.count}
+                {vendor.name} - {vendor.count}
               </div>
               <ScrollArea className={`h-[390px] w-23`}>
                 {vendor.products

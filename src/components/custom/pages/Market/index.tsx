@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_ALL_PRODUCTS } from "../../fileInput/gql/query";
-import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
+import { GET_ALL_PRODUCTS, Product } from "../../fileInput/gql/query";
 import Description from "../../useAble/description";
 import { ItemLayout } from "../../useAble/ItemLayout";
 import { useSideSwapperProductIds } from "../../useAble/swapper/useSideSwapperProductIds";
+import { useSearch } from "../../useAble/search/useSearch";
+import { Search } from "../../NavBars/search";
 
 function Market() {
   const { data: Data, loading: vendorLoading, error: vendorError } = useQuery(GET_ALL_PRODUCTS);
-  const { sideSwapperProductIds, loading: sideSwapperLoading, error: sideSwapperError } = useSideSwapperProductIds();
+  const { sideSwapperProductIds } = useSideSwapperProductIds();
 
   const [products, setProducts] = useState([]);
+  const { handleSearch,  filteredData } = useSearch<Product>(products);
 
   useEffect(() => {
     if (Data && Data.getAllProduct) {
@@ -25,10 +27,11 @@ function Market() {
 
   return (
     <div>
-      <Description text={"Find All Items On Zuko Here"} />
+      
+      <Search onSearch={handleSearch} />
 
       <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => {
+        {filteredData?.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
 
           const added = sideSwapperProductIds.has(id); // Check if the product is already added

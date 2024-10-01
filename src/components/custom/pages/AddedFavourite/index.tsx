@@ -10,6 +10,8 @@ import Empty, {
   LoadingSpinner,
   ErrorMessage,
 } from "../../useAble/LoadAndErrorStatus";
+import { useSearch } from "../../useAble/search/useSearch";
+import { Search } from "../../NavBars/search";
 
 
 function AddedFavourite() {
@@ -18,6 +20,8 @@ function AddedFavourite() {
     fetchPolicy: 'cache-and-network',
       
     });
+    const { handleSearch,  filteredData } = useSearch(data?.getUserFavoriteProducts);
+    
   const { sideSwapperProductIds } = useSideSwapperProductIds();
 
 
@@ -36,10 +40,10 @@ function AddedFavourite() {
 
   return (
     <div>
-      <Description text={"All Your Added Shop Items Here"} />
-
+      
+      <Search onSearch={handleSearch} />
       <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {data?.getUserFavoriteProducts.map((product) => {
+        {filteredData?.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
           // const imageSrc = imageUrls.length > 0 ? imageUrls[0] : fallbackImage;
           const added = sideSwapperProductIds.has(id); // Check if the product is already added as a side swapper product

@@ -73,7 +73,7 @@ const handleAddToCartClick = async (
 };
 
 function CartLogic({ productId }: { productId: string }) {
-  const { data, loading, error,refetch } = useQuery(GET_ALL_CART,
+  const { data,refetch } = useQuery(GET_ALL_CART,
     {
       fetchPolicy:"cache-and-network"
     }
@@ -156,7 +156,7 @@ function CartLogic({ productId }: { productId: string }) {
         }`}
         onClick={handleClick}
       >
-        <p className={`text-black font-thin ${selected ? "mr-2" : "hidden"}`}>
+        <p className={`text-black font-semibold  ${selected ? "mr-2" : "hidden"}`}>
           {quantity}
         </p>
         <ShoppingCart

@@ -31,7 +31,7 @@ function CartProduct() {
     data,
     loading: cartLoading,
     error: cartError,
-    refetch
+    
   } = useQuery<GetAllCartResponse>(GET_ALL_CART,{
     fetchPolicy:"cache-and-network"
   }); // Use the correct query with the appropriate type
@@ -67,7 +67,7 @@ console.log("products",products);
 
   return (
     <div>
-      <Description text={"Find All Items On Zuko Here"} />
+      
 
       <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((item) => {

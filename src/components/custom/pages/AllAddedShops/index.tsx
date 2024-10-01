@@ -4,6 +4,8 @@ import Description from "../../useAble/description";
 import fallbackImage from "../../../../assets/images/1.jpg"; // Fallback image URL
 
 import Empty, { LoadingSpinner, ErrorMessage } from "../../useAble/LoadAndErrorStatus";
+import { useSearch } from "../../useAble/search/useSearch";
+import { Search } from "../../NavBars/search";
 
 const GET_USER_FAVORITE_VENDORS = gql`
   query GetUserFavoriteVendors {
@@ -37,7 +39,8 @@ function AllAddedShop() {
   });
 
  
-
+  const { handleSearch,  filteredData } = useSearch(data?.getUserFavoriteVendors);
+  
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error.message} />;
@@ -47,10 +50,12 @@ function AllAddedShop() {
 
   return (
     <div>
-      <Description text={"All Your Added Vendor's Shop Here"} />
+
+      
+  <Search onSearch={handleSearch} />
 
       <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {data?.getUserFavoriteVendors.map((vendor) => {
+        {filteredData?.map((vendor) => {
           const { id, name, profileUrl, product } = vendor;
           const imageSrc = profileUrl || fallbackImage;
 

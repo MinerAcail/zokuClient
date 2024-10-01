@@ -5,8 +5,10 @@ import { GET_VENDOR_BY_ID } from "../../fileInput/gql/query";
 import { ItemLayout } from "../../useAble/ItemLayout";
 import fallbackImage from "../../../../assets/images/1.jpg";
 import { useSideSwapperProductIds } from "../../useAble/swapper/useSideSwapperProductIds";
-import { ErrorMessage, LoadingSpinner } from "../../useAble/LoadAndErrorStatus";
+import Empty, { ErrorMessage, LoadingSpinner } from "../../useAble/LoadAndErrorStatus";
 import { MinioUrl, MinioVariable } from "@/middleware/minio";
+import { Search } from "../../NavBars/search";
+import { useSearch } from "../../useAble/search/useSearch";
 
 // Type definitions
 interface Product {
@@ -47,6 +49,7 @@ function AddedShop() {
   const { vendorId } = useParams<{ vendorId: string }>();
   const { data: vendorData, loading: vendorLoading, error: vendorError } = useQuery<VendorData>(GET_VENDOR_BY_ID, { variables: { id: vendorId } });
   const [products, setProducts] = useState<Product[]>([]);
+  const { handleSearch,  filteredData } = useSearch<Product>(products);
   
   const { sideSwapperProductIds, loading: sideSwapperLoading, error: sideSwapperError } = useSideSwapperProductIds();
 
@@ -63,20 +66,24 @@ function AddedShop() {
   if (vendorLoading || sideSwapperLoading) return <LoadingSpinner />;
   if (vendorError || sideSwapperError) return <ErrorMessage message={vendorError?.message || sideSwapperError?.message} />;
 
-  const backgroundImage = vendorData?.getVendorById?.backgroundUrl
+ /* const backgroundImage = vendorData?.getVendorById?.backgroundUrl
     ? vendorData.getVendorById.backgroundUrl.replace(MinioUrl, MinioVariable)
-    : fallbackImage;
+    : fallbackImage;*/
+    //const { handleSearch,  filteredData:filteredVendors } = useSearch(products);
+    if (products?.length === 0) return <Empty message="No Product found." />;
+
 
   return (
     <div className="p-4">
-      <BackgroundSection
+     {/* <BackgroundSection
         backgroundImage={backgroundImage}
         vendorName={vendorData?.getVendorById?.name ??"Unknow Name"}
         vendorType={vendorData?.getVendorById?.type ??"Unknow Type"}
-      />
+      /> */}
+      <Search onSearch={handleSearch} />
 
       <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => {
+        {filteredData?.map((product) => {
           const { id, name, imageUrls, price, brand, title } = product;
           const added = sideSwapperProductIds.has(id);
 
