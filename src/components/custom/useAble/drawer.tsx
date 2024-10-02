@@ -13,14 +13,15 @@ import {
 } from "@/components/ui/drawer";
 import CommentSystem from "./comments";
 
-export function DrawSheet({ children }: { children?: ReactNode | undefined }) {
+
+export function DrawSheet({ children, productId}: { children?: ReactNode | undefined ,productId: string}) {
   return (
     <Drawer>
       <DrawerTrigger asChild>{children}</DrawerTrigger>
       <DrawerContent>
         <div className="">
          
-          <CommentSystem/>
+          <CommentSystem productId={productId} />
           <DrawerFooter>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>

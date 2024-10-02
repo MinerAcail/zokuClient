@@ -212,7 +212,7 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
 
   return (
     <div className="flex items-center text-[#ffdaf9] ml-2">
-      <DrawSheet>
+      <DrawSheet productId={productId} >
         <MessageCircleDashed className="size-[18px] cursor-pointer" />
       </DrawSheet>
       {/* <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
