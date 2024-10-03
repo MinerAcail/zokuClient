@@ -40,8 +40,8 @@ const UPLOAD_FILE = gql`
 interface SheetProps {
   name: string;
   Children: ReactNode;
-  price: number;
-  brand: string;
+  price?: number;
+  brand?: string;
   description: string;
   imageUrls: string[];
   productId: string; // Ensure productId is passed correctly
@@ -51,8 +51,6 @@ function Sidesheet({
   Children,
   productId,
   name,
-  price,
-  brand,
   description,
   imageUrls,
 }: SheetProps) {

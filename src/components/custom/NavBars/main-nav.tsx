@@ -46,6 +46,12 @@ export function MainNav() {
         >
           Market
         </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/vms"}
+        >
+          VMS
+        </Link>
         {isAuthenticated && <NavigationMenus />}
         {swapperHasAccess && (
           <Link

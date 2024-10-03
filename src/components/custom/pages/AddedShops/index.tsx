@@ -64,7 +64,8 @@ function AddedShop() {
   }, [vendorData]);
 
   if (vendorLoading || sideSwapperLoading) return <LoadingSpinner />;
-  if (vendorError || sideSwapperError) return <ErrorMessage message={vendorError?.message || sideSwapperError?.message} />;
+  //if (vendorError || sideSwapperError) return <ErrorMessage message={vendorError?.message || sideSwapperError?.message} />;
+  if (vendorError ) return <ErrorMessage message={vendorError?.message } />;
 
  /* const backgroundImage = vendorData?.getVendorById?.backgroundUrl
     ? vendorData.getVendorById.backgroundUrl.replace(MinioUrl, MinioVariable)

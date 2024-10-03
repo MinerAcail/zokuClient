@@ -1,12 +1,9 @@
 import { ApolloError, gql, useMutation, useQuery } from "@apollo/client";
 import { useState, useEffect } from "react";
-import {
-  MessageCircleDashed,
-  ShoppingCart,
-  SwatchBook,
-} from "lucide-react";
+import { MessageCircleDashed, ShoppingCart, SwatchBook } from "lucide-react";
 import { DrawSheet } from "./drawer";
 import CartLogic from "./utils/cartLogic";
+import { useAuth } from "@/middleware/context/authContext";
 
 // Define TypeScript types for GraphQL responses
 type FavoriteProduct = {
@@ -84,11 +81,10 @@ export const GET_USER_FAVORITE_PRODUCTS = gql`
 export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   const [selected, setSelected] = useState(false);
   const [clickError, setClickError] = useState(false);
-
+const {isAuthenticated}=useAuth()
   const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(
     GET_USER_FAVORITE_PRODUCTS
   );
-
 
   const [addFavoriteProduct] = useMutation<AddFavoriteProductResponse>(
     ADD_FAVORITE_PRODUCT,
@@ -172,38 +168,45 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
   if (loading) return <p>Loading...</p>;
 
   if (error) {
-    console.error("Error loading favorite products:", error.message);
     return (
-      <div className="flex items-center text-[#ffdaf9] ">
+      <div className="flex items-center text-[#ffdaf9] ml-2">
         {!clickError ? (
-          <div
-            onClick={() => setClickError(true)}
-            className="flex items-center text-[#ffdaf9] ml-2"
-          >
-            <DrawSheet>
-              <MessageCircleDashed className="size-[18px] cursor-pointer" />
+          <>
+            <DrawSheet productId={productId}>
+              <MessageCircleDashed className={`size-[18px] cursor-pointer ${ !isAuthenticated && "ml-2"}`} />
             </DrawSheet>
-            <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
+            {
+        isAuthenticated &&
+        <>
+        
             <div
-              className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
-                selected ? "bg-white" : "bg-transparent"
-              }`}
+              onClick={() => setClickError(true)}
+              className="flex items-center text-[#ffdaf9] "
             >
-              <SwatchBook
-                className={`size-[18px] transition-transform duration-300 ${
-                  selected
-                    ? "transform rotate-[360deg] text-black"
-                    : "text-white"
+              <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
+              <div
+                className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
+                  selected ? "bg-white" : "bg-transparent"
                 }`}
-              />
+              >
+                <SwatchBook
+                  className={`size-[18px] transition-transform duration-300 ${
+                    selected
+                      ? "transform rotate-[360deg] text-black"
+                      : "text-white"
+                  }`}
+                />
+              </div>
             </div>
-          </div>
+        </>
+        }
+          </>
         ) : (
           <p
             onClick={() => setClickError(!clickError)}
             className="text-[10px] cursor-pointer"
           >
-            Error loading favorite
+            Please login For result
           </p>
         )}
       </div>
@@ -212,27 +215,32 @@ export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
 
   return (
     <div className="flex items-center text-[#ffdaf9] ml-2">
-      <DrawSheet productId={productId} >
+      <DrawSheet productId={productId}>
         <MessageCircleDashed className="size-[18px] cursor-pointer" />
       </DrawSheet>
-      {/* <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
-       */}
-       <CartLogic productId={productId} />
-      {/* <ShoppingCart className=" size-[18px] cursor-pointer" /> */}
+      {
+        isAuthenticated &&
+
+        <>
+        
+      <CartLogic productId={productId} />
+      
       <div
         className={`mr-2 flex justify-center items-center rounded-xl w-5 h-5 cursor-pointer ${
           selected ? "bg-white" : "bg-transparent"
         }`}
         onClick={handleSwatchBookClick}
       >
-        {/* <ReplaceAll className="size-[18px] cursor-pointer" /> */}
+        
         <SwatchBook
           className={`size-[18px] transition-transform duration-300 ${
             selected ? "transform rotate-[360deg] text-black" : "text-white"
           }`}
         />
       </div>
-      {/* <ReplaceAll  className=" size-[18px] cursor-pointer" /> */}
+        </>
+      }
+   
     </div>
   );
 }

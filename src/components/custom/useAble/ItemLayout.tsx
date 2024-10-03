@@ -127,7 +127,7 @@ const ProductDetails = ({ name }: { name: string }) => (
   </div>
 );
 
-const FavoriteLogic = ({ productId }: { productId: string }) => (
+export const FavoriteLogic = ({ productId }: { productId: string }) => (
   <div className="flex items-center mb-2">
     <Separator
       orientation="vertical"

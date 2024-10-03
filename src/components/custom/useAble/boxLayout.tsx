@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./index.scss";
 import { VendorFavoriteLogicIcons } from "./vendorFavoriteLogic";
+import { useAuth } from "@/middleware/context/authContext";
 
 interface BoxLayoutProps {
   name: string;
@@ -23,6 +24,7 @@ const BoxLayout: React.FC<BoxLayoutProps> = ({
   vendor,
   vendorId,
 }) => {
+  const {isAuthenticated} =useAuth()
   return (
     <Link
       to={`/vendor/${vendor.id}`}
@@ -43,7 +45,10 @@ const BoxLayout: React.FC<BoxLayoutProps> = ({
             alt={`Image of ${name}`}
             className="rounded-xl object-cover w-full h-full"
           />
+          {isAuthenticated &&
+          
           <VendorFavoriteLogicIcons vendorId={vendorId} />
+          }
         </div>
       </div>
     </Link>

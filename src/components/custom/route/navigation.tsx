@@ -24,6 +24,7 @@ import { AuthProvider } from "@/middleware/context/authContext";
 import ProtectedRoute from "./protected";
 import { ProtectType } from "@/middleware/useProtect";
 import ProtectedIsAuthRoute from "./protectedIsAuth";
+import EnhancedVendorManagement from "../admin/VendorManagementSystem";
 //AuthProvider
 function Navigation() {
               
@@ -55,6 +56,7 @@ function Navigation() {
 
 
               <Route path="/login" element={<LoginForm />} />
+              <Route path="/vms" element={<EnhancedVendorManagement />} />
 
               <Route path="/uploader" element={<FileUploader />} />
               <Route path="/vendorupload" element={<VendorFileUploader />} />
