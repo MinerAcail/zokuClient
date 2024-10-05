@@ -7,10 +7,8 @@ const link = createUploadLink({
 });
 
 const Client = new ApolloClient({
- 
-
-  cache: new InMemoryCache(),
   link,
+  cache: new InMemoryCache(),
 });
 
 export default Client;  
