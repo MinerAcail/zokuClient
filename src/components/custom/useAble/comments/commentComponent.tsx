@@ -29,7 +29,7 @@ import { ADD_COMMENT, GET_COMMENT_BY_PRODUCT, DELETE_COMMENT, UPDATE_COMMENT, Co
 
 
 
-function formatTimeAgo(dateString: string): string {
+export function FormatTimeAgo(dateString: string): string {
   return moment(dateString).fromNow();
 }
 
@@ -149,7 +149,7 @@ export const CommentComponent: React.FC<{ comment: Comments; depth: number }> = 
           <div>
             <h3 className="font-semibold text-gray-800">{comment.userName}</h3>
             <p className="text-xs text-gray-500">
-              {formatTimeAgo(comment.createdAt)}
+              {FormatTimeAgo(comment.createdAt)}
             </p>
           </div>
         </div>

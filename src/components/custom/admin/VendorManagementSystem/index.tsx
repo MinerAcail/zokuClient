@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Search } from "lucide-react";
+//import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import VendorCard from "./VendorCard";
 import VendorDetails from "./VendorDetails";
 import { Vendor, Order, transformData } from "./helper";
 import { gql, useQuery } from "@apollo/client";
+import { Search } from "../../NavBars/search";
 
 const ALL_CART_QUERY = gql`
   query AllCart {
@@ -47,7 +48,6 @@ export default function EnhancedVendorManagement() {
   useEffect(() => {
     if (data) {
       const transform = transformData(data);
-      console.log("Transformed data:", transform);
       setVendors(transform || []);
     }
   }, [data]);
@@ -67,10 +67,8 @@ export default function EnhancedVendorManagement() {
 
   return (
     <div className="p-4">
-      <div className="flex items-center space-x-2 mb-4">
-        <Search className="w-4 h-4" />
-        <Input type="text" placeholder="Search vendors..." className="w-full" />
-      </div>
+              <Search />
+
 
       {vendors?.map((vendor) => (
         <div key={vendor.id}>

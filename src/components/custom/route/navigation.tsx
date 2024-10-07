@@ -25,6 +25,8 @@ import ProtectedRoute from "./protected";
 import { ProtectType } from "@/middleware/useProtect";
 import ProtectedIsAuthRoute from "./protectedIsAuth";
 import EnhancedVendorManagement from "../admin/VendorManagementSystem";
+import ProductManagement from "../admin/ProductManagement";
+import { VendorFileUploaderEdit } from "../admin/ProductManagement/Vendor-file-uploader";
 //AuthProvider
 function Navigation() {
               
@@ -57,6 +59,11 @@ function Navigation() {
 
               <Route path="/login" element={<LoginForm />} />
               <Route path="/vms" element={<EnhancedVendorManagement />} />
+              <Route path="/pms" element={<ProductManagement />} />
+              
+              <Route path="/pmsedit/:productId" element={<VendorFileUploaderEdit />} />
+             
+
 
               <Route path="/uploader" element={<FileUploader />} />
               <Route path="/vendorupload" element={<VendorFileUploader />} />

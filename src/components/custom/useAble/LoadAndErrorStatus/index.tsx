@@ -1,6 +1,6 @@
 // Loading and Error Components
 export const LoadingSpinner: React.FC = () => (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center ">
       <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
     </div>
   );
@@ -9,7 +9,7 @@ export const LoadingSpinner: React.FC = () => (
 
 const Empty: React.FC<{ message?: string }> = ({ message = "No items found." }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center">
+    <div className="flex flex-col items-center justify-center  text-center">
       <div className="animate-bounce mb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,9 @@ const Empty: React.FC<{ message?: string }> = ({ message = "No items found." }) 
 export default Empty;
 
 export  const ErrorMessage: React.FC<{ message?: string }> = ({ message }) => (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex  items-center justify-center ">
       <p className="text-red-600 text-lg">Error: {message }</p>
     </div>
   );
+
+  //cn("[&_tr]:border-b", className)

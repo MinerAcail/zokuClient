@@ -115,7 +115,7 @@ export const getStatusBadge = (status: 'processing' | 'shipped' | 'delivered' | 
   interface AllCartResponse {
     allCart: Cart[]; // Array of carts
   }
-  
+  export const ghSim = "GH¢"
   export function transformData(data: AllCartResponse): Vendor[] {
     const vendorsMap: { [key: string]: Vendor } = {};
   
