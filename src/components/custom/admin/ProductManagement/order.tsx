@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TabsContent } from "@/components/ui/tabs";
 import { Edit } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { initialOrders, Order } from ".";
 import {
   Table,
@@ -13,9 +13,36 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
+import { gql, useQuery } from "@apollo/client";
+import { ghSim } from "../VendorManagementSystem/helper";
+const GET_CART_USERS_BY_VENDOR_ID = gql`
+  query GetCartUsersByVendorID {
+    getCartUsersByVendorId{
+      orderId
+      customer
+      date
+      status
+      totalAmount
+    }
+  }
+`;
+interface CartUser {
+  orderId: string;
+  customer: string;
+  date: string;
+  status: string;
+  totalAmount: string;
+}
 function PMOrder({ tabValue }: { tabValue: string }) {
   const [orders] = useState<Order[]>(initialOrders);
+  const [orderData, setOrderData] = useState<CartUser[]>([]);
+  const { data, loading, error } = useQuery(GET_CART_USERS_BY_VENDOR_ID);
+
+  useEffect(() => {
+    if (data) {
+      setOrderData(data.getCartUsersByVendorId);
+    }
+  }, [data]);
 
   return (
     <div>
@@ -37,11 +64,11 @@ function PMOrder({ tabValue }: { tabValue: string }) {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {orders.map((order) => (
-                  <TableRow key={order.id}>
-                    <TableCell>{order.id}</TableCell>
-                    <TableCell>{order.customerName}</TableCell>
-                    <TableCell>{order.orderDate}</TableCell>
+                {orderData.map((order) => (
+                  <TableRow key={order.orderId}>
+                    <TableCell>{order.orderId.slice(0, 6)}</TableCell> {/* 6 characters of orderId  example: 1234567890 to 123456 */}
+                    <TableCell>{order.customer}</TableCell>
+                    <TableCell>{order.date}</TableCell>
                     <TableCell>
                       <Badge
                         variant={
@@ -51,7 +78,7 @@ function PMOrder({ tabValue }: { tabValue: string }) {
                         {order.status}
                       </Badge>
                     </TableCell>
-                    <TableCell>${order.totalAmount.toFixed(2)}</TableCell>
+                    <TableCell>{ghSim} {order.totalAmount}</TableCell>
                     <TableCell>
                       <Button variant="ghost" size="sm">
                         <Edit className="h-4 w-4" />

@@ -6,6 +6,7 @@ import PMDashboard from "./dashboard";
 import PMProduct from "./product";
 import PMOrder from "./order";
 import PMDataControl from "./ dataControl";
+import { Link } from "react-router-dom";
 
 export interface Product {
   id: string;
@@ -159,18 +160,19 @@ export default function ProductManagement() {
       </h1>
 
       <Tabs value={selectedTab} onValueChange={setSelectedTab}>
-        <TabsList className="rounded-xl"  >
-          <TabsTrigger   value="dashboard">Dashboard</TabsTrigger>
+        <TabsList className="rounded-xl">
+          <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
           <TabsTrigger value="products">Products</TabsTrigger>
-          <TabsTrigger value="orders">Orders</TabsTrigger>
+          
+            <Link     
+            className="inline-flex items-center rounded-xl justify-center whitespace-nowrap  px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-slate-950 data-[state=active]:shadow-sm dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=active]:bg-slate-950 dark:data-[state=active]:text-slate-50 "
+             to={"/vendercheckout"}>Orders</Link>
           <TabsTrigger value="quality">Quality Control</TabsTrigger>
         </TabsList>
 
         <PMDashboard tabValue="dashboard" />
 
         <PMProduct tabValue="products" />
-
-        <PMOrder tabValue="orders" />
 
         <PMDataControl tabValue="quality" />
       </Tabs>

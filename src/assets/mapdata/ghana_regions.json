@@ -1,0 +1,7067 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.1 084b4234",
+  "osm3s": {
+    "timestamp_osm_base": "2024-10-08T05:02:29Z",
+    "timestamp_areas_base": "2024-10-07T23:33:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 1991849,
+  "members": [
+    {
+      "type": "node",
+      "ref": 27565080,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484221,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 169278487,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 792504500,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314553921,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 654209412,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676512,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676528,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496959,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964356806,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871823,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663889,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871813,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496947,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281324,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281337,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496953,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871808,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871790,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871789,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496960,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871787,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947381918,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246494697,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947220646,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970048876,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970048878,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 98846084,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 565922172,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970048879,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 77349354,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177880,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 310627103,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 950143364,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281341,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970968781,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496972,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281330,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496991,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281331,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496982,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947353319,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947353321,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947353329,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948066723,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4179110,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 12759090,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759091,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759092,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991850,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991853,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12757781,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991851,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991852,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759089,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759083,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759087,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759086,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758448,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991855,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758444,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758445,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991856,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759085,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758450,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758447,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759084,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758449,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991857,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12757780,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12759088,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991854,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991858,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12758446,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 1991809,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-AA",
+    "admin_level": "4",
+    "alt_name:de": "Greater Accra Region",
+    "boundary": "administrative",
+    "name": "Greater Accra Region",
+    "name:ak": "Nkran Mantam mu",
+    "name:ar": "إقليم أكرا الكبرى",
+    "name:azb": "آکرای بزرق اوستانی",
+    "name:be": "Вялікая Акра",
+    "name:be-tarask": "Вялікая Акра",
+    "name:bg": "Голяма Акра",
+    "name:br": "Greater Accra",
+    "name:ca": "Regió de Gran Accra",
+    "name:ceb": "Greater Accra Region",
+    "name:cs": "Greater Accra",
+    "name:da": "Greater Accra",
+    "name:de": "Groß-Accra Region",
+    "name:en": "Greater Accra Region",
+    "name:es": "Región Gran Acra",
+    "name:fa": "استان آکرای بزرگ",
+    "name:fi": "Greater Accra",
+    "name:fr": "Région du Grand Accra",
+    "name:frr": "Greater Accra (Regiuun)",
+    "name:ha": "Yankin Greater Accra",
+    "name:id": "Region Greater Accra",
+    "name:it": "Regione della Grande Accra",
+    "name:ja": "グレーター・アクラ州",
+    "name:ko": "그레이터아크라주",
+    "name:lt": "Didžiosios Akros regionas",
+    "name:nl": "Greater Accra",
+    "name:no": "Greater Accra",
+    "name:pl": "Region Wielka Akra",
+    "name:pt": "Grande Acra",
+    "name:ro": "Regiunea Marea Accra",
+    "name:ru": "Большая Аккра",
+    "name:sv": "Storaccra",
+    "name:sw": "Mkoa wa Greater Accra",
+    "name:tr": "Büyük Akra Bölgesi",
+    "name:tw": "Nkran Mantam",
+    "name:uk": "Велика Аккра",
+    "name:ur": "عظیم اکرا علاقہ",
+    "name:wuu": "大阿克拉地区",
+    "name:xmf": "დიდი აკრაშ რეგიონი",
+    "name:zh": "大阿克拉大區",
+    "type": "boundary",
+    "wikidata": "Q431729",
+    "wikipedia": "en:Greater Accra Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 3327998,
+  "members": [
+    {
+      "type": "node",
+      "ref": 434420117,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484223,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 246426839,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243363,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515850416,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243367,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 730249543,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948086104,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1090324906,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1090324907,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969867981,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948086105,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948086106,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 730452807,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426683,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426792,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 761266144,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 180483469,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 755957929,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 509177536,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 757520469,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 347709902,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 305460165,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 381972427,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 755950870,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 755950871,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 755947089,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 435902972,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969867983,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 755947090,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 435896984,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 757266877,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 435887391,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 381972425,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426812,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 756465115,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426838,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426755,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314434342,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 352189462,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426743,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314521861,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314521858,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314816994,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 31284690,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246412447,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314816145,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 757031467,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314264264,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314263920,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 352189463,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 31284930,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 49714130,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 757265855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246412413,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246412444,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37284238,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 757527330,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 10440111,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10429466,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10429636,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10452548,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10090857,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10442769,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10429612,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10416816,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10429637,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10442771,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10104677,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10429493,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10442770,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10103192,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10452547,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-UE",
+    "admin_level": "4",
+    "alt_name:ar": "إقليم الشرق الأعلى",
+    "alt_name:de": "Upper East Region",
+    "alt_name:es": "Región del Alto Oriente",
+    "alt_name:ru": "Верхняя Восточная область",
+    "boundary": "administrative",
+    "name": "Upper East Region",
+    "name:ar": "مقاطعة الشرق األوسط",
+    "name:azb": "یوخاری دوغو اوستانی",
+    "name:be": "Верхні ўсходні рэгіён",
+    "name:be-tarask": "Верхні ўсходні рэгіён",
+    "name:bg": "Горноизточен регион",
+    "name:br": "Upper East",
+    "name:ca": "Regió Superior Oriental",
+    "name:ceb": "Upper East Region",
+    "name:da": "Upper East",
+    "name:de": "Obere Ostregion",
+    "name:en": "Upper East Region",
+    "name:es": "Región Alta Oriental",
+    "name:fa": "استان شرق علیا",
+    "name:fi": "Upper East Ghana",
+    "name:fr": "Région du Haut Ghana oriental",
+    "name:frr": "Upper East (Regiuun)",
+    "name:ha": "Yankin Upper East",
+    "name:id": "Region Timur Atas",
+    "name:it": "Regione Orientale Superiore",
+    "name:ja": "アッパー・イースト州",
+    "name:ko": "어퍼이스트주",
+    "name:lt": "Aukštutinis Rytų regionas",
+    "name:nl": "Upper East",
+    "name:no": "Upper East",
+    "name:pl": "Region Północno-Wschodni",
+    "name:pt": "Alto Oriental",
+    "name:ro": "Regiunea Superioară de Est",
+    "name:ru": "Верхний Восточный регион",
+    "name:sv": "Övre östra regionen",
+    "name:sw": "Mkoa wa Mashariki ya Juu",
+    "name:tr": "Yukarı Doğu Bölgesi",
+    "name:uk": "Верхня Східна область",
+    "name:wuu": "东北地区 (加纳)",
+    "name:xmf": "ჟიმოლენი ბჟაეიოლი რეგიონი",
+    "name:zh": "上東部大區",
+    "type": "boundary",
+    "wikidata": "Q712828",
+    "wikipedia": "en:Upper East Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 3328013,
+  "members": [
+    {
+      "type": "node",
+      "ref": 330058453,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484224,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 305460165,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 347709902,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 757520469,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 509177536,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948073388,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329638,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865224,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865225,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865227,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865226,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635202,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246428308,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865215,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865230,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865231,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 431578422,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 345617478,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946740479,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 431547110,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 386812696,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 345606483,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946028584,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 345830694,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946028598,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 30000961,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 431480955,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 431480957,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 381972430,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 431480949,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946856434,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 381972429,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946856431,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 435181437,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 435196539,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947191509,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 381972426,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 12754461,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12752690,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754462,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 5149239,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12752691,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754463,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754457,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754456,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754458,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754459,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12754460,
+      "role": "subarea"
+    }
+  ],
+        "tags": {
+          "ISO3166-2": "GH-UW",
+          "admin_level": "4",
+          "alt_name:de": "Upper West Region",
+          "alt_name:es": "Región del Alto Occidente",
+          "alt_name:ru": "Верхняя Западная область",
+          "boundary": "administrative",
+          "name": "Upper West Region",
+          "name:ar": "الإقليم الغربي الأعلى",
+          "name:azb": "یوخاری باتی اوستانی",
+          "name:be": "Верхні заходні рэгіён",
+          "name:be-tarask": "Верхні заходні рэгіён",
+          "name:bg": "Горнозападен регион",
+          "name:br": "Upper West",
+          "name:ca": "Regió Superior Occidental",
+          "name:ceb": "Upper West Region",
+          "name:da": "Upper West",
+          "name:de": "Obere Westregion",
+          "name:en": "Upper West Region",
+          "name:es": "Región Alta Occidental",
+          "name:fa": "استان غرب علیا",
+          "name:fi": "Upper West Ghana",
+          "name:fr": "Région du Haut Ghana occidental",
+          "name:frr": "Upper West (Regiuun)",
+          "name:ha": "Yankin Upper West",
+          "name:id": "Region Barat Atas",
+          "name:it": "Regione Occidentale Superiore",
+          "name:ja": "アッパー・ウエスト州",
+          "name:ko": "어퍼웨스트주",
+          "name:lt": "Aukštutinis Vakarų regionas",
+          "name:nl": "Upper West",
+          "name:no": "Upper West",
+          "name:pl": "Region Północno-Zachodni",
+          "name:pt": "Alto Ocidental",
+          "name:ro": "Regiunea Superioară de Vest, Ghana",
+          "name:ru": "Верхний Западный регион",
+          "name:sv": "Övre västra regionen",
+          "name:sw": "Mkoa wa Magharibi ya Juu",
+          "name:tr": "Yukarı Batı Bölgesi",
+          "name:uk": "Верхня Західна область",
+          "name:wuu": "西北地区",
+          "name:xmf": "ჟიმოლენი ბჟადალი რეგიონი",
+          "name:zh": "上西部大区",
+          "type": "boundary",
+          "wikidata": "Q715805",
+          "wikipedia": "en:Upper West Region"
+        }
+      },
+      {
+        "type": "relation",
+        "id": 3328699,
+        "members": [
+          {
+            "type": "node",
+            "ref": 434449745,
+            "role": "admin_centre"
+          },
+          {
+            "type": "node",
+            "ref": 2661665006,
+            "role": "label"
+          },
+          {
+            "type": "way",
+            "ref": 967871782,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 967871783,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 967871843,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 967871847,
+            "role": "outer"
+          },      
+          {
+            "type": "way",
+            "ref": 967871846,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 959826041,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 959826039,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 967871845,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 959826038,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 1232547722,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 1232547721,
+            "role": "outer"
+          },
+          {
+            "type": "way",
+            "ref": 959826028,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826029,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947381918,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246494697,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947220646,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970048876,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970048878,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 98846084,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 565922172,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970048879,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246494691,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177842,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177843,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177848,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177283,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177285,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4177288,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4176719,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4176721,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4176724,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4176728,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 421852302,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4176734,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 158908312,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444305552,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444305551,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444327433,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444315488,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444159287,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444305549,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 444305550,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959825992,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431074,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826020,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826024,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 791403552,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 513317717,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 247587264,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 652296657,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431117,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 513317581,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 513317575,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 652296656,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431103,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 513317601,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431119,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431076,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 513317722,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826049,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431094,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826064,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 775467791,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1031459139,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1031459137,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738506919,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826067,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826059,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 12904686,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904684,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904677,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904676,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904675,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904674,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904678,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904687,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904683,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904682,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904673,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904672,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904671,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904685,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904681,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904679,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904670,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12904680,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-TV",
+    "admin_level": "4",
+    "alt_name:es": "Región del Volta",
+    "alt_name:fr": "Région de la Volta",
+    "boundary": "administrative",
+    "name": "Volta Region",
+    "name:ar": "إقليم فولتا",
+    "name:azb": "ولتا اوستانی",
+    "name:be": "Вольта (рэгіён)",
+    "name:be-tarask": "Вольта (рэгіён)",
+    "name:bg": "Волта (регион)",
+    "name:br": "Volta (Ghana)",
+    "name:ca": "Regió Volta",
+    "name:ceb": "Volta Region",
+    "name:cs": "Volta (region)",
+    "name:da": "Volta (region)",
+    "name:de": "Volta Region",
+    "name:ee": "Volta Region",
+    "name:en": "Volta Region",
+    "name:es": "Región Volta",
+    "name:fa": "استان ولتا",
+    "name:fi": "Voltan hallintoalue",
+    "name:fr": "Région Volta",
+    "name:frr": "Volta (Regiuun)",
+    "name:ha": "Yankin Volta",
+    "name:id": "Region Volta",
+    "name:it": "Regione del Volta",
+    "name:ja": "ヴォルタ州",
+    "name:ko": "볼타주",
+    "name:lt": "Voltos regionas",
+    "name:nl": "Volta (regio)",
+    "name:no": "Volta (region)",
+    "name:pl": "Region Wolta",
+    "name:pt": "Volta (Gana)",
+    "name:ro": "Regiunea Volta",
+    "name:ru": "Вольта",
+    "name:sv": "Voltaregionen",
+    "name:sw": "Mkoa wa Volta",
+    "name:tr": "Volta Bölgesi",
+    "name:uk": "Вольта",
+    "name:ur": "وولٹا علاقہ",
+    "name:wuu": "沃尔特地区",
+    "name:xmf": "ვოლტაშ რეგიონი",
+    "name:zh": "沃爾特大區",
+    "type": "boundary",
+    "wikidata": "Q712832",
+    "wikipedia": "en:Volta Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 3329833,
+  "members": [
+    {
+      "type": "way",
+      "ref": 965230123,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230130,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230142,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 558708534,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135842,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135843,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 558712066,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329647,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230144,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230065,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627454828,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135840,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230149,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 653649337,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230152,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329643,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246436235,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230151,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 320915004,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776796259,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776796211,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230148,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440416,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230135,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440417,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776796241,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440415,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440407,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230128,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776796319,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440409,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440408,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246440406,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776796232,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 832931150,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515016220,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515016219,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329645,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230069,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230072,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230077,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230070,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230076,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329646,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991871,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230066,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1220026484,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1220026485,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991868,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230067,
+      "role": "outer"
+    },
+    {
+      "type": "node",
+      "ref": 2026026298,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661665005,
+      "role": "label"
+    },
+    {
+      "type": "relation",
+      "ref": 12988359,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988363,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988364,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988368,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988367,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988369,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988362,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988365,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988366,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988361,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988360,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12988358,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-BO",
+    "admin_level": "4",
+    "boundary": "administrative",
+    "name": "Bono Region",
+    "name:ar": "إقليم بونو",
+    "name:de": "Region Bono",
+    "name:en": "Bono Region",
+    "name:es": "Región de Bono",
+    "name:fa": "ناحیه بونو",
+    "name:fr": "Région de Bono",
+    "name:ha": "Yankin Bono",
+    "name:it": "Regione di Bono",
+    "name:ja": "ボノ州",
+    "name:pl": "Region Bono",
+    "name:ru": "Боно (область)",
+    "name:sw": "Mkoa wa Bono",
+    "name:zh": "博諾大區",
+    "type": "boundary",
+    "wikidata": "Q64685186",
+    "wikipedia": "en:Bono Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 3330249,
+  "members": [
+    {
+      "type": "way",
+      "ref": 246414878,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414877,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663885,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414867,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414854,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414880,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968873861,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414879,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414870,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414876,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414852,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414853,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414861,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871952,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 315346684,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 315346681,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871958,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871954,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871900,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871902,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968873855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871903,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871901,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871904,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246657343,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562576,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739067137,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991907,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739067141,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991908,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739065966,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739065965,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776066414,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739065962,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37289744,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991900,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968873825,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991899,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991898,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991896,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37805778,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37805781,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37805782,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991847,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991849,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 351751561,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991864,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991851,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965343168,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991865,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 692148129,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230130,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135837,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135815,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135846,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135848,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135847,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135849,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874110,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135851,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874107,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135836,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135850,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135852,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135853,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 171015563,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135858,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920922,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874108,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920926,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920925,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920924,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822900758,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822896373,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 171032485,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 687082166,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 687082154,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135860,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135838,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223512,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616762,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223501,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223499,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223497,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223493,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223494,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874098,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223505,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616763,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 516908321,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414849,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874081,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945309,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414848,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414850,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874074,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945306,
+      "role": "outer"
+    },
+    {
+      "type": "node",
+      "ref": 261702404,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661665004,
+      "role": "label"
+    },
+    {
+      "type": "relation",
+      "ref": 13038242,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038241,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038240,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038239,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038238,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038237,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038236,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038235,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038234,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038233,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038231,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038232,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038230,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038229,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038228,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038227,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038226,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038225,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038224,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038223,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038222,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038221,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038220,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038219,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038218,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038217,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038216,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038215,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038214,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038213,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038212,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038210,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038209,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038208,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038207,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038206,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038205,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038204,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038203,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038202,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038201,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13038200,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-AH",
+    "admin_level": "4",
+    "alt_name:es": "Región de Ashanti",
+    "alt_name:ru": "Ашанти (область)",
+    "alt_name:uk": "Ашанті (область)",
+    "boundary": "administrative",
+    "name": "Ashanti Region",
+    "name:af": "Asjanti (streek)",
+    "name:ak": "Asante Mantam",
+    "name:ar": "منطقة أشانتي",
+    "name:azb": "آشانتی اوستانی",
+    "name:be": "Ашанці",
+    "name:be-tarask": "Ашанці",
+    "name:bg": "Ашанти (регион)",
+    "name:br": "Ashanti (Ghana)",
+    "name:ca": "Regió Aixanti",
+    "name:ceb": "Ashanti Region",
+    "name:da": "Ashanti (region)",
+    "name:de": "Ashanti Region",
+    "name:en": "Ashanti Region",
+    "name:es": "Ashanti",
+    "name:fa": "استان آشانتی",
+    "name:fi": "Ashantin hallintoalue",
+    "name:fr": "Région Ashanti",
+    "name:frr": "Ashanti (Regiuun)",
+    "name:ha": "Yankin Ashanti",
+    "name:id": "Region Ashanti",
+    "name:it": "Regione di Ashanti",
+    "name:ja": "アシャンティ州",
+    "name:ka": "აშანტის რეგიონი",
+    "name:kn": "ಆಷಂತಿ",
+    "name:ko": "아샨티주",
+    "name:lt": "Ašančio regionas",
+    "name:ml": "അഷാന്തി",
+    "name:nl": "Ashanti (regio)",
+    "name:no": "Ashanti (region)",
+    "name:pl": "Region Aszanti",
+    "name:pt": "Axante (Gana)",
+    "name:ro": "Regiunea Ashanti",
+    "name:ru": "Ашанти",
+    "name:sv": "Ashantiregionen",
+    "name:sw": "Mkoa wa Ashanti",
+    "name:tr": "Ashanti Bölgesi",
+    "name:tw": "Asante Mantam",
+    "name:uk": "Ашанті",
+    "name:ur": "اشانتی علاقہ",
+    "name:wuu": "阿散蒂地区",
+    "name:xmf": "აშანტიშ რეგიონი",
+    "name:yo": "Agbègbè Ashanti",
+    "name:zh": "阿散蒂大區",
+    "type": "boundary",
+    "wikidata": "Q398417",
+    "wikipedia": "en:Ashanti Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 3330281,
+  "members": [
+    {
+      "type": "way",
+      "ref": 169278487,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 792504500,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 314553921,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 654209412,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676512,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676528,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496959,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676505,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871922,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676498,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676483,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871933,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676472,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871939,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663892,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663885,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414877,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414878,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945306,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874074,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414850,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414848,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945309,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874081,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414849,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 516908321,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616763,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329648,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945308,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616764,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966088,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966087,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945292,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945290,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945291,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945294,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945282,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966071,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182694,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182695,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182696,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182697,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182698,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663886,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945280,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945284,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663887,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182400,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4181624,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 183372088,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676473,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4181342,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676494,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4181346,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676495,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4180672,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4180673,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4180674,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676500,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4180675,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4180676,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4180677,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676502,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4179694,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4179695,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4179699,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4179701,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4179703,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947353299,
+      "role": "outer"
+    },
+    {
+      "type": "node",
+      "ref": 990129709,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484234,
+      "role": "label"
+    },
+    {
+      "type": "relation",
+      "ref": 12979600,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969843,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969836,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969833,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969834,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979604,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979607,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979598,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969847,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969845,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979601,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969844,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969835,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969842,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969846,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12969841,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979602,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979603,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979599,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979605,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979606,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12979608,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-CP",
+    "admin_level": "4",
+    "alt_name:de": "Central Region",
+    "boundary": "administrative",
+    "name": "Central Region",
+    "name:ar": "الإقليم الأوسط",
+    "name:azb": "مرکزی اوستانی",
+    "name:be": "Цэнтральны рэгіён",
+    "name:be-tarask": "Цэнтральны рэгіён",
+    "name:bg": "Централен регион",
+    "name:br": "Central (Ghana)",
+    "name:ca": "Regió Central",
+    "name:ceb": "Central Region",
+    "name:da": "Central",
+    "name:de": "Zentralregion",
+    "name:en": "Central Region",
+    "name:es": "Región Central",
+    "name:fa": "استان مرکزی",
+    "name:fi": "Centralin hallintoalue",
+    "name:fr": "Région du Centre",
+    "name:frr": "Central",
+    "name:ha": "Yankin Tsakiya",
+    "name:id": "Region Tengah",
+    "name:it": "Regione Centrale",
+    "name:ja": "セントラル州",
+    "name:ko": "중앙주",
+    "name:lt": "Vidurio regionas",
+    "name:nl": "Central",
+    "name:no": "Central",
+    "name:pl": "Region Centralny",
+    "name:pt": "Central",
+    "name:ro": "Regiunea Centrală",
+    "name:ru": "Центральный регион",
+    "name:sv": "Centrala regionen",
+    "name:sw": "Mkoa wa Kati",
+    "name:tl": "Gitnang Rehiyon",
+    "name:tr": "Merkez Bölgesi",
+    "name:tw": "Mfinfini Mantan",
+    "name:uk": "Центральна область",
+    "name:ur": "وسطی علاقہ",
+    "name:wuu": "中部地区",
+    "name:xmf": "ცენტრალური რეგიონი",
+    "name:zh": "中部大區",
+    "type": "boundary",
+    "wikidata": "Q846323",
+    "wikipedia": "en:Central Region (Ghana)"
+  }
+},
+{
+  "type": "relation",
+  "id": 3498732,
+  "members": [
+    {
+      "type": "node",
+      "ref": 30933440,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484222,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 738562569,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562570,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 775783834,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515207809,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562583,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562582,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562580,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562584,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562561,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80265086,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635200,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80265090,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 925803081,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072560,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072558,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 925803082,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562591,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072612,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268747,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268746,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268745,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635173,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562559,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635174,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072590,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072580,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 766752068,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 766752062,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 766752061,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627053285,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072578,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072556,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268774,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072555,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072615,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268762,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268763,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268759,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268758,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072614,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635175,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072584,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 803814248,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 170667013,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 509651941,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 803814246,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243368,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243366,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243364,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072608,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956333207,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243361,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243357,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956333204,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862736,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862735,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862734,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862733,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072577,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072527,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072528,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072526,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072521,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072568,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1088128655,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1088128656,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072523,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072524,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072525,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 49713615,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072567,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072566,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80263052,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431068,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 373580194,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 332166095,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 247578584,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431125,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 372471726,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 247574830,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246494688,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562560,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246494692,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 372155927,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 404805267,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562562,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 404805266,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 770697604,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970022863,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 743279011,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 743279012,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 743279014,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738621458,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434930,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434931,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434933,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434934,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738621459,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 12834033,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215999,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834040,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834035,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834041,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834038,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834032,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215996,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834031,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834036,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834039,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834037,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215998,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834034,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834030,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12834029,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-NP",
+    "admin_level": "4",
+    "alt_name:de": "Northern Region",
+    "alt_name:es": "Región Septentrional",
+    "alt_name:ru": "Северная область",
+    "boundary": "administrative",
+    "name": "Northern Region",
+    "name:ak": "Atifi Mantam",
+    "name:azb": "قوزئی (غنا) اوستانی",
+    "name:be": "Паўночны рэгіён",
+    "name:be-tarask": "Паўночны рэгіён",
+    "name:bg": "Северен регион",
+    "name:br": "Rannvro an Norzh",
+    "name:ca": "Regió Septentrional",
+    "name:ceb": "Northern Region",
+    "name:da": "Northern",
+    "name:de": "Nordregion",
+    "name:en": "Northern Region",
+    "name:es": "Región Norte",
+    "name:fa": "استان شمالی",
+    "name:fi": "Northern Ghana",
+    "name:fr": "Région du Nord",
+    "name:frr": "Northern",
+    "name:ha": "Yankin Arewaci",
+    "name:id": "Region Utara",
+    "name:it": "Regione Settentrionale",
+    "name:ja": "ノーザン州",
+    "name:ko": "북부주",
+    "name:lt": "Šiaurės regionas",
+    "name:nl": "Northern",
+    "name:no": "Northern",
+    "name:pl": "Region Północny",
+    "name:pt": "Região Norte",
+    "name:ro": "Regiunea de Nord",
+    "name:ru": "Северный регион",
+    "name:sv": "Norra regionen",
+    "name:sw": "Mkoa wa Kaskazini",
+    "name:tr": "Kuzey Bölgesi",
+    "name:tw": "Atifi Mantam",
+    "name:uk": "Північна область",
+    "name:ur": "شمالی علاقہ",
+    "name:wuu": "北部地区",
+    "name:xmf": "ოორუე რეგიონი",
+    "name:zh": "北部大區",
+    "type": "boundary",
+    "wikidata": "Q502215",
+    "wikipedia": "en:Northern Region (Ghana)"
+  }
+},
+{
+  "type": "relation",
+  "id": 3498733,
+  "members": [
+    {
+      "type": "node",
+      "ref": 892162451,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484225,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 967871782,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871783,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871843,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871847,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871846,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826041,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826039,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826038,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1232547722,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1232547721,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826028,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826029,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871787,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496960,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871789,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871790,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871808,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496953,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281337,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 947281324,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 147496947,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871813,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663889,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871823,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964356806,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676505,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871922,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676498,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676483,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871933,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964676472,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871939,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246663892,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414867,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414854,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414880,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968873861,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414879,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414870,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414876,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414852,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414853,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246414861,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871952,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 315346684,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 315346681,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871958,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871954,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871900,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871902,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968873855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871903,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871901,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871904,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246657343,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871914,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739067138,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871912,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562574,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 13024980,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024983,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025005,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024979,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024985,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025007,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025003,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024991,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024995,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024993,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024987,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025004,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025008,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025006,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024990,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024997,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024994,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024992,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025001,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025002,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13025000,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024999,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024998,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024976,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024982,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024981,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024986,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024978,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024984,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024996,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024988,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024989,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13024977,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-EP",
+    "admin_level": "4",
+    "alt_name:de": "Eastern Region",
+    "alt_name:ru": "Восточная область",
+    "boundary": "administrative",
+    "name": "Eastern Region",
+    "name:ak": "Apuei Mantam",
+    "name:ar": "الإقليم الشرقي",
+    "name:be": "Усходні рэгіён",
+    "name:be-tarask": "Усходні рэгіён (Гана)",
+    "name:bg": "Източен регион",
+    "name:br": "Eastern",
+    "name:ca": "Regió Oriental",
+    "name:ceb": "Eastern Region",
+    "name:da": "Eastern",
+    "name:de": "Ostregion",
+    "name:en": "Eastern Region",
+    "name:es": "Región Oriental",
+    "name:fa": "استان شرقی",
+    "name:fi": "Eastern Ghana",
+    "name:fr": "Région Orientale",
+    "name:frr": "Eastern",
+    "name:ha": "Yankin Gabashi",
+    "name:id": "Region Timur",
+    "name:it": "Regione Orientale",
+    "name:ja": "イースタン州",
+    "name:ko": "동부주",
+    "name:lt": "Rytų regionas (Gana)",
+    "name:nl": "Eastern",
+    "name:no": "Eastern",
+    "name:pl": "Region Wschodni",
+    "name:pt": "Região Oriental",
+    "name:ro": "Regiunea Orientală",
+    "name:ru": "Восточный регион",
+    "name:sv": "Östra regionen",
+    "name:sw": "Mkoa wa Mashariki",
+    "name:tr": "Doğu Bölgesi",
+    "name:tw": "Apuei Mantam",
+    "name:uk": "Східна область",
+    "name:ur": "مشرقی علاقہ",
+    "name:wuu": "东部地区",
+    "name:xmf": "ბჟაეიოლი რეგიონი",
+    "name:zh": "東部大區",
+    "type": "boundary",
+    "wikidata": "Q405670",
+    "wikipedia": "en:Eastern Region (Ghana)"
+  }
+},
+{
+  "type": "relation",
+  "id": 3498734,
+  "members": [
+    {
+      "type": "way",
+      "ref": 966966099,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223545,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223509,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223514,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223510,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223515,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246498897,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966110,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329631,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246435345,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246435346,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 278487337,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182780,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182781,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182782,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182783,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182793,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183252,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183255,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183256,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183257,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1053310913,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183259,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966131,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183846,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183847,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966133,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183850,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184055,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184046,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184047,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184048,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184049,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184050,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4184051,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183541,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183542,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183543,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616765,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183318,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 156929707,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183321,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966068,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4183322,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182943,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 4182944,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966071,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945282,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945294,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945291,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945290,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945292,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966087,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966088,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616764,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 964945308,
+      "role": "outer"
+    },
+    {
+      "type": "node",
+      "ref": 4563088958,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 2661484233,
+      "role": "label"
+    },
+    {
+      "type": "relation",
+      "ref": 13012944,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012947,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012948,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012939,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012950,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012949,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012938,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012951,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012946,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012940,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012942,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012943,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012945,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13012941,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-WP",
+    "admin_level": "4",
+    "alt_name:de": "Western Region",
+    "alt_name:ru": "Западная область",
+    "boundary": "administrative",
+    "name": "Western Region",
+    "name:ar": "الإقليم الغربي الأعلى",
+    "name:be": "Заходні рэгіён",
+    "name:be-tarask": "Заходні рэгіён",
+    "name:bg": "Западен регион",
+    "name:br": "Western",
+    "name:ca": "Regió Occidental",
+    "name:ceb": "Western Region",
+    "name:da": "Western",
+    "name:de": "Westregion",
+    "name:en": "Western Region",
+    "name:es": "Región Occidental",
+    "name:fa": "استان غربی",
+    "name:fr": "Région Occidentale",
+    "name:frr": "Western",
+    "name:ha": "Yankin Yammaci",
+    "name:id": "Region Barat",
+    "name:it": "Regione Occidentale",
+    "name:ja": "ウェスタン州",
+    "name:ko": "서부주",
+    "name:lt": "Vakarų regionas",
+    "name:nl": "Western",
+    "name:no": "Western",
+    "name:pl": "Region Zachodni",
+    "name:pt": "Ocidental",
+    "name:ro": "Regiunea de Vest",
+    "name:ru": "Западный регион",
+    "name:sv": "Västra regionen",
+    "name:sw": "Mkoa wa Magharibi",
+    "name:tr": "Batı Bölgesi",
+    "name:tw": "Western Region",
+    "name:uk": "Західна область",
+    "name:ur": "مغربی علاقہ",
+    "name:wuu": "西部地区",
+    "name:xmf": "ბჟადალი რეგიონი",
+    "name:zh": "西部大區",
+    "type": "boundary",
+    "wikidata": "Q870155",
+    "wikipedia": "en:Western Region (Ghana)"
+  }
+},
+{
+  "type": "relation",
+  "id": 10211892,
+  "members": [
+    {
+      "type": "node",
+      "ref": 434441912,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 6912837261,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 959826059,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 959826067,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738506919,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1031459137,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431111,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738266802,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431083,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431075,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431073,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431110,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431114,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431082,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431104,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431077,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738506910,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431120,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 247579867,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431106,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431107,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431122,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431121,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431109,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431134,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246431136,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246494692,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 372155927,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 404805267,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562562,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 404805266,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 770697604,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970022863,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 743279011,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 743279012,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 743279014,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738621458,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434930,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434931,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434933,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739434934,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738621459,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562563,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562568,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562566,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 55467289,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364833,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80256799,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970022873,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 10213439,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10213437,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215258,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215259,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215257,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215256,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10213438,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215255,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13804589,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-OT",
+    "admin_level": "4",
+    "boundary": "administrative",
+    "name": "Oti Region",
+    "name:de": "Oti Region",
+    "name:en": "Oti Region",
+    "name:es": "Región Oti",
+    "name:fa": "ناحیه اوتی",
+    "name:fr": "Région d'Oti",
+    "name:it": "Regione di Oti",
+    "name:ja": "オティ州",
+    "name:ru": "Оти (область)",
+    "name:sw": "Mkoa wa Oti",
+    "name:zh": "奧蒂大區",
+    "type": "boundary",
+    "wikidata": "Q48804004",
+    "wikipedia": "en:Oti Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 10212837,
+  "members": [
+    {
+      "type": "node",
+      "ref": 434423265,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 6913594074,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 955635177,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072584,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 803814248,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 170667013,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 509651941,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 803814246,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243368,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243366,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243364,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072608,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956333207,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243361,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243357,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956333204,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862736,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862735,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862734,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862733,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072577,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072527,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072528,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072526,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072521,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072568,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1088128655,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1088128656,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072523,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072524,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072525,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329641,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246424319,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246423255,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246423254,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246423253,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246423258,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969862731,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 23311640,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246423257,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426790,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426839,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243363,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515850416,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 956243367,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 730249543,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948086104,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1090324906,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1090324907,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 969867981,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948086105,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948086106,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 730452807,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426683,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246426792,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 761266144,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 180483469,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 755957929,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 948073388,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329638,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865224,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865225,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865228,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635176,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 12865967,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12865965,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12865969,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12865966,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12865970,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12865968,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-NE",
+    "admin_level": "4",
+    "alt_name:de": "North East Region",
+    "boundary": "administrative",
+    "name": "North East Region",
+    "name:de": "Nordostregion",
+    "name:en": "North East Region",
+    "name:es": "Región Norte Oriental",
+    "name:fa": "ناحیه شمال شرقی (غنا)",
+    "name:fr": "Région du Nord-Est",
+    "name:it": "Regione Nord Est",
+    "name:ja": "ノース・イースト州",
+    "name:pl": "Region Północno–Wschodni",
+    "name:ru": "Северо-Восточная область",
+    "name:zh": "東北大區",
+    "type": "boundary",
+    "wikidata": "Q60764359",
+    "wikipedia": "en:North East Region, Ghana"
+  }
+},
+{
+  "type": "relation",
+  "id": 10212838,
+  "members": [
+    {
+      "type": "node",
+      "ref": 1922843399,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 6913594075,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 738562569,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562570,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 775783834,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515207809,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562583,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562582,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562580,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562584,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562561,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80265086,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635200,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80265090,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 925803081,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072560,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072558,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 925803082,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562591,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072612,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268747,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268746,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268745,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635173,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562559,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635174,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072590,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072580,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 766752068,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 766752062,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 766752061,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627053285,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072578,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072556,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268774,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072555,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072615,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268762,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268763,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268759,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953268758,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 953072614,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635175,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635177,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635176,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865228,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865227,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865226,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635202,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246428308,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865215,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865230,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 946865231,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246428328,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 381745481,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 29982290,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635209,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 23041384,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 832931151,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 268941670,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515016220,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 515016219,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329645,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991875,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635208,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246598695,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246601643,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991877,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991876,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364829,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 516776787,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 842556456,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 842556455,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991883,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364843,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562587,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991906,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562571,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562563,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 12860798,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12860797,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215997,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12860796,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12860795,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12860794,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12860793,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-SV",
+    "admin_level": "4",
+    "boundary": "administrative",
+    "name": "Savannah Region",
+    "name:ar": "منطقة السفانا",
+    "name:de": "Savannah Region",
+    "name:en": "Savannah Region",
+    "name:es": "Región de Sabana",
+    "name:fa": "ناحیه ساوانا",
+    "name:ha": "Yankin Savannah",
+    "name:it": "Regione di Savannah",
+    "name:ja": "サバンナ州",
+    "name:pl": "Region Savannah",
+    "name:ru": "Саванна (область)",
+    "name:sw": "Mkoa wa Savannah",
+    "name:zh": "萨凡纳大区",
+    "type": "boundary",
+    "wikidata": "Q60764352",
+    "wikipedia": "en:Savannah Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 10212839,
+  "members": [
+    {
+      "type": "way",
+      "ref": 739065962,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37289744,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991900,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968873825,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991899,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991898,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991896,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37805778,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37805781,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 37805782,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991847,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991849,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 351751561,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991864,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991851,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965343168,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991865,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 692148129,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230123,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230067,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991868,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1220026485,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1220026484,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230066,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991871,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329646,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230076,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230070,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230077,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230072,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230069,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991875,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 955635208,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246598695,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246601643,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991877,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991876,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364829,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 516776787,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 842556456,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 842556455,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991883,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364843,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562587,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991906,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562571,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562568,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562566,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 55467289,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738364833,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 80256799,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 970022873,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562574,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871912,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739067138,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 967871914,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738562576,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739067137,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991907,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739067141,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965991908,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739065966,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 739065965,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 776066414,
+      "role": "outer"
+    },
+    {
+      "type": "node",
+      "ref": 330232703,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 6913594081,
+      "role": "label"
+    },
+    {
+      "type": "relation",
+      "ref": 12999006,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999003,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999002,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12998999,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12998998,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999004,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999005,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 10215995,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999007,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999000,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12999001,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-BE",
+    "admin_level": "4",
+    "boundary": "administrative",
+    "name": "Bono East Region",
+    "name:ar": "إقليم شرق بونو",
+    "name:de": "Bono East Region",
+    "name:en": "Bono East Region",
+    "name:es": "Región de Bono Oriental",
+    "name:fa": "ناحیه بونو شرقی",
+    "name:fr": "Région de Bono Est",
+    "name:it": "Regione di Bono Est",
+    "name:ja": "ボノ・イースト州",
+    "name:pl": "Region Bono Wschodnie",
+    "name:ru": "Боно-Ист",
+    "name:sw": "Mkoa wa Bono Mashariki",
+    "name:zh": "東博諾大區",
+    "type": "boundary",
+    "wikidata": "Q60764358",
+    "wikipedia": "en:Bono East Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 10212840,
+  "members": [
+    {
+      "type": "way",
+      "ref": 627461531,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627537643,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 270714073,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135816,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135839,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223535,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246606879,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135860,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 687082154,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 687082166,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 171032485,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822896373,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822900758,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920924,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920925,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920926,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874108,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 822920922,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135858,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135855,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 171015563,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135853,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135852,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135850,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135836,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874107,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135851,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874110,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135849,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135847,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135848,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135846,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135815,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135837,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230142,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 558708534,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135842,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135845,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135843,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 558712066,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329647,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230144,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230065,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627454828,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135840,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230149,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 653649337,
+      "role": "outer"
+    },
+    {
+      "type": "node",
+      "ref": 6913605258,
+      "role": "label"
+    },
+    {
+      "type": "node",
+      "ref": 443423477,
+      "role": "admin_centre"
+    },
+    {
+      "type": "relation",
+      "ref": 12982259,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12982258,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12982262,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12982260,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12982261,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 12982263,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-AF",
+    "admin_level": "4",
+    "boundary": "administrative",
+    "name": "Ahafo Region",
+    "name:de": "Ahafo Region",
+    "name:en": "Ahafo Region",
+    "name:es": "Región Ahafo",
+    "name:fa": "ناحیه آهافو",
+    "name:fr": "Région d'Ahafo",
+    "name:it": "Regione di Ahafo",
+    "name:ja": "アハフォ州",
+    "name:pl": "Region Ahafo",
+    "name:ru": "Ахафо",
+    "name:sw": "Mkoa wa Ahafo",
+    "name:zh": "阿哈福大區",
+    "type": "boundary",
+    "wikidata": "Q48804007",
+    "wikipedia": "en:Ahafo Region"
+  }
+},
+{
+  "type": "relation",
+  "id": 10212841,
+  "members": [
+    {
+      "type": "node",
+      "ref": 1821467628,
+      "role": "admin_centre"
+    },
+    {
+      "type": "node",
+      "ref": 6913605322,
+      "role": "label"
+    },
+    {
+      "type": "way",
+      "ref": 966966110,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246498897,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223515,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223510,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223514,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223509,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223545,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966966099,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329648,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223505,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 968874098,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223494,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223493,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223497,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223499,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223501,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246616762,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223512,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135838,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246606879,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223535,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135839,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965135816,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 270714073,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627537643,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 627461531,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 965230152,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 738329643,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223490,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246606869,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 267004109,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 267004113,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223536,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 278718401,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223537,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 966223542,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246435343,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 267004111,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 887721445,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 246435348,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 267004112,
+      "role": "outer"
+    },
+    {
+      "type": "relation",
+      "ref": 13004774,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004768,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004767,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004769,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004771,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004773,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004770,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004766,
+      "role": "subarea"
+    },
+    {
+      "type": "relation",
+      "ref": 13004772,
+      "role": "subarea"
+    }
+  ],
+  "tags": {
+    "ISO3166-2": "GH-WN",
+    "admin_level": "4",
+    "alt_name:de": "Western North Region",
+    "boundary": "administrative",
+    "name": "Western North Region",
+    "name:de": "Westliche Nordregion",
+    "name:en": "Western North Region",
+    "name:es": "Región Norte Occidental",
+    "name:fa": "ناحیه شمال غربی",
+    "name:fr": "Région du Nord-Ouest",
+    "name:it": "Regione Nordoccidentale",
+    "name:ja": "ウェスタン・ノース州",
+    "name:pl": "Region Zachodnio-Północny",
+    "name:ru": "Северо-Западная область (Гана)",
+    "name:sw": "Mkoa wa Kaskazini Magharibi",
+    "name:zh": "西北大區",
+    "type": "boundary",
+    "wikidata": "Q60764360",
+    "wikipedia": "en:Western North Region"
+  }
+}
+
+  ]
+}

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TabsContent } from "@/components/ui/tabs";
 import { Package, BarChart, AlertTriangle } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   ResponsiveContainer,
@@ -14,35 +14,51 @@ import {
   BarChart as BarChartComponent,
 } from "recharts";
 import { initialOrders, initialProducts, Order, Product } from ".";
+import { gql, useQuery } from '@apollo/client';
+import { ghSim } from "../VendorManagementSystem/helper";
 
+const GET_PRODUCT_FOR_VPM = gql`
+  query GET_PRODUCT_FOR_VPM {
+    getProductforVPM {
+      totalProducts
+      totalRevenue
+      totalProfit
+      
+      sideSwappers
+      personalDeliveryItems
+      zukoDeliveryItems
+    }
+  }
+`;  
+
+interface GetProductForVPMData {
+  totalProducts: string;
+  totalRevenue: string;
+  totalProfit: string;
+  lowStock: string;
+  sideSwappers: string;
+  personalDeliveryItems: string;
+  zukoDeliveryItems: string;
+}
 function PMDashboard({tabValue} :{tabValue:string}) {
   const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [productsVpm, setProductsVpm] = useState<GetProductForVPMData>();
   const [orders] = useState<Order[]>(initialOrders);
+  const { data, loading, error } = useQuery(GET_PRODUCT_FOR_VPM);
+  console.log("data",data);
+  useEffect(() => {
+    if (data) {
+      setProductsVpm(data.getProductforVPM);
+    }
+  }, [data]);
 
-  const getTotalRevenue = () => {
-    return products
-      .reduce((sum, product) => sum + product.price * product.salesLastMonth, 0)
-      .toFixed(2);
-  };
 
-  const getTotalProfit = () => {
-    return products
-      .reduce(
-        (sum, product) =>
-          sum + (product.price - product.cost) * product.salesLastMonth,
-        0
-      )
-      .toFixed(2);
-  };
   const getTopSellingProducts = () => {
     return [...products]
       .sort((a, b) => b.salesLastMonth - a.salesLastMonth)
       .slice(0, 5);
   };
 
-  const getLowStockProducts = () => {
-    return products.filter((product) => product.stock <= product.reorderPoint);
-  };
 
   const getOrderStatusCounts = () => {
     const statusCounts = {
@@ -75,7 +91,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                   <Package className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">{products.length}</div>
+                  <div className="text-2xl font-bold">{productsVpm?.totalProducts || 0}</div>
                 </CardContent>
               </Card>
               <Card className="shadow-sm">
@@ -86,7 +102,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                   <BarChart className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">${getTotalRevenue()}</div>
+                  <div className="text-2xl font-bold">{ghSim} {productsVpm?.totalRevenue || 0}</div>
                 </CardContent>
               </Card>
               <Card className="shadow-sm">
@@ -97,7 +113,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                   <BarChart className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">${getTotalProfit()}</div>
+                  <div className="text-2xl font-bold">{ghSim} {productsVpm?.totalProfit || 0}</div>
                 </CardContent>
               </Card>
               <Card className="shadow-sm" >
@@ -109,7 +125,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    {getLowStockProducts().length}
+                    {productsVpm?.lowStock || 0}
                   </div>
                 </CardContent>
               </Card>
@@ -122,7 +138,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    23
+                    {productsVpm?.sideSwappers || 0}
                   </div>
                 </CardContent>
               </Card>
@@ -135,7 +151,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    10
+                    {productsVpm?.personalDeliveryItems || 0}
                   </div>
                 </CardContent>
               </Card>
@@ -148,7 +164,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">
-                    123
+                    {productsVpm?.zukoDeliveryItems || 0} 
                   </div>
                 </CardContent>
               </Card>

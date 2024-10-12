@@ -27,6 +27,11 @@ import ProtectedIsAuthRoute from "./protectedIsAuth";
 import EnhancedVendorManagement from "../admin/VendorManagementSystem";
 import ProductManagement from "../admin/ProductManagement";
 import { VendorFileUploaderEdit } from "../admin/ProductManagement/Vendor-file-uploader";
+import Pay from "../pages/pay";
+import UserFinalCart from "../pages/cart/user";
+import Driver from "../pages/cart/driver";
+//import VonderFinalCheckout from "../pages/cart/vonder";
+import VenderFinalCheckout from "../pages/cart/vender";
 //AuthProvider
 function Navigation() {
               
@@ -50,7 +55,10 @@ function Navigation() {
               <Route path="/form" element={<ProtectedIsAuthRoute  element={<VendorForm />} />} />
               <Route path="/createswapper" element={<ProtectedIsAuthRoute  element={<SideSwapperForm />} />} />
               <Route path="/cart" element={<ProtectedIsAuthRoute  element={<CartProduct />} />} />
-
+              <Route path="/pay" element={<Pay  />} />
+              <Route path="/userfinalcart" element={<UserFinalCart  />} />
+              <Route path="/dms" element={<Driver  />} />
+              <Route path="/vendercheckout" element={<VenderFinalCheckout  />} />
              
              
              
@@ -60,6 +68,7 @@ function Navigation() {
               <Route path="/login" element={<LoginForm />} />
               <Route path="/vms" element={<EnhancedVendorManagement />} />
               <Route path="/pms" element={<ProductManagement />} />
+              
               
               <Route path="/pmsedit/:productId" element={<VendorFileUploaderEdit />} />
              
@@ -83,6 +92,5 @@ function Navigation() {
     </BrowserRouter>
   );
 }
-//<Route path="/market" element={<ProtectedRoute expectedTypes={['vendor']} element={<Market />} />} />
-// 
+
 export default Navigation;

@@ -59,6 +59,7 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.52.1",
     "react-p5": "^1.4.1",
+    "react-paystack": "^6.0.0",
     "react-router-dom": "^6.23.1",
     "react-wrap-balancer": "^1.1.1",
     "recharts": "^2.12.7",

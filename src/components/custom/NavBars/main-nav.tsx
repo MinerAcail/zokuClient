@@ -52,11 +52,18 @@ export function MainNav() {
         >
           VMS
         </Link>
+      
         <Link
           className={cn("transition-colors hover:text-foreground/80")}
           to={"/pms"}
         >
           PMS
+        </Link>
+        <Link
+          className={cn("transition-colors hover:text-foreground/80")}
+          to={"/dms"}
+        >
+          DMS
         </Link>
         {isAuthenticated && <NavigationMenus />}
         {swapperHasAccess && (
