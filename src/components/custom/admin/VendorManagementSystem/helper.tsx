@@ -61,6 +61,7 @@ export const getStatusBadge = (status: 'processing' | 'shipped' | 'delivered' | 
     name: string;
     price:  number;
     stock: string | number;
+    quantity: string | number;
     comments: ItemComment[];
   }
   
@@ -80,6 +81,7 @@ export const getStatusBadge = (status: 'processing' | 'shipped' | 'delivered' | 
   interface Product {
     id: string;
     name: string;
+    stock: string | number;
     price:  number; // Assuming it's a string since you are converting it to a number later
   }
   
@@ -149,7 +151,7 @@ export const getStatusBadge = (status: 'processing' | 'shipped' | 'delivered' | 
               id: vendorProduct.id,
               name: vendorProduct.name,
               price: vendorProduct.price,
-              stock: "unknown", // Placeholder; adjust if stock data is available
+              stock: vendorProduct.stock, // Placeholder; adjust if stock data is available
               comments: [] // Placeholder for comments
             });
           }

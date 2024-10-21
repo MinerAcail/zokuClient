@@ -9,27 +9,26 @@ import Empty, {
   ErrorMessage,
 } from "../../useAble/LoadAndErrorStatus";
 import { GET_ALL_CART } from "../../useAble/utils/cartLogic";
-import { Button } from "@/components/ui/button";
-import PaystackPayment from "../../admin/payment/ui/payment";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import LocationSelector from "../../admin/payment/ui/map";
+
+import { DateSelector } from "./date";
 
 interface CartItem {
   id: string;
   cartId: string;
   quantity: number;
-  product: Product; // Cart items contain product details
+  product: Product;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface UserCart {
   id: string;
   userType: string;
-  items: CartItem[]; // UserCart contains an array of CartItem
+  items: CartItem[];
 }
 
-// Response structure for GET_ALL_CART query
 export interface GetAllCartResponse {
-  getUserCart: UserCart; // Ensure this reflects the structure returned from the GraphQL query
+  getUserCart: UserCart;
 }
 
 function CartProduct() {
@@ -37,15 +36,13 @@ function CartProduct() {
     data,
     loading: cartLoading,
     error: cartError,
-  } = useQuery<GetAllCartResponse>(GET_ALL_CART); // Use the correct query with the appropriate type
-
+  } = useQuery<GetAllCartResponse>(GET_ALL_CART);
   const {
     sideSwapperProductIds,
     loading: sideSwapperLoading,
     error: sideSwapperError,
   } = useSideSwapperProductIds();
-
-  const [products, setProducts] = useState<CartItem[]>([]); // Update type to CartItem
+  const [products, setProducts] = useState<CartItem[]>([]);
 
   useEffect(() => {
     if (data?.getUserCart) {
@@ -56,77 +53,64 @@ function CartProduct() {
     }
   }, [data]);
 
-  // Show a loading spinner while data is loading
-  if (cartLoading || sideSwapperLoading) return <LoadingSpinner />;
+  const groupByDate = (items: CartItem[]) => {
+    return items.reduce((group, item) => {
+      const date = item.updatedAt.split("T")[0]; // Group by the updatedAt date (YYYY-MM-DD)
+      if (!group[date]) {
+        group[date] = [];
+      }
+      group[date].push(item);
+      return group;
+    }, {} as Record<string, CartItem[]>);
+  };
 
-  // Handle errors
-  if (cartError || sideSwapperError) {
+  const groupedProducts = groupByDate(products);
+
+  if (cartLoading || sideSwapperLoading) return <LoadingSpinner />;
+  if (cartError || sideSwapperError)
     return (
       <ErrorMessage message={cartError?.message || sideSwapperError?.message} />
     );
-  }
-
-  if (products.length === 0) {
+  if (products.length === 0)
     return <Empty message="No products found in your cart." />;
-  }
 
   return (
     <div>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button
-            variant="outline"
-            className="bg-white text-blue-500 border border-blue-500 rounded-lg shadow-md py-2 px-4 transition-all duration-300 hover:bg-blue-500 hover:text-white"
-          >
-            Proceed to Checkout
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px] bg-white rounded-lg shadow-lg p-6 m-4">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            Select Location
-          </h2>
-          <LocationSelector />
-          <PaystackPayment>
-            <Button
-              variant="outline"
-              className="bg-blue-500 text-white rounded-lg py-2 px-4 mt-4 w-full shadow-lg transition-all duration-300 hover:bg-blue-600"
-            >
-              Make a Payment
-            </Button>
-          </PaystackPayment>
-        </DialogContent>
-      </Dialog>
+      {Object.keys(groupedProducts).map((date) => (
+        <div key={date} className="my-3  flex flex-col gap-4">
+          <DateSelector dataDate={new Date(date)} />{" "}
+          {/* Display the grouped date */}
+          <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {groupedProducts[date].map((item) => {
+              const { id, quantity, product } = item;
+              const {
+                id: productId,
+                name,
+                imageUrls,
+                price,
+                brand,
+                title,
+              } = product;
+              const added = sideSwapperProductIds.has(productId);
+              const total = parseFloat((price * quantity).toFixed(2));
 
-      <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((item) => {
-          const { id, quantity, product } = item;
-          const {
-            id: productId,
-            name,
-            imageUrls,
-            price,
-            brand,
-            title,
-          } = product;
-
-          const added = sideSwapperProductIds.has(productId); // Check if the product is already added
-          const total = parseFloat((price * quantity).toFixed(2)); // Compute total price
-
-          return (
-            <ItemLayout
-              added={added}
-              productId={productId}
-              cartView={true}
-              description={title}
-              brand={brand}
-              price={total}
-              name={name}
-              key={id}
-              imageUrls={imageUrls}
-            />
-          );
-        })}
-      </div>
+              return (
+                <ItemLayout
+                  added={added}
+                  productId={productId}
+                  cartView={true}
+                  description={title}
+                  brand={brand}
+                  price={total}
+                  name={name}
+                  key={id}
+                  imageUrls={imageUrls}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

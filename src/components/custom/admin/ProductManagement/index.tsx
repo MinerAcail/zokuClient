@@ -4,7 +4,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import PMDashboard from "./dashboard";
 import PMProduct from "./product";
-import PMOrder from "./order";
+
 import PMDataControl from "./ dataControl";
 import { Link } from "react-router-dom";
 

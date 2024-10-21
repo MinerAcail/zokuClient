@@ -20,6 +20,7 @@ const ALL_CART_QUERY = gql`
           id
           name
           price
+          stock
           Vendor {
             id
             name
@@ -27,6 +28,7 @@ const ALL_CART_QUERY = gql`
             product {
               id
               name
+              stock 
               price
             }
           }
@@ -55,7 +57,7 @@ export default function EnhancedVendorManagement() {
   // Handle loading and error states
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
+console.log("vendors", vendors)
   const toggleVendorExpansion = (vendorId: string) => {
     setExpandedVendor(expandedVendor === vendorId ? null : vendorId);
   };

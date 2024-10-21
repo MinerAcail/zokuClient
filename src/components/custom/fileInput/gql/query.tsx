@@ -63,6 +63,8 @@ export interface Product {
   brand: string;
   title: string;
   Vendor: Vendor;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface GetAllProductData {

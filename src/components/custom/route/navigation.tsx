@@ -32,6 +32,7 @@ import UserFinalCart from "../pages/cart/user";
 import Driver from "../pages/cart/driver";
 //import VonderFinalCheckout from "../pages/cart/vonder";
 import VenderFinalCheckout from "../pages/cart/vender";
+import CartHistory from "../pages/cart/cartHistory";
 //AuthProvider
 function Navigation() {
               
@@ -55,6 +56,7 @@ function Navigation() {
               <Route path="/form" element={<ProtectedIsAuthRoute  element={<VendorForm />} />} />
               <Route path="/createswapper" element={<ProtectedIsAuthRoute  element={<SideSwapperForm />} />} />
               <Route path="/cart" element={<ProtectedIsAuthRoute  element={<CartProduct />} />} />
+              <Route path="/history" element={<ProtectedIsAuthRoute  element={<CartHistory />} />} />
               <Route path="/pay" element={<Pay  />} />
               <Route path="/userfinalcart" element={<UserFinalCart  />} />
               <Route path="/dms" element={<Driver  />} />

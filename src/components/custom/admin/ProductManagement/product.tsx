@@ -43,11 +43,13 @@ interface Product {
   price: number;
   brand: string;
   title: string;
+  stock: string;
+  cost: string;
   updatedAt: string;
 }
 
 // Define your GraphQL queries
-const GET_PRODUCTS_BY_VENDOR_ID = gql`
+export const GET_PRODUCTS_BY_VENDOR_ID = gql`
   query getAllProductByID($vendorid: String!) {
     getAllProductById(Vendorid: $vendorid) {
       id
@@ -57,6 +59,8 @@ const GET_PRODUCTS_BY_VENDOR_ID = gql`
       brand
       state
       title
+      cost
+      stock
     }
   }
 `;
@@ -110,6 +114,8 @@ const ProductRow = ({
   return (
     <TableRow key={product.id} className="items-center">
       <TableCell className="text-center align-middle">{product.name}</TableCell>
+      <TableCell className="text-center align-middle">{product.stock}</TableCell>
+      <TableCell className="text-center align-middle">{product.cost}</TableCell>
       <TableCell className="text-center align-middle">{`${ghSim} ${product.price}`}</TableCell>
       <TableCell className="text-center align-middle">
         {product.brand || "Unknown"}
@@ -163,6 +169,7 @@ function PMProduct({ tabValue }: { tabValue: string }) {
 
   const { data, loading, error } = useQuery(GET_PRODUCTS_BY_VENDOR_ID, {
     variables: { vendorid: user?.id },
+    fetchPolicy: 'cache-and-network',
   });
 
   useEffect(() => {
@@ -188,7 +195,7 @@ function PMProduct({ tabValue }: { tabValue: string }) {
         <Button
           className="rounded-xl"
           variant="secondary"
-          onClick={() => navigate(`/add-product`)}
+          onClick={() => navigate(`/vendorupload`)}
         >
           <Plus className="mr-2 h-4 w-4" /> Add Product
         </Button>
@@ -205,6 +212,8 @@ function PMProduct({ tabValue }: { tabValue: string }) {
           <TableHeader>
             <TableRow className="items-center">
               <TableHead className="text-center">Name</TableHead>
+              <TableHead className="text-center">Stock</TableHead>
+              <TableHead className="text-center">Cost</TableHead>
               <TableHead className="text-center">Price</TableHead>
               <TableHead className="text-center">Brand</TableHead>
               <TableHead className="text-center">Updated</TableHead>

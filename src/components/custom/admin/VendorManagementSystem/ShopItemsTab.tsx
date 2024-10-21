@@ -6,7 +6,7 @@ type ShopItemsTabProps = {
 };
 
 export default function ShopItemsTab({ vendor }: ShopItemsTabProps) {
-    console.log("shopItems",vendor.shopItems);
+  //  console.log("shopItems",vendor.shopItems);
     
   return (
     <Table>
@@ -22,7 +22,7 @@ export default function ShopItemsTab({ vendor }: ShopItemsTabProps) {
           <TableRow key={item.id}>
             <TableCell>{item.name}</TableCell>
             <TableCell>GH¢ {item.price}</TableCell>
-            <TableCell>{item.stock}</TableCell>
+            <TableCell>{item.stock || "unknown"}</TableCell>
           </TableRow>
         ))}
       </TableBody>

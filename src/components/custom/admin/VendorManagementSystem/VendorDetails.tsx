@@ -20,7 +20,7 @@ import {
     filterOrders,
   }: VendorDetailsProps) {
     if (expandedVendor !== vendor?.id) return null;
-    console.log("1orders",vendor.orders);
+   // console.log("1orders",vendor.orders);
   
     return (
       <div className="mt-4 bg-[#ecd0c2] p-4 m-3 tex rounded-[10px]">

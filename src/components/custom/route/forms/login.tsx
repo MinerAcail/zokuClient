@@ -65,7 +65,8 @@ export function LoginForm() {
         Auth(result?.login)
         setSuccessMessage(`${result.login.name} has signIn`);
         setTimeout(()=>{
-          navigate("/",{replace:true})
+          navigate(-1) // go back previous page -1 will do the job
+          // navigate("/",{replace:true})
         },1000)
       }
     } catch (err) {

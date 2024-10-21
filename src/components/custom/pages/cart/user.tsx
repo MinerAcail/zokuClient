@@ -72,25 +72,12 @@ export default function UserFinalCart() {
             </TabsContent>
             <TabsContent value="details">
               <div className="mt-4 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <h3 className="font-semibold">Shipping Address</h3>
-                    <p className="text-sm text-muted-foreground">
-                      John Doe
-                      <br />
-                      123 Main St
-                      <br />
-                      Anytown, ST 12345
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Order Details</h3>
-                    <p className="text-sm text-muted-foreground">
-                      1x Widget Pro
-                      <br />
-                      2x Gadget Mini
-                    </p>
-                  </div>
+                {/* responsive grid */}
+                <div className="grid  text-white text-lg grid-cols-1 md:grid-cols-2  gap-4">
+                  <DeluxeRating />
+                  
+                  <CheckboxMultiple />
+
                 </div>
               </div>
             </TabsContent>
@@ -144,4 +131,231 @@ export default function UserFinalCart() {
       </Card>
     </div>
   );
+}
+
+
+
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+//import { toast } from "@/components/hooks/use-toast"
+//import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { toast } from "@/components/ui/use-toast";
+const items = [
+  {
+    id: "1xWidgetPro",
+    label: "1x Widget Pro",
+  },
+  //more items
+  {
+    id: "2xGadgetMini",
+    label: "2x Gadget Mini",
+  },    
+  {
+    id: "3xToolMax",
+    label: "3x Tool Max",
+  },
+  {
+    id: "4xDongleUltra",
+    label: "4x Dongle Ultra",
+  },
+  {
+    id: "5xCablePro",
+    label: "5x Cable Pro",
+  },
+  {
+    id: "6xMousePro",
+    label: "6x Mouse Pro",
+  }
+  ,{
+    id: "7xKeyboardPro",
+    label: "7x Keyboard Pro",
+  }
+
+  
+] as const
+
+const FormSchema = z.object({
+  items: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "You have to select at least one item.",
+  }),
+})
+
+export function CheckboxMultiple() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      items: ["recents", "home"],
+    },
+  })
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    })
+  }
+
+  return (
+    <div className="p-6 bg-gradient-to-br from-gray-300 to-gray-400 rounded-xl shadow-lg ">
+
+    <Form {...form}>
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="space-y-4 flex flex-col items-center justify-center w-full  text-center"
+    >
+      <FormField
+        control={form.control}
+        name="items"
+        render={() => (
+          <FormItem className="w-full max-w-lg">
+            <div className="mb-4">
+              <FormLabel className="text-base">Items</FormLabel>
+              <FormDescription>
+                Select the items that have been delivered.
+              </FormDescription>
+            </div>
+            <div className="flex flex-col items-center">
+              {items.map((item) => (
+                <FormField
+                  key={item.id}
+                  control={form.control}
+                  name="items"
+                  render={({ field }) => {
+                    return (
+                      <FormItem
+                        key={item.id}
+                        className="flex flex-row justify-between items-center w-3/6 px-3 py-1 space-x-3"
+                      >
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value?.includes(item.id)}
+                            onCheckedChange={(checked) => {
+                              return checked
+                                ? field.onChange([...field.value, item.id])
+                                : field.onChange(
+                                    field.value?.filter(
+                                      (value) => value !== item.id
+                                    )
+                                  )
+                            }}
+                          />
+                        </FormControl>
+                        <FormLabel className="font-normal">
+                          {item.label}
+                        </FormLabel>
+                      </FormItem>
+                    )
+                  }}
+                />
+              ))}
+            </div>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <Button type="submit" className="w-2/4">
+        Submit
+      </Button>
+    </form>
+  </Form>
+  </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Star } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+interface RatingProps {
+  initialRating?: number
+  onChange?: (rating: number) => void
+  readonly?: boolean
+  label?: string
+  description?: string
+}
+export function DeluxeRating({
+  initialRating = 0,
+  onChange,
+  readonly = false,
+  label = 'Rate your experience',
+  description = 'Select the number of stars to rate'
+}: RatingProps = {}) {
+  const [rating, setRating] = useState(initialRating)
+  const [hover, setHover] = useState(0)
+
+  const handleClick = (value: number) => {
+    if (!readonly) {
+      setRating(value)
+      onChange?.(value)
+    }
+  }
+
+  return (
+    <div className="p-6 h-fit text-white bg-gradient-to-br from-gray-300 to-gray-400 rounded-xl shadow-lg max-w-sm mx-auto">
+      {label && (
+        <h2 className="text-2xl font-bold mb-2 text-white">{label}</h2>
+      )}
+      {description && (
+        <p className="text-sm text-gray-300 mb-4">{description}</p>
+      )}
+      <div className="flex items-center justify-center space-x-2">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <motion.div
+            key={star}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <Star
+              className={`w-10 h-10 cursor-pointer transition-all duration-300 ${
+                star <= (hover || rating)
+                  ? 'text-yellow-300 fill-yellow-300 filter drop-shadow-lg'
+                  : 'text-gray-500'
+              } ${readonly ? 'cursor-default' : ''}`}
+              onClick={() => handleClick(star)}
+              onMouseEnter={() => !readonly && setHover(star)}
+              onMouseLeave={() => !readonly && setHover(0)}
+            />
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-4 text-center">
+        <motion.span
+          className="text-lg font-semibold text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          key={rating}
+        >
+          {rating > 0 ? `${rating} out of 5` : 'No rating yet'}
+        </motion.span>
+      </div>
+    </div>
+  )
 }
