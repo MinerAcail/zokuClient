@@ -1,55 +1,11 @@
-import { ApolloError, gql, useMutation, useQuery } from "@apollo/client";
+import { ApolloError,useMutation, useQuery } from "@apollo/client";
 import { ShoppingCart } from "lucide-react";
 import { useState, useEffect } from "react";
-import { GetAllCartResponse } from "../../pages/cart";
 import AddToCategories from "../../pages/cart/toast/addToCategories";
 import { toast } from "sonner";
 import { CartToast } from "../../pages/cart/toast/Toast";
+import { ADD_ITEM_TO_CART, ADD_ITEM_TO_GROUP, GET_ALL_CART, GetAllCartResponse } from "./cartOrderLogic";
 
-// Define the mutation for adding an item to the cart
-export const ADD_ITEM_TO_CART = gql`
-  mutation AddItemToCart($productId: String!, $quantity: Int!) {
-    addItemToCart(productId: $productId, quantity: $quantity) {
-      id
-      quantity
-      __typename
-      cartId
-      product {
-        id
-        name
-        imageUrls
-        price
-        brand
-        title
-      }
-    }
-  }
-`;
-
-export const GET_ALL_CART = gql`
-  query GetUserCart {
-    getUserCart {
-      id
-      userType
-      __typename
-      items {
-        id
-        cartId
-        quantity
-        createdAt
-        updatedAt
-        product {
-          id
-          name
-          imageUrls
-          price
-          brand
-          title
-        }
-      }
-    }
-  }
-`;
 
 // Function to handle adding an item to the cart
 const handleAddToCartClick = async (
@@ -77,6 +33,7 @@ const handleAddToCartClick = async (
       );
     } else {
       console.error("Failed to add item to cart:", error);
+      toast.error("Failed to add item to cart");
     }
   }
 };
@@ -89,7 +46,8 @@ function CartLogic({ productId }: { productId: string }) {
   const [cartitemid, setCartitemid] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false); // State for dialog
-
+  const [checkState, setCheckState] = useState(false); // State for dialog
+// let  : boolean
   const [addItemToCart] = useMutation(ADD_ITEM_TO_CART, {
     update(cache, { data: mutationData }) {
       if (mutationData) {
@@ -137,6 +95,8 @@ function CartLogic({ productId }: { productId: string }) {
     },
   });
 
+  const [addItemToCartGroupLabel] = useMutation(ADD_ITEM_TO_GROUP);
+
   useEffect(() => {
     if (data && data.getUserCart) {
       const itemInCart = data.getUserCart.items.find(
@@ -148,8 +108,8 @@ function CartLogic({ productId }: { productId: string }) {
         setQuantity(itemInCart.quantity); // Set the quantity if the item is already in the cart
       }
     }
-  }, [data, productId, refetch]);
-
+  }, [data, productId,refetch]);
+  let  IDcartitemid :string;
   const handleClick = async () => {
     const newQuantity = 1; // Increment quantity by 1 on click
 
@@ -163,28 +123,60 @@ function CartLogic({ productId }: { productId: string }) {
 
     if (response?.data?.addItemToCart?.id) {
       const cartitemid = response.data.addItemToCart.id;
-
+      IDcartitemid = cartitemid // i did this because the state doesn't work but let  IDcartitemid :string; work
+      // setCheckState(true)
       // Call handleAddToCategories immediately after adding the item
       setCartitemid(cartitemid);
-      handleAddToCategories();
       // Update the quantity locally
       setQuantity(newQuantity + quantity);
+      handleAddToCategories();
     }
   };
 
-  const handleAddToCategories = () => {
-    CartToast({
-      message: "Item added to categories",
+  const SendFunc = async () => {
+    try {
+      
+      await addItemToCartGroupLabel({
+        variables: { cartItemId: IDcartitemid },
+      });
 
-      description:
-        "Do you want to add this item to your selected categories? if no, just ignore it",
-      onYes: () => {
-        // Logic for adding to categories
-        // toast.success("Item successfully added to categories!");
-        setIsDialogOpen(true); // Open the dialog when "Yes" is clicked
-      },
-    });
+    } catch (error) {
+      toast.error("Failed to add item to group label");
+      console.error(error);
+    }
   };
+  const handleAddToCategories = () => {
+    // let timer;
+  
+  
+    const  timer = setTimeout(() => {
+        toast.success("Saving as UnGroup");
+        toast.dismiss()
+
+        SendFunc();
+      }, 4000);
+    
+      // Check if user clicks yes or no
+      CartToast({
+        message: "Item added to categories",
+        description:
+          "Do you want to add this item to your selected categories? if no, just ignore it",
+        onYes: () => {
+          clearTimeout(timer); // Clear the timer if "Yes" is clicked
+          console.log("Yes clicked, timer cleared"); // Ensure this is logged
+          setIsDialogOpen(true);
+      setCheckState(true)
+          
+        },
+        onNo: () => {
+          clearTimeout(timer);
+          console.log("No clicked, timer cleared"); // Ensure this is logged
+          toast.success("Saving as UnGroup");
+          SendFunc();
+        },
+      });
+    };
+  
 
   return (
     <div>
@@ -209,8 +201,9 @@ function CartLogic({ productId }: { productId: string }) {
       <AddToCategories
         cartitemid={cartitemid}
         isDialogOpen={isDialogOpen}
-        onClose={setIsDialogOpen}
-        currentItem={""}
+        onClose={()=>setIsDialogOpen(false)}
+        checkState={checkState}
+        setCheckState={setCheckState}
       />
     </div>
   );

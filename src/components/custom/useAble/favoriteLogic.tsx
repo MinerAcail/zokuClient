@@ -4,7 +4,8 @@ import { MessageCircleDashed, ShoppingCart, SwatchBook } from "lucide-react";
 import { DrawSheet } from "./drawer";
 import CartLogic from "./utils/cartLogic";
 import { useAuth } from "@/middleware/context/authContext";
-
+import CartOrderLogic from "./utils/cartOrderLogic";
+import { useLocation } from "react-router-dom";
 // Define TypeScript types for GraphQL responses
 type FavoriteProduct = {
   id: string;
@@ -34,6 +35,7 @@ type RemoveFavoriteProductResponse = {
 // Define TypeScript types for component props
 interface FavoriteLogicIconsProps {
   productId: string;
+  quantityGroup:number;
 }
 
 const ADD_FAVORITE_PRODUCT = gql`
@@ -78,10 +80,12 @@ export const GET_USER_FAVORITE_PRODUCTS = gql`
   }
 `;
 
-export function FavoriteLogicIcons({ productId }: FavoriteLogicIconsProps) {
+export function FavoriteLogicIcons({ productId,quantityGroup }: FavoriteLogicIconsProps) {
+  const location = useLocation();
+  const [isCartPage, setIsCartPage] = useState(false);
   const [selected, setSelected] = useState(false);
   const [clickError, setClickError] = useState(false);
-const {isAuthenticated}=useAuth()
+  const { isAuthenticated } = useAuth();
   const { data, loading, error } = useQuery<GetUserFavoriteProductsResponse>(
     GET_USER_FAVORITE_PRODUCTS
   );
@@ -141,7 +145,15 @@ const {isAuthenticated}=useAuth()
         data.getUserFavoriteProducts.some((fav) => fav.id === productId)
       );
     }
-  }, [data, productId]);
+    // Check if the current URL is the "/cart" route
+    if (location.pathname === "/cart") {
+      setIsCartPage(true);
+      // Perform other actions here, such as updating a status
+      console.log("You are on the cart page.");
+    } else {
+      setIsCartPage(false);
+    }
+  }, [data, productId, location]);
 
   const handleSwatchBookClick = async () => {
     try {
@@ -173,33 +185,35 @@ const {isAuthenticated}=useAuth()
         {!clickError ? (
           <>
             <DrawSheet productId={productId}>
-              <MessageCircleDashed className={`size-[18px] cursor-pointer ${ !isAuthenticated && "ml-2"}`} />
-            </DrawSheet>
-            {
-        isAuthenticated &&
-        <>
-        
-            <div
-              onClick={() => setClickError(true)}
-              className="flex items-center text-[#ffdaf9] "
-            >
-              <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
-              <div
-                className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
-                  selected ? "bg-white" : "bg-transparent"
+              <MessageCircleDashed
+                className={`size-[18px] cursor-pointer ${
+                  !isAuthenticated && "ml-2"
                 }`}
-              >
-                <SwatchBook
-                  className={`size-[18px] transition-transform duration-300 ${
-                    selected
-                      ? "transform rotate-[360deg] text-black"
-                      : "text-white"
-                  }`}
-                />
-              </div>
-            </div>
-        </>
-        }
+              />
+            </DrawSheet>
+            {isAuthenticated && (
+              <>
+                <div
+                  onClick={() => setClickError(true)}
+                  className="flex items-center text-[#ffdaf9] "
+                >
+                  <ShoppingCart className="mx-2 size-[18px] cursor-pointer" />
+                  <div
+                    className={`mr-2 flex justify-center items-center rounded-xl w-8 h-8 cursor-pointer ${
+                      selected ? "bg-white" : "bg-transparent"
+                    }`}
+                  >
+                    <SwatchBook
+                      className={`size-[18px] transition-transform duration-300 ${
+                        selected
+                          ? "transform rotate-[360deg] text-black"
+                          : "text-white"
+                      }`}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </>
         ) : (
           <p
@@ -218,29 +232,28 @@ const {isAuthenticated}=useAuth()
       <DrawSheet productId={productId}>
         <MessageCircleDashed className="size-[18px] cursor-pointer" />
       </DrawSheet>
-      {
-        isAuthenticated &&
-
+      {isAuthenticated && (
         <>
-        
-      <CartLogic productId={productId} />
-      
-      <div
-        className={`mr-2 flex justify-center items-center rounded-xl w-5 h-5 cursor-pointer ${
-          selected ? "bg-white" : "bg-transparent"
-        }`}
-        onClick={handleSwatchBookClick}
-      >
-        
-        <SwatchBook
-          className={`size-[18px] transition-transform duration-300 ${
-            selected ? "transform rotate-[360deg] text-black" : "text-white"
-          }`}
-        />
-      </div>
+          {isCartPage ? (
+            <CartOrderLogic productId={productId} quantityGroup={quantityGroup} />
+          ) : (
+            <CartLogic productId={productId} />
+          )}
+
+          <div
+            className={`mr-2 flex justify-center items-center rounded-xl w-5 h-5 cursor-pointer ${
+              selected ? "bg-white" : "bg-transparent"
+            }`}
+            onClick={handleSwatchBookClick}
+          >
+            <SwatchBook
+              className={`size-[18px] transition-transform duration-300 ${
+                selected ? "transform rotate-[360deg] text-black" : "text-white"
+              }`}
+            />
+          </div>
         </>
-      }
-   
+      )}
     </div>
   );
 }

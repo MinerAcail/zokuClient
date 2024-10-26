@@ -15,10 +15,12 @@ import useProtect, { ProtectType } from "@/middleware/useProtect";
 
 interface ItemLayoutProps {
   added: boolean;
-  name: string;
+  label: string;
+
   price: number;
   brand: string;
   description: string;
+  quantityGroup:number;
   productId: string;
   imageUrls: string[]; // Add imageUrls prop
   cartView?: boolean;
@@ -26,6 +28,8 @@ interface ItemLayoutProps {
 
 export const ItemLayout = ({
   name,
+  label,
+  refetch,
   price,
   brand,
   description,
@@ -33,6 +37,7 @@ export const ItemLayout = ({
   productId,
   added,
   cartView,
+  quantityGroup
 }: ItemLayoutProps) => {
   const { hasAccess:vendorHasAccess } = useProtect([ProtectType.vendor]); 
   const { hasAccess:swapperHasAccess } = useProtect([ProtectType.swapper]); 
@@ -83,8 +88,10 @@ export const ItemLayout = ({
         <CarouselContent className="flex h-full">
           <CarouselItem className="flex justify-around p-2">
             <ProductDetails name={name} />
-            <FavoriteLogic productId={productId} />
+            <FavoriteLogic productId={productId} quantityGroup={quantityGroup} /> 
             <ProductBrandPrice
+            refetch={refetch}
+            label={label}
               productId={productId}
               cartView={cartView}
               brand={brand}
@@ -127,13 +134,13 @@ const ProductDetails = ({ name }: { name: string }) => (
   </div>
 );
 
-export const FavoriteLogic = ({ productId }: { productId: string }) => (
+export const FavoriteLogic = ({ productId,quantityGroup }: { productId: string ,quantityGroup:number}) => (
   <div className="flex items-center mb-2">
     <Separator
       orientation="vertical"
       className="border-l border-gray-300 h-[34px]"
     />
-    <FavoriteLogicIcons productId={productId} />
+    <FavoriteLogicIcons productId={productId} quantityGroup={quantityGroup}/>
   </div>
 );
 

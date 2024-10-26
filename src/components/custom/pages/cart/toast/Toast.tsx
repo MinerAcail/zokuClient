@@ -26,7 +26,7 @@ export function CartToast({
           <button
             onClick={() => {
               onYes && onYes(); // Call onYes function
-              toast.dismiss(); // Close the toast
+              // toast.dismiss(); // Close the toast
             }}
             className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full shadow-md transition duration-300 ease-in-out"
           >
@@ -35,7 +35,7 @@ export function CartToast({
           <button
             onClick={() => {
               onNo && onNo(); // Call onNo function
-              toast.dismiss(); // Close the toast
+              // toast.dismiss(); // Close the toast
             }}
             className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-full shadow-md transition duration-300 ease-in-out"
           >

@@ -4,18 +4,10 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import LocationSelector from "../../admin/payment/ui/map";
 import PaystackPayment from "../../admin/payment/ui/payment";
 
-export function DateSelector({ dataDate }: { dataDate: Date }) {
-  const formatDate = (date: Date) => {
-    return date?.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
+export function DateSelector({ labelData,key }: { labelData: string ,key:string}) {
+ 
   return (
-    <Card className="w-full max-w-md mx-auto bg-slate-500 rounded-[10px]">
+    <Card key={key} className="w-full max-w-md mx-auto bg-slate-500 rounded-[10px]">
       <CardContent className="p-6 flex flex-row gap-4">
         <Dialog>
           <DialogTrigger asChild>
@@ -43,7 +35,7 @@ export function DateSelector({ dataDate }: { dataDate: Date }) {
         </Dialog>
         <div className="flex items-center justify-between">
           <div className="text-center font-semibold">
-            {formatDate(dataDate)}
+            {labelData}
           </div>
         </div>
       </CardContent>

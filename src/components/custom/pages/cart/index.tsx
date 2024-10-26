@@ -8,81 +8,74 @@ import Empty, {
   LoadingSpinner,
   ErrorMessage,
 } from "../../useAble/LoadAndErrorStatus";
-import { GET_ALL_CART } from "../../useAble/utils/cartLogic";
-
+import { GET_ALL_GROUP_LABEL } from "../../useAble/utils/cartOrderLogic";
 import { DateSelector } from "./date";
 
-interface CartItem {
+// Define interfaces for the new structure
+interface CartProductItem {
   id: string;
-  cartId: string;
-  quantity: number;
   product: Product;
-  createdAt: string;
-  updatedAt: string;
 }
 
-interface UserCart {
+interface GroupedItem {
   id: string;
-  userType: string;
-  items: CartItem[];
+  quantityGroup: number;
+  cartItem: CartProductItem;
 }
 
-export interface GetAllCartResponse {
-  getUserCart: UserCart;
+interface GroupLabel {
+  id: string;
+  groupLabel: string;
+  items: GroupedItem[];
+}
+
+export interface GetAllGroupLabelResponse {
+  getAllgroupLabel: GroupLabel[];
 }
 
 function CartProduct() {
+  // Use the new query
   const {
     data,
     loading: cartLoading,
     error: cartError,
-  } = useQuery<GetAllCartResponse>(GET_ALL_CART);
+    refetch
+  } = useQuery<GetAllGroupLabelResponse>(GET_ALL_GROUP_LABEL);
   const {
     sideSwapperProductIds,
     loading: sideSwapperLoading,
     error: sideSwapperError,
   } = useSideSwapperProductIds();
-  const [products, setProducts] = useState<CartItem[]>([]);
+  const [groupedItems, setGroupedItems] = useState<GroupLabel[]>([]);
 
   useEffect(() => {
-    if (data?.getUserCart) {
-      const filteredProducts = data.getUserCart.items.filter(
-        (item) => item.quantity > 0
-      );
-      setProducts(filteredProducts);
+    if (data?.getAllgroupLabel) {
+      // Store the group-labeled cart items
+      setGroupedItems(data.getAllgroupLabel);
     }
-  }, [data]);
-
-  const groupByDate = (items: CartItem[]) => {
-    return items.reduce((group, item) => {
-      const date = item.updatedAt.split("T")[0]; // Group by the updatedAt date (YYYY-MM-DD)
-      if (!group[date]) {
-        group[date] = [];
-      }
-      group[date].push(item);
-      return group;
-    }, {} as Record<string, CartItem[]>);
-  };
-
-  const groupedProducts = groupByDate(products);
+    refetch()
+  }, [data,refetch]);
 
   if (cartLoading || sideSwapperLoading) return <LoadingSpinner />;
+  if (groupedItems.length === 0)
+    return <Empty message="No products found in your cart." />;
   if (cartError || sideSwapperError)
     return (
       <ErrorMessage message={cartError?.message || sideSwapperError?.message} />
     );
-  if (products.length === 0)
-    return <Empty message="No products found in your cart." />;
 
   return (
     <div>
-      {Object.keys(groupedProducts).map((date) => (
-        <div key={date} className="my-3  flex flex-col gap-4">
-          <DateSelector dataDate={new Date(date)} />{" "}
-          {/* Display the grouped date */}
-          <div className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {groupedProducts[date].map((item) => {
-              const { id, quantity, product } = item;
+      {groupedItems.map((group) => (
+        <div key={group.id} className="my-3 flex flex-col gap-4">
+          <DateSelector key={group.id} labelData={group.groupLabel} />{" "}
+          {/* Display groupLabel instead of date */}
+          <div
+            key={group.id}
+            className="m-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          >
+            {group.items.map(({ cartItem, quantityGroup }) => {
+              const { id, product } = cartItem;
               const {
                 id: productId,
                 name,
@@ -92,10 +85,11 @@ function CartProduct() {
                 title,
               } = product;
               const added = sideSwapperProductIds.has(productId);
-              const total = parseFloat((price * quantity).toFixed(2));
-
+              const total = parseFloat((price * quantityGroup).toFixed(2));
+              const label = group.groupLabel;
               return (
                 <ItemLayout
+                  label={label}
                   added={added}
                   productId={productId}
                   cartView={true}
@@ -103,8 +97,10 @@ function CartProduct() {
                   brand={brand}
                   price={total}
                   name={name}
+                  refetch={refetch}
                   key={id}
                   imageUrls={imageUrls}
+                  quantityGroup={quantityGroup}
                 />
               );
             })}
