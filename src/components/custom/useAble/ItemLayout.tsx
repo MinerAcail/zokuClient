@@ -29,7 +29,7 @@ interface ItemLayoutProps {
 export const ItemLayout = ({
   name,
   label,
-  refetch,
+  // refetch,
   price,
   brand,
   description,
@@ -90,7 +90,7 @@ export const ItemLayout = ({
             <ProductDetails name={name} />
             <FavoriteLogic productId={productId} quantityGroup={quantityGroup} /> 
             <ProductBrandPrice
-            refetch={refetch}
+            // refetch={refetch}
             label={label}
               productId={productId}
               cartView={cartView}

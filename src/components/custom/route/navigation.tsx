@@ -30,7 +30,6 @@ import { VendorFileUploaderEdit } from "../admin/ProductManagement/Vendor-file-u
 import Pay from "../pages/pay";
 import UserFinalCart from "../pages/cart/user";
 import Driver from "../pages/cart/driver";
-//import VonderFinalCheckout from "../pages/cart/vonder";
 import VenderFinalCheckout from "../pages/cart/vender";
 import CartHistory from "../pages/cart/cartHistory";
 //AuthProvider

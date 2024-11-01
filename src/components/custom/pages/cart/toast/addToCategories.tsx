@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 import { gql, useMutation, useQuery } from "@apollo/client";
-const CLEAN_UP_ADD_ITEM_TO_CART = gql`
+export const CLEAN_UP_ADD_ITEM_TO_CART = gql`
   mutation CleanUpAddItemToCart($cartItemId: String!) {
     CleanUpAddItemToCart(cartItemId: $cartItemId)
   }

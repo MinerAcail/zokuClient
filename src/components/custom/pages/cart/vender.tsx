@@ -1,36 +1,64 @@
-import { useState } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { Package, Truck, DollarSign, Users, ShoppingCart, AlertTriangle } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
-import { Badge } from "@/components/ui/badge"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import PMOrder from '../../admin/ProductManagement/order'
-import { ghSim } from '../../admin/VendorManagementSystem/helper'
+import { useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import {
+  Package,
+  Truck,
+  DollarSign,
+  Users,
+  ShoppingCart,
+  AlertTriangle,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import PMOrder from "../../admin/ProductManagement/order";
+import { ghSim } from "../../admin/VendorManagementSystem/helper";
+import PMOverview from "../../admin/ProductManagement/overview";
 
 // Sample data for charts
 const deliveryData = [
-  { name: 'Mon', onTime: 120, delayed: 20 },
-  { name: 'Tue', onTime: 132, delayed: 18 },
-  { name: 'Wed', onTime: 101, delayed: 25 },
-  { name: 'Thu', onTime: 134, delayed: 16 },
-  { name: 'Fri', onTime: 90, delayed: 30 },
-  { name: 'Sat', onTime: 70, delayed: 10 },
-  { name: 'Sun', onTime: 50, delayed: 5 },
-]
-
+  { name: "Mon", onTime: 120, delayed: 20 },
+  { name: "Tue", onTime: 132, delayed: 18 },
+  { name: "Wed", onTime: 101, delayed: 25 },
+  { name: "Thu", onTime: 134, delayed: 16 },
+  { name: "Fri", onTime: 90, delayed: 30 },
+  { name: "Sat", onTime: 70, delayed: 10 },
+  { name: "Sun", onTime: 50, delayed: 5 },
+];
 
 export default function VenderFinalCheckout() {
-  const [inventoryLevel, setInventoryLevel] = useState(72)
+  const [inventoryLevel, setInventoryLevel] = useState(72);
 
   return (
     <div className="container mx-auto p-4">
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-2xl">Company Delivery Dashboard</CardTitle>
-          <CardDescription>Monitor and manage delivery operations</CardDescription>
+          <CardDescription>
+            Monitor and manage delivery operations
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="overview" className="w-full">
@@ -41,53 +69,72 @@ export default function VenderFinalCheckout() {
               <TabsTrigger value="logistics">Logistics</TabsTrigger>
               <TabsTrigger value="performance">Performance</TabsTrigger>
             </TabsList>
-        <PMOrder tabValue="orders" />
+            <PMOrder tabValue="orders" />
+            <PMOverview tabValue="overview" />
 
-            <TabsContent value="overview">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
-                    <ShoppingCart className="h-4 w-4 text-muted-foreground" />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">1,234</div>
-                    <p className="text-xs text-muted-foreground">+15% from last month</p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Active Deliveries</CardTitle>
-                    <Truck className="h-4 w-4 text-muted-foreground" />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">89</div>
-                    <p className="text-xs text-muted-foreground">23 scheduled for today</p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Delivery Revenue</CardTitle>
-                    
-                    <div className="h-4 w-4 text-muted-foreground">{ghSim.slice(2, 3)}</div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">{ghSim} 23,456</div>  
-                    <p className="text-xs text-muted-foreground">+2.5% from last week</p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Customer Satisfaction</CardTitle>
-                    <Users className="h-4 w-4 text-muted-foreground" />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">98%</div>
-                    <p className="text-xs text-muted-foreground">+2% from last month</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
+              {/* <TabsContent value="overview">
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium">
+                        Total Orders
+                      </CardTitle>
+                      <ShoppingCart className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">1,234</div>
+                      <p className="text-xs text-muted-foreground">
+                        +15% from last month
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium">
+                        Active Deliveries
+                      </CardTitle>
+                      <Truck className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">89</div>
+                      <p className="text-xs text-muted-foreground">
+                        23 scheduled for today
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium">
+                        Delivery Revenue
+                      </CardTitle>
+
+                      <div className="h-4 w-4 text-muted-foreground">
+                        {ghSim.slice(2, 3)}
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">{ghSim} 23,456</div>
+                      <p className="text-xs text-muted-foreground">
+                        +2.5% from last week
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                      <CardTitle className="text-sm font-medium">
+                        Customer Satisfaction
+                      </CardTitle>
+                      <Users className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">98%</div>
+                      <p className="text-xs text-muted-foreground">
+                        +2% from last month
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </TabsContent> */}
             <TabsContent value="inventory">
               <div className="space-y-4">
                 <Card>
@@ -97,8 +144,12 @@ export default function VenderFinalCheckout() {
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-center">
-                        <span className="text-sm font-medium">Stock Level:</span>
-                        <span className="ml-2 text-2xl font-bold">{inventoryLevel}%</span>
+                        <span className="text-sm font-medium">
+                          Stock Level:
+                        </span>
+                        <span className="ml-2 text-2xl font-bold">
+                          {inventoryLevel}%
+                        </span>
                       </div>
                       <Progress value={inventoryLevel} className="w-full" />
                       <div className="flex justify-between text-sm text-muted-foreground">
@@ -155,7 +206,9 @@ export default function VenderFinalCheckout() {
                   </CardHeader>
                   <CardContent>
                     <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                      <span className="text-muted-foreground">Interactive Map View</span>
+                      <span className="text-muted-foreground">
+                        Interactive Map View
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
@@ -191,12 +244,18 @@ export default function VenderFinalCheckout() {
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">Current Efficiency Score</p>
+                        <p className="text-sm text-muted-foreground">
+                          Current Efficiency Score
+                        </p>
                         <div className="flex items-center">
                           <span className="text-2xl font-bold">87%</span>
-                          <Badge className="ml-2" variant="secondary">+5%</Badge>
+                          <Badge className="ml-2" variant="secondary">
+                            +5%
+                          </Badge>
                         </div>
-                        <Button className="w-full mt-4" variant="outline">Optimize Routes</Button>
+                        <Button className="w-full mt-4" variant="outline">
+                          Optimize Routes
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -229,8 +288,16 @@ export default function VenderFinalCheckout() {
                         <YAxis />
                         <ChartTooltip content={<ChartTooltipContent />} />
                         <Legend />
-                        <Bar dataKey="onTime" stackId="a" fill="var(--color-onTime)" />
-                        <Bar dataKey="delayed" stackId="a" fill="var(--color-delayed)" />
+                        <Bar
+                          dataKey="onTime"
+                          stackId="a"
+                          fill="var(--color-onTime)"
+                        />
+                        <Bar
+                          dataKey="delayed"
+                          stackId="a"
+                          fill="var(--color-delayed)"
+                        />
                       </BarChart>
                     </ResponsiveContainer>
                   </ChartContainer>
@@ -281,5 +348,5 @@ export default function VenderFinalCheckout() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

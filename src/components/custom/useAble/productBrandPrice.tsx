@@ -35,7 +35,7 @@ const ProductBrandPrice = ({
   brand,
   price,
   productId,
-  refetch,
+  // refetch,
   label,
   cartView = false, // Default to false if not provided
 }: {

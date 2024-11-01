@@ -60,7 +60,7 @@ function PMDashboard({tabValue} :{tabValue:string}) {
   };
 
 
-  const getOrderStatusCounts = () => {
+  const getOrderStatusCounts = () => {  
     const statusCounts = {
       pending: 0,
       processing: 0,

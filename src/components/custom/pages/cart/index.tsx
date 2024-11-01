@@ -39,7 +39,7 @@ function CartProduct() {
     data,
     loading: cartLoading,
     error: cartError,
-    refetch
+    // refetch
   } = useQuery<GetAllGroupLabelResponse>(GET_ALL_GROUP_LABEL);
   const {
     sideSwapperProductIds,
@@ -53,8 +53,8 @@ function CartProduct() {
       // Store the group-labeled cart items
       setGroupedItems(data.getAllgroupLabel);
     }
-    refetch()
-  }, [data,refetch]);
+    // refetch()
+  }, [data]);
 
   if (cartLoading || sideSwapperLoading) return <LoadingSpinner />;
   if (groupedItems.length === 0)
@@ -66,9 +66,12 @@ function CartProduct() {
 
   return (
     <div>
-      {groupedItems.map((group) => (
-        <div key={group.id} className="my-3 flex flex-col gap-4">
-          <DateSelector key={group.id} labelData={group.groupLabel} />{" "}
+      {groupedItems.map((group) => {
+
+const itemsIds = group.items.map(({cartItem}) =>cartItem.id)
+        return (
+          <div key={group.id} className="my-3 flex flex-col gap-4">
+          <DateSelector itemsIds={itemsIds} key={group.id} labelData={group.groupLabel} />{" "}
           {/* Display groupLabel instead of date */}
           <div
             key={group.id}
@@ -97,7 +100,7 @@ function CartProduct() {
                   brand={brand}
                   price={total}
                   name={name}
-                  refetch={refetch}
+                  // refetch={refetch}
                   key={id}
                   imageUrls={imageUrls}
                   quantityGroup={quantityGroup}
@@ -106,7 +109,10 @@ function CartProduct() {
             })}
           </div>
         </div>
-      ))}
+        )
+      }
+        
+      )}
     </div>
   );
 }

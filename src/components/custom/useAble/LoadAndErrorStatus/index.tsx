@@ -33,10 +33,24 @@ const Empty: React.FC<{ message?: string }> = ({ message = "No items found." }) 
 
 export default Empty;
 
-export  const ErrorMessage: React.FC<{ message?: string }> = ({ message }) => (
-    <div className="flex  items-center justify-center ">
-      <p className="text-red-600 text-lg">Error: {message }</p>
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+export const ErrorMessage: React.FC<{ message?: string }> = ({ message }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (message?.includes("ID not found in context")) {
+      navigate("/login");
+    }
+  }, [message, navigate]);
+
+  return (
+    <div className="flex items-center justify-center">
+      <p className="text-red-600 text-lg">Error: {message}</p>
     </div>
   );
+};
+
 
   //cn("[&_tr]:border-b", className)

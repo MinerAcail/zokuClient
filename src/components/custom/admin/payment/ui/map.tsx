@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import { Check, ChevronsUpDown } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -29,14 +27,20 @@ const regions = Object.entries(ghana_regions).flatMap(([region, towns]) =>
     label: `${town}, ${region}`, // or just town if you prefer
   }))
 )
+
 //todo add more locations
-export default function LocationSelector({Select ="Select region..."}:{Select?:string}) {
+export default function LocationSelector({Select ="Select region...",itemsIds,onLocationSelector}:{
+  Select?:string,itemsIds:string[],
+  onLocationSelector?:(selection:string) =>void;
+}) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
+console.log("LocateFixedIcon",itemsIds);
 
   const handleSelect = (currentValue: string) => {
     setValue(currentValue === value ? "" : currentValue)
     setOpen(false)
+    onLocationSelector && onLocationSelector(currentValue)
   }
 
   return (

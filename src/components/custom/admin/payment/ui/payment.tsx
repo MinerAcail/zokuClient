@@ -1,72 +1,101 @@
-import { useState } from 'react';
-import { PaystackConsumer } from 'react-paystack';  // Adjust import path as necessary
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PaystackProps } from 'react-paystack/dist/types';
-import { Link } from 'react-router-dom';
-//import { PaystackProps } from './types';  // Import your Paystack types
+import { useNavigate } from "react-router-dom";
+import { useMutation, gql } from "@apollo/client";
+import { toast } from "sonner";
 
-// Replace with your Paystack public key
-const PAYSTACK_PUBLIC_KEY = 'pk_test_2d6e36e8ec438d929401f1c4f2f097eeb268fcd1';
-
-export default function PaystackPayment({ children }: { children: React.ReactNode }) {
-  const [amount, setAmount] = useState<string>('');  // Use string to handle input values
-  const [phoneNumber, setPhoneNumber] = useState<string>('');
-  const [provider, setProvider] = useState<'mtn' | 'vodafone'>('mtn');  // Restrict providers to MTN and Vodafone
-
-  const config: PaystackProps = {
-    reference: (new Date()).getTime().toString(),
-    email: `${phoneNumber}@mobilemoney.com`, 
-    amount: parseFloat(amount) * 100, // Paystack expects amount in the smallest currency unit (e.g., kobo or cents)
-    publicKey: PAYSTACK_PUBLIC_KEY,
-    metadata: {
-      phone: phoneNumber,
-      provider: provider,
-      custom_fields: [] // Add this line to support custom metadata fields
-    },
-   
-
-    
-    // Add other Paystack configuration options as needed
-  };
-
-  // Types for the response object returned by Paystack
-  interface PaystackSuccessResponse {
-    reference: string;
-    status: string;
-    trans: string;
-    transaction: string;
-    message: string;
+// Define the CreateOrder mutation
+const CREATE_ORDER_MUTATION = gql`
+  mutation CreateOrder($input: CreateOrderInput!) {
+    createOrder(input: $input) {
+      id
+      customerName
+      status
+      paymentStatus
+      shippingMethod
+      trackingNumber
+      estimatedDeliveryDate
+      momoNumber
+      orderItems {
+        id
+      }
+    }
   }
+`;
 
-  const handleSuccess = (reference: PaystackSuccessResponse) => {
-    console.log("Payment successful", reference);
-    // Call backend API to verify transaction and update the database
-  };
+export default function PaymentDialog({
+  children,
+  itemsIds,
+  selectionlocation,
+}: {
+  selectionlocation: string;
+  children: React.ReactNode;
+  itemsIds: string[];
+}) {
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [setProvider] = useState<string>("mtn"); // Restrict providers to MTN and Vodafone
+  const navigate = useNavigate();
 
-  const handleClose = () => {
-    console.log("Payment closed");
+  // Use mutation hook
+  const [createOrder, { data, loading, error }] = useMutation(
+    CREATE_ORDER_MUTATION,
+    {
+      onCompleted: () => {
+        // Redirect to final cart page or success page
+        toast.success("Redirect to your ordered items");
+
+        navigate("/userfinalcart");
+      },
+    }
+  );
+  console.log("data", data);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      await createOrder({
+        variables: {
+          input: {
+            deliveryAddress: selectionlocation,
+            momoNumber: phoneNumber,
+            cartItemId: itemsIds,
+          },
+        },
+      });
+    } catch (err) {
+      console.error("Error creating order:", err);
+      toast.error("Error creating order:");
+    }
   };
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Make a Payment</DialogTitle>
         </DialogHeader>
-        <Tabs defaultValue="mtn" onValueChange={(value: 'mtn' | 'vodafone') => setProvider(value)}>
+        <Tabs
+          defaultValue="mtn"
+          onValueChange={(value: string) => setProvider(value)}
+        >
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="mtn">MTN</TabsTrigger>
             <TabsTrigger value="vodafone">Vodafone</TabsTrigger>
           </TabsList>
           <TabsContent value="mtn">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <Label htmlFor="phone-mtn">Phone Number</Label>
                 <Input
@@ -77,34 +106,17 @@ export default function PaystackPayment({ children }: { children: React.ReactNod
                   placeholder="0XX XXX XXXX"
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="amount-mtn">Amount (GHS)</Label>
-                <Input
-                  id="amount-mtn"
-                  type="number"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  required
-                  placeholder="0.00"
-                />
-              </div>
-              <Link to={"/userfinalcart"}> 
-              
-              <Button className="w-full" >
-                    Pay with MTN
-                  </Button>
-              </Link>
-              {/*<PaystackConsumer {...config} onSuccess={()=>handleSuccess} onClose={handleClose}>
-                {({ initializePayment }) => (
-                  <Button className="w-full" onClick={() => initializePayment(handleSuccess, handleClose)}>
-                    Pay with MTN
-                  </Button>
-                )}
-              </PaystackConsumer>*/}
+
+              <Button className="w-full" type="submit" disabled={loading}>
+                {loading ? "Processing..." : "Pay with MTN"}
+              </Button>
+              {error && (
+                <p className="text-red-500">Error processing payment.</p>
+              )}
             </form>
           </TabsContent>
           <TabsContent value="vodafone">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <Label htmlFor="phone-vodafone">Phone Number</Label>
                 <Input
@@ -115,24 +127,13 @@ export default function PaystackPayment({ children }: { children: React.ReactNod
                   placeholder="0XX XXX XXXX"
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="amount-vodafone">Amount (GHS)</Label>
-                <Input
-                  id="amount-vodafone"
-                  type="number"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  required
-                  placeholder="0.00"
-                />
-              </div>
-              <PaystackConsumer {...config} onSuccess={()=>handleSuccess} onClose={handleClose}>
-                {({ initializePayment }) => (
-                  <Button className="w-full" onClick={() => initializePayment(handleSuccess, handleClose)}>
-                    Pay with Vodafone
-                  </Button>
-                )}
-              </PaystackConsumer>
+
+              <Button className="w-full" type="submit" disabled={loading}>
+                {loading ? "Processing..." : "Pay with Vodafone"}
+              </Button>
+              {error && (
+                <p className="text-red-500">Error processing payment.</p>
+              )}
             </form>
           </TabsContent>
         </Tabs>
